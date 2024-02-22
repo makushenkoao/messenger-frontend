@@ -7,9 +7,9 @@ export function buildResolvers(
     const { paths } = options;
 
     return {
+        extensions: ['.tsx', '.ts', '.js'],
         preferAbsolute: true,
         modules: [paths.src, 'node_modules'],
-        extensions: ['.tsx', '.ts', '.js'],
         mainFiles: ['index'],
         alias: {
             '@': paths.src,

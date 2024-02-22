@@ -40,6 +40,9 @@ module.exports = {
         'jsx-a11y/no-static-element-interactions': 'off',
         'arrow-body-style': 'off',
         'react/react-in-jsx-scope': 'off',
+        'react/no-array-index-key': 'warn',
+        'no-param-reassign': 'off',
+        'no-empty-pattern': 'warn',
         'react/jsx-filename-extension': [
             2,
             {

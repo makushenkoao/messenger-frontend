@@ -15,17 +15,18 @@ export function buildWebpack(options: BuildOptions): webpack.Configuration {
     return {
         mode: mode ?? 'development',
         entry,
-        module: {
-            rules: buildLoaders(options),
-        },
-        resolve: buildResolvers(options),
         output: {
             path: output,
             filename: '[name].[contenthash].js',
             clean: true,
+            publicPath: '/',
         },
         plugins: buildPlugins(options),
-        devtool: isDev && 'inline-source-map',
+        module: {
+            rules: buildLoaders(options),
+        },
+        resolve: buildResolvers(options),
+        devtool: isDev ? 'eval-cheap-module-source-map' : undefined,
         devServer: isDev ? buildDevServer(options) : undefined,
     };
 }

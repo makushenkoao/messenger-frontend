@@ -1,0 +1,46 @@
+.SidebarRedesigned {
+    position: relative;
+    background: var(--light-bg);
+    width: 220px;
+    height: 100%;
+    border-radius: 32px;
+
+    .appLogo {
+        padding-top: 20px;
+    }
+
+    .items {
+        padding-top: 20px;
+    }
+
+    .collapsedItems {
+        padding-top: 40px;
+    }
+
+    .collapseBtn {
+        position: absolute;
+        border-radius: 50%;
+        top: 50%;
+        right: 0;
+        transform: rotate(90deg) translateX(-50%);
+        z-index: 10;
+    }
+
+    .switchers {
+        position: absolute;
+        bottom: 40px;
+        width: 100%;
+    }
+}
+
+.collapsedRedesigned {
+    width: 50px;
+
+    .collapseBtn {
+        transform: rotate(-90deg) translateX(50%);
+    }
+}
+
+.collapseBtn:hover {
+    background: var(--hint);
+}
