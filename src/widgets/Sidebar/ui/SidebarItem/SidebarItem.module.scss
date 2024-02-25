@@ -1,33 +1,24 @@
-.SidebarItem {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
 .icon {
-    fill: var(--secondary-color);
+    width: 32px;
+    height: 32px;
 }
-
-.collapsed {
-    .link {
-        opacity: 0;
-        width: 0;
-    }
-}
-
-// REDESIGNED
 
 .SidebarItemRedesigned {
     display: flex;
     align-items: center;
     width: 100%;
-    padding: 0 16px;
+    padding: 6px 16px;
+}
+
+.link {
+    margin-left: 10px;
 }
 
 .collapsedRedesigned {
-    padding: 0 9px;
+    padding: 6px 9px;
 
     .link {
+        margin-left: 0;
         opacity: 0;
         width: 0;
     }

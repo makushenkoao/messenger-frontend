@@ -1,0 +1,35 @@
+.postImage {
+  max-width: 512px;
+
+  // max-height: 900px;
+  height: auto; /* Ensure image height adjusts proportionally */
+}
+
+.details {
+  max-width: 500px;
+  min-width: 405px;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+}
+
+.detailsHeader {
+  padding: 10px;
+  border-bottom: 1px solid var(--hint);
+}
+
+.commentsContainer {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.detailsFooter {
+  border-top: 1px solid var(--hint);
+  padding: 10px;
+}
+
+.content {
+  display: flex;
+}

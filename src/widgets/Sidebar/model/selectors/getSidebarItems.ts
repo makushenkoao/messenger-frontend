@@ -1,17 +1,45 @@
 import { createSelector } from '@reduxjs/toolkit';
+import {
+    MdHome,
+    MdOutlineSearch,
+    MdOutlineChat,
+    MdFavoriteBorder,
+    MdOutlineCreateNewFolder,
+    MdAccountCircle,
+} from 'react-icons/md';
 import { getUserAuthData } from '@/entities/User';
 import { getRouteProfile, getRouteHome } from '@/shared/const/router';
-import MainIcon from '@/shared/assets/icons/home.svg';
 
+// TODO: Right Path
 export const getSidebarItems = createSelector(getUserAuthData, (userData) => [
     {
         path: getRouteHome(),
         text: 'Home',
-        icon: MainIcon,
+        icon: MdHome,
     },
     {
-        path: getRouteProfile(''),
+        path: '/search',
+        text: 'Search',
+        icon: MdOutlineSearch,
+    },
+    {
+        path: '/messages',
+        text: 'Messages',
+        icon: MdOutlineChat,
+    },
+    {
+        path: '/notifications',
+        text: 'Notifications',
+        icon: MdFavoriteBorder,
+    },
+    {
+        path: '/create',
+        text: 'Create',
+        icon: MdOutlineCreateNewFolder,
+    },
+    {
+        path: getRouteProfile('makushenkoao'),
         text: 'Profile',
-        icon: MainIcon,
+        icon: MdAccountCircle,
     },
 ]);

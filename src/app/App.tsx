@@ -1,16 +1,16 @@
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { Sidebar } from '@/widgets/Sidebar';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { withTheme } from '@/app/providers/ThemeProvider/ui/withTheme';
-import { AppRouter } from '@/app/providers/router';
 import { getUserAuthData, getUserMounted, initAuthData } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Navbar } from '@/widgets/Navbar';
 import { useAppToolbar } from '@/app/lib/useAppToolbar';
-import { Auth } from '@/features/Auth';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
+import {PageLoader} from "@/widgets/PageLoader";
 
 // TODO
 //  ANIMATION
@@ -30,25 +30,31 @@ function App() {
     }, [dispatch, mounted]);
 
     if (!mounted) {
-        return <div>Loading...</div>;
-    }
-
-    if (!user) {
         return (
             <div className={classNames('app', {}, [theme])}>
-                <Auth />
+                <AppLoaderLayout />
             </div>
         );
     }
 
+    // if (!user) {
+    //         return (
+    //             <div className={classNames('app', {}, [theme])}>
+    //                 <Auth />
+    //             </div>
+    //         );
+    //     }
+
     return (
         <div className={classNames('app', {}, [theme])}>
-            <MainLayout
-                content={<AppRouter />}
-                header={<Navbar />}
-                sidebar={<Sidebar />}
-                toolbar={toolbar}
-            />
+            <Suspense fallback="">
+                <MainLayout
+                    content={<PageLoader />}
+                    header={<Navbar />}
+                    sidebar={<Sidebar />}
+                    toolbar={toolbar}
+                />
+            </Suspense>
         </div>
     );
 }

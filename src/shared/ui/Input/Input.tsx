@@ -36,6 +36,7 @@ export interface InputProps extends HTMLInputProps {
     error?: string;
 }
 
+// TODO: Fix Ref Error
 export const Input = memo((props: InputProps) => {
     const {
         className,
@@ -84,7 +85,10 @@ export const Input = memo((props: InputProps) => {
     };
 
     const input = (
-        <VStack max gap="4">
+        <VStack
+            max
+            gap="4"
+        >
             <div
                 className={classNames(cls.InputWrapper, mods, [
                     className,

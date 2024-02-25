@@ -10,7 +10,7 @@ import cls from './Button.module.scss';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 
 export type ButtonVariant = 'clear' | 'outline' | 'filled';
-export type ButtonColor = 'normal' | 'success' | 'error';
+export type ButtonColor = 'normal' | 'success' | 'error' | 'gray';
 
 export type ButtonSize = 'm' | 'l' | 'xl';
 

@@ -1,10 +1,9 @@
 import { memo } from 'react';
-
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { StickyContentLayout } from '../StickyContentLayout';
 import { MainLayout } from '../MainLayout';
 import cls from './AppLoaderLayout.module.scss';
-
-import { Skeleton } from '@/shared/ui/Skeleton';
-import { HStack, VStack } from '@/shared/ui/Stack';
 
 export const AppLoaderLayout = memo(() => {
     return (
@@ -19,41 +18,43 @@ export const AppLoaderLayout = memo(() => {
                 </HStack>
             }
             content={
-                <VStack
-                    gap="16"
-                    style={{ height: '100%' }}
-                >
-                    <Skeleton
-                        width="70%"
-                        height={32}
-                        borderRadius="16px"
-                    />
-                    <Skeleton
-                        width="40%"
-                        height={20}
-                        borderRadius="16px"
-                    />
-                    <Skeleton
-                        width="50%"
-                        height={20}
-                        borderRadius="16px"
-                    />
-                    <Skeleton
-                        width="30%"
-                        height={32}
-                        borderRadius="16px"
-                    />
-                    <Skeleton
-                        width="80%"
-                        height="40%"
-                        borderRadius="16px"
-                    />
-                    <Skeleton
-                        width="80%"
-                        height="40%"
-                        borderRadius="16px"
-                    />
-                </VStack>
+                <StickyContentLayout
+                    className={cls.fullHeight}
+                    content={
+                        <VStack
+                            gap="16"
+                            className={cls.fullHeight}
+                        >
+                            <Skeleton
+                                width="90%"
+                                height="20%"
+                                borderRadius="16px"
+                            />
+                            <Skeleton
+                                width="90%"
+                                height="30%"
+                                borderRadius="16px"
+                            />
+                            <Skeleton
+                                width="90%"
+                                height="20%"
+                                borderRadius="16px"
+                            />
+                            <Skeleton
+                                width="90%"
+                                height="30%"
+                                borderRadius="16px"
+                            />
+                        </VStack>
+                    }
+                    right={
+                        <Skeleton
+                            width={300}
+                            height={400}
+                            borderRadius="12%"
+                        />
+                    }
+                />
             }
             sidebar={
                 <Skeleton

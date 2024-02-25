@@ -1,61 +1,58 @@
-import { CSSProperties, useMemo } from 'react';
-
-import cls from './Avatar.module.scss';
+import { CSSProperties, memo, useMemo } from 'react';
+import { TailSpin } from 'react-loader-spinner';
 import { AppImage } from '../AppImage';
-import UserIcon from '../../../assets/icons/user-filled.svg';
-import { Icon } from '../Icon';
-import { Skeleton } from '../Skeleton';
-
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import UserPng from '@/shared/assets/images/user.png';
+import cls from './Avatar.module.scss';
 
 interface AvatarProps {
     className?: string;
-    src?: string;
     width?: number | string;
     height?: number | string;
-    alt?: string;
+    src?: string;
+    username?: string;
 }
 
-export const Avatar = ({
-    className,
-    src,
-    height = 100,
-    width = 100,
-    alt,
-}: AvatarProps) => {
-    const mods: Mods = {};
+export const Avatar = memo((props: AvatarProps) => {
+    const { width = 32, height = 32, src, className, username } = props;
 
     const styles = useMemo<CSSProperties>(
         () => ({
             width,
-            height,
+            minHeight: height,
+            maxHeight: height,
         }),
         [height, width],
     );
 
     const fallback = (
-        <Skeleton
-            width={width}
+        <TailSpin
             height={height}
-            borderRadius="50%"
+            width={width}
+            color="black"
+            ariaLabel="loading"
         />
     );
-    const errorFallback = (
-        <Icon
-            width={width}
-            height={height}
-            svg={UserIcon}
-        />
-    );
+
+    if (!src) {
+        return (
+            <AppImage
+                width={width}
+                height={height}
+                src={UserPng}
+                alt={`${username}'s avatar`}
+                className={classNames(cls.Avatar, {}, [className])}
+            />
+        );
+    }
 
     return (
         <AppImage
             fallback={fallback}
-            errorFallback={errorFallback}
             src={src}
-            alt={alt}
+            alt={`${username}'s avatar`}
             style={styles}
-            className={classNames(cls.Avatar, mods, [className])}
+            className={classNames(cls.Avatar, {}, [className])}
         />
     );
-};
+});

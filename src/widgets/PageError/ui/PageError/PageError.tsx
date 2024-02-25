@@ -2,6 +2,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/Button';
 import { Text } from '@/shared/ui/Text';
 import { VStack } from '@/shared/ui/Stack';
+import cls from './PageError.module.scss';
 
 interface PageErrorProps {
     className?: string;
@@ -19,14 +20,14 @@ export const PageError = ({ className }: PageErrorProps) => {
             justify="center"
             align="center"
             gap="16"
-            className={classNames('app_redesigned', {}, [className])}
+            className={classNames(cls.PageError, {}, ['app', className])}
         >
-            <Text title="An unexpected error occurred" />
+            <Text title="An Unexpected Error Occurred!" />
             <Button
                 variant="outline"
                 onClick={reloadPage}
             >
-                Refresh the page
+                Refresh the Page
             </Button>
         </VStack>
     );

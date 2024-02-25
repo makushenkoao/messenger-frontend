@@ -29,6 +29,22 @@
     border: none;
     background: none;
     outline: none;
+
+    &.gray {
+        color: var(--hint);
+    }
+
+    &.success {
+        color: var(--save);
+    }
+
+    &.error {
+        color: var(--cancel);
+    }
+
+    &:hover {
+        color: var(--accent);
+    }
 }
 
 .filled {
