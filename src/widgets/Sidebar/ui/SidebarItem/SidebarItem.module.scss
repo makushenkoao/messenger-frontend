@@ -10,6 +10,12 @@
     padding: 6px 16px;
 }
 
+.SidebarItemRedesigned:hover {
+    .icon {
+        color: var(--accent);
+    }
+}
+
 .link {
     margin-left: 10px;
 }
