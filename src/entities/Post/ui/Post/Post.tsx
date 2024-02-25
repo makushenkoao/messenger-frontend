@@ -16,10 +16,10 @@ import { Icon } from '@/shared/ui/Icon';
 import { Button } from '@/shared/ui/Button';
 import AvatarImage from '@/shared/assets/images/avatar.png';
 import PostImage from '@/shared/assets/images/image-post.png';
-import cls from './Post.module.scss';
 import { MoreModal } from '../Modals/MoreModal/MoreModal';
 import { PostDetailsModal } from '../Modals/PostDetailsModal/PostDetailsModal';
 import { ShareModal } from '../Modals/ShareModal/ShareModal';
+import cls from './Post.module.scss';
 
 export const Post = () => {
     const [isOpenMoreModal, setIsOpenMoreModal] = useState(false);
@@ -27,6 +27,7 @@ export const Post = () => {
     const [isOpenDetailsModal, setIsOpenDetailsModal] = useState(false);
     const [isFav, setIsFav] = useState(false);
     const [isSaved, setIsSaved] = useState(false);
+    const [isFullDescription, setIsFullDescription] = useState(false);
 
     const toggleIsFav = () => setIsFav((prevState) => !prevState);
     const toggleIsSaved = () => setIsSaved((prevState) => !prevState);
@@ -39,6 +40,14 @@ export const Post = () => {
 
     const onOpenShareModal = () => setIsOpenShareModal(true);
     const onCloseShareModal = () => setIsOpenShareModal(false);
+
+    const toggleFullDescription = () => {
+        setIsFullDescription((prevState) => !prevState);
+    };
+
+    const descriptionText =
+        // eslint-disable-next-line max-len
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda fugit incidunt quaerat voluptatem? Aperiam atque cum, deleniti dicta ducimus ea eaque illo laborum maxime natus quo tempore, velit veniam voluptas?';
 
     return (
         <VStack
@@ -108,8 +117,17 @@ export const Post = () => {
                     />
                 </HStack>
                 <Text text="230 likes" />
-                {/* eslint-disable-next-line max-len */}
-                <Text text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda fugit incidunt quaerat voluptatem? Aperiam atque cum, deleniti dicta ducimus ea eaque illo laborum maxime natus quo tempore, velit veniam voluptas?" />
+                <span className={cls.description}>
+                    {isFullDescription
+                        ? descriptionText
+                        : `${descriptionText.slice(0, 40)}...`}
+                    <span
+                        onClick={toggleFullDescription}
+                        className={cls.moreBtn}
+                    >
+                        {isFullDescription ? 'hide' : 'more'}
+                    </span>
+                </span>
                 <Button
                     color="gray"
                     variant="clear"
