@@ -10,11 +10,10 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { Navbar } from '@/widgets/Navbar';
 import { useAppToolbar } from '@/app/lib/useAppToolbar';
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
-import {PageLoader} from "@/widgets/PageLoader";
+import { AppRouter } from '@/app/providers/router';
 
 // TODO
 //  ANIMATION
-//  PAGE LOADER (FALLBACK)
 
 function App() {
     const { theme } = useTheme();
@@ -49,7 +48,7 @@ function App() {
         <div className={classNames('app', {}, [theme])}>
             <Suspense fallback="">
                 <MainLayout
-                    content={<PageLoader />}
+                    content={<AppRouter />}
                     header={<Navbar />}
                     sidebar={<Sidebar />}
                     toolbar={toolbar}

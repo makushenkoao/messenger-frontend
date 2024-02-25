@@ -1,0 +1,18 @@
+.settingIcon {
+  width: 30px;
+  height: 30px;
+}
+
+.postWrapper {
+  border-top: 1px solid var(--hint);
+  padding-top: 10px;
+}
+
+.post {
+  cursor: pointer;
+  transition: opacity .3s ease;
+}
+
+.post:hover {
+  opacity: 0.7;
+}

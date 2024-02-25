@@ -3,6 +3,10 @@
 @import "themes/dark";
 @import "themes/normal";
 
+body {
+    background: #111;
+}
+
 .app {
     background: var(--bg);
     min-height: 100vh;
@@ -18,18 +22,17 @@
     background: var(--light-bg);
 }
 
-*::-webkit-scrollbar {
-    width: 12px;
-    height: 8px;
-}
+//  *::-webkit-scrollbar {
+//      width: 12px;
+//      height: 8px;
+//  }
 
-*::-webkit-scrollbar-track {
-    background: var(--light-bg);
-}
+//  *::-webkit-scrollbar-track {
+//      background: var(--light-bg);
+//  }
 
-*::-webkit-scrollbar-thumb {
-    background-color: var(--icon);
-    border-radius: 20px;
-    border: 1px solid var(--accent);
-}
-
+//  *::-webkit-scrollbar-thumb {
+//      background-color: var(--icon);
+//      border-radius: 20px;
+//      border: 1px solid var(--accent);
+//  }
