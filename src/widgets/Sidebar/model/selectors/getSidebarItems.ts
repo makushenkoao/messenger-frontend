@@ -9,8 +9,10 @@ import {
 } from 'react-icons/md';
 import { getUserAuthData } from '@/entities/User';
 import {
+    getRouteCreatePost,
     getRouteHome,
     getRouteMessages,
+    getRouteNotifications,
     getRouteProfile,
     getRouteSearch,
 } from '@/shared/const/router';
@@ -33,12 +35,12 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => [
         icon: MdOutlineChat,
     },
     {
-        path: '/notifications',
+        path: getRouteNotifications(),
         text: 'Notifications',
         icon: MdFavoriteBorder,
     },
     {
-        path: '/create',
+        path: getRouteCreatePost(),
         text: 'Create',
         icon: MdOutlineCreateNewFolder,
     },
