@@ -12,6 +12,7 @@ import {
     getRouteHome,
     getRouteMessages,
     getRouteProfile,
+    getRouteSearch,
 } from '@/shared/const/router';
 
 // TODO: Right Path
@@ -22,7 +23,7 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => [
         icon: MdHome,
     },
     {
-        path: '/search',
+        path: getRouteSearch(),
         text: 'Search',
         icon: MdOutlineSearch,
     },
