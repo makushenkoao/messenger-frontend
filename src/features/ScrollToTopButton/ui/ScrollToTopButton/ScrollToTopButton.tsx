@@ -1,8 +1,8 @@
 import { memo } from 'react';
-
+import { MdOutlineArrowCircleUp } from 'react-icons/md';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Icon } from '@/shared/ui/Icon';
-import CircleIcon from '@/shared/assets/icons/circle-up.svg';
+import cls from './ScrollToTopButton.module.scss';
 
 interface ScrollToTopButtonProps {
     className?: string;
@@ -17,12 +17,12 @@ export const ScrollToTopButton = memo((props: ScrollToTopButtonProps) => {
 
     return (
         <Icon
-            svg={CircleIcon}
+            className={classNames(cls.icon, {}, [className])}
+            svg={MdOutlineArrowCircleUp}
             clickable
+            width={40}
+            height={40}
             onClick={onCLick}
-            width={32}
-            height={32}
-            className={classNames('', {}, [className])}
         />
     );
 });

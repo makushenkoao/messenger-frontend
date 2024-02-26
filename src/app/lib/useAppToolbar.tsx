@@ -1,14 +1,13 @@
 import { ReactElement } from 'react';
-
 import { AppRoutes } from '@/shared/const/router';
-// import { ScrollToolbar } from '@/widgets/ScrollToolbar';
 import { useRouteChange } from '@/shared/lib/router/useRouteChange';
+import { ScrollToolbar } from '@/widgets/ScrollToolbar';
 
 export function useAppToolbar() {
     const appRoute = useRouteChange();
 
     const toolbarByAppRoute: OptionalRecord<AppRoutes, ReactElement> = {
-        // [AppRoutes.MAIN]: <ScrollToolbar />,
+        [AppRoutes.HOME]: <ScrollToolbar />,
     };
 
     return toolbarByAppRoute[appRoute];

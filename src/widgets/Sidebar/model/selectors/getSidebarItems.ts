@@ -1,14 +1,18 @@
 import { createSelector } from '@reduxjs/toolkit';
 import {
-    MdHome,
-    MdOutlineSearch,
-    MdOutlineChat,
-    MdFavoriteBorder,
-    MdOutlineCreateNewFolder,
     MdAccountCircle,
+    MdFavoriteBorder,
+    MdHome,
+    MdOutlineChat,
+    MdOutlineCreateNewFolder,
+    MdOutlineSearch,
 } from 'react-icons/md';
 import { getUserAuthData } from '@/entities/User';
-import { getRouteProfile, getRouteHome } from '@/shared/const/router';
+import {
+    getRouteHome,
+    getRouteMessages,
+    getRouteProfile,
+} from '@/shared/const/router';
 
 // TODO: Right Path
 export const getSidebarItems = createSelector(getUserAuthData, (userData) => [
@@ -23,7 +27,7 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => [
         icon: MdOutlineSearch,
     },
     {
-        path: '/messages',
+        path: getRouteMessages(),
         text: 'Messages',
         icon: MdOutlineChat,
     },

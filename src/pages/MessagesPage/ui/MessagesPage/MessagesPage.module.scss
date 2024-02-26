@@ -1,0 +1,57 @@
+.MessagesPage {
+  display: flex;
+  gap: 16px;
+}
+
+.usersWrapper {
+  width: 300px;
+  height: calc(100vh - 32px - 32px);
+  overflow-y: auto;
+}
+
+.moreIcon {
+  width: 30px;
+  height: 30px;
+}
+
+.messageText p {
+  color: var(--hint);
+}
+
+.userListItem {
+  cursor: pointer;
+  padding: 12px;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+}
+
+.chatWrapper {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 32px * 2);
+}
+
+.chatHeader {
+  padding: 20px;
+  border-bottom: 1px solid var(--hint);
+}
+
+.chatContent {
+  flex: 1;
+  padding: 10px 20px;
+  overflow-y: auto;
+  background: var(--dark-bg);
+}
+
+.chatFooter {
+  padding: 20px;
+  border-top: 1px solid var(--hint);
+}
+
