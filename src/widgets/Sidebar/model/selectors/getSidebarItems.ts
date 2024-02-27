@@ -1,7 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
 import {
     MdAccountCircle,
-    MdFavoriteBorder,
     MdHome,
     MdOutlineChat,
     MdOutlineCreateNewFolder,
@@ -12,7 +11,6 @@ import {
     getRouteCreatePost,
     getRouteHome,
     getRouteMessages,
-    getRouteNotifications,
     getRouteProfile,
     getRouteSearch,
 } from '@/shared/const/router';
@@ -33,11 +31,6 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => [
         path: getRouteMessages(),
         text: 'Messages',
         icon: MdOutlineChat,
-    },
-    {
-        path: getRouteNotifications(),
-        text: 'Notifications',
-        icon: MdFavoriteBorder,
     },
     {
         path: getRouteCreatePost(),

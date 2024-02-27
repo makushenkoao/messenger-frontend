@@ -1,7 +1,9 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './Navbar.module.scss';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
+import { NotificationButton } from '@/features/NotificationButton';
+import { HStack } from '@/shared/ui/Stack';
+import cls from './Navbar.module.scss';
 
 interface NavbarProps {
     className?: string;
@@ -12,7 +14,10 @@ export const Navbar = memo((props: NavbarProps) => {
 
     return (
         <header className={classNames(cls.NavbarRedesigned, {}, [className])}>
-            <AvatarDropdown />
+            <HStack gap="16">
+                <NotificationButton />
+                <AvatarDropdown />
+            </HStack>
         </header>
     );
 });
