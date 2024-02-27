@@ -16,6 +16,7 @@ import { AppRouter } from '@/app/providers/router';
 //  ANIMATION
 
 function App() {
+    console.log('APP')
     const { theme } = useTheme();
     const mounted = useSelector(getUserMounted);
     const dispatch = useAppDispatch();
