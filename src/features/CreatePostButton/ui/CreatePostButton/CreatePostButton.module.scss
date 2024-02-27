@@ -1,0 +1,22 @@
+.icon {
+  width: 36px;
+  height: 36px;
+}
+
+.modalContent {
+  width: 500px;
+}
+
+.header {
+  border-bottom: 1px solid var(--hint);
+  padding-bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.footer {
+  border-top: 1px solid var(--hint);
+  padding-top: 20px;
+  width: 100%;
+}
