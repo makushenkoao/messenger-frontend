@@ -1,25 +1,36 @@
 import { MdSettings, MdMoreHoriz } from 'react-icons/md';
+import { useState } from 'react';
 import { Page } from '@/widgets/Page';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Text } from '@/shared/ui/Text';
 import { Button } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
+import { AppImage } from '@/shared/ui/AppImage';
+import { ProfileMoreModal } from './modals/ProfileMoreModal/ProfileMoreModal';
+import { ProfileSettingsModal } from './modals/ProfileSettingsModal/ProfileSettingsModal';
 import PostImage from '@/shared/assets/images/image-post.png';
 import AvatarImage from '@/shared/assets/images/avatar.png';
 import cls from './ProfilePage.module.scss';
-import { AppImage } from '@/shared/ui/AppImage';
+import { ProfileFollowers } from './modals/ProfileFollowers/ProfileFollowers';
+import { ProfileFollowing } from './modals/ProfileFollowing/ProfileFollowing';
 
 const ProfilePage = () => {
-    const isCurrentUser = false;
+    const [isOpenFollowers, setIsOpenFollowers] = useState(false);
+    const [isOpenFollowing, setIsOpenFollowing] = useState(false);
+    const [isOpenMore, setIsOpenMore] = useState(false);
+    const [isOpenSettings, setIsOpenSettings] = useState(false);
 
-    const handleOpenSettings = () => {
-        console.log('Opened Settings');
-    };
+    const isCurrentUser = true;
 
-    const handleOpenMore = () => {
-        console.log('Opened More');
-    };
+    const handleOpenSettings = () => setIsOpenSettings(true);
+    const handleCloseSettings = () => setIsOpenSettings(false);
+    const handleOpenMore = () => setIsOpenMore(true);
+    const handleCloseMore = () => setIsOpenMore(false);
+    const handleOpenFollowers = () => setIsOpenFollowers(true);
+    const handleCloseFollowers = () => setIsOpenFollowers(false);
+    const handleOpenFollowing = () => setIsOpenFollowing(true);
+    const handleCloseFollowing = () => setIsOpenFollowing(false);
 
     return (
         <Page>
@@ -49,10 +60,10 @@ const ProfilePage = () => {
                                     <Button>Edit Profile</Button>
                                     <Button>View Archive</Button>
                                     <Icon
-                                        svg={MdMoreHoriz}
+                                        svg={MdSettings}
                                         className={cls.settingIcon}
                                         clickable
-                                        onClick={handleOpenMore}
+                                        onClick={handleOpenSettings}
                                     />
                                 </>
                             ) : (
@@ -60,18 +71,28 @@ const ProfilePage = () => {
                                     <Button>Follow</Button>
                                     <Button>Message</Button>
                                     <Icon
-                                        svg={MdSettings}
+                                        svg={MdMoreHoriz}
                                         className={cls.settingIcon}
                                         clickable
-                                        onClick={handleOpenSettings}
+                                        onClick={handleOpenMore}
                                     />
                                 </>
                             )}
                         </HStack>
                         <HStack gap="16">
                             <Text text="2 posts" />
-                            <Button variant="clear">2 followers</Button>
-                            <Button variant="clear">2 following</Button>
+                            <Button
+                                onClick={handleOpenFollowers}
+                                variant="clear"
+                            >
+                                2 followers
+                            </Button>
+                            <Button
+                                onClick={handleOpenFollowing}
+                                variant="clear"
+                            >
+                                2 following
+                            </Button>
                         </HStack>
                         <VStack gap="0">
                             <Text
@@ -118,6 +139,22 @@ const ProfilePage = () => {
                     </HStack>
                 </VStack>
             </VStack>
+            <ProfileMoreModal
+                isOpen={isOpenMore}
+                onClose={handleCloseMore}
+            />
+            <ProfileSettingsModal
+                isOpen={isOpenSettings}
+                onClose={handleCloseSettings}
+            />
+            <ProfileFollowers
+                isOpen={isOpenFollowers}
+                onClose={handleCloseFollowers}
+            />
+            <ProfileFollowing
+                isOpen={isOpenFollowing}
+                onClose={handleCloseFollowing}
+            />
         </Page>
     );
 };

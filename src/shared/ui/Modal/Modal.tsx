@@ -61,8 +61,6 @@ export const Modal = (props: ModalProps) => {
         };
     }, [isOpen]);
 
-    console.log(paddingClasses[padding]);
-
     return (
         <Portal element={document.getElementById('app') ?? document.body}>
             <div
