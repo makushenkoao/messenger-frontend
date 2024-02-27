@@ -6,6 +6,7 @@ import {
     getRouteMessages,
     getRouteSearch,
     getRouteCreatePost,
+    getRouteArchives
 } from '@/shared/const/router';
 import { HomePage } from '@/pages/HomePage';
 import { ProfilePage } from '@/pages/ProfilePage';
@@ -13,8 +14,14 @@ import { SearchPage } from '@/pages/SearchPage';
 import { MessagesPage } from '@/pages/MessagesPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { CreatePostPage } from '@/pages/CreatePostPage';
+import { ArchivesPage } from '@/pages/ArchivesPage';
+
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
+  [AppRoutes.ARCHIVES]: {
+    path: getRouteArchives(),
+    element: <ArchivesPage />,
+  },
     [AppRoutes.HOME]: {
         path: getRouteHome(),
         element: <HomePage />,
@@ -40,3 +47,4 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
         element: <NotFoundPage />,
     },
 };
+

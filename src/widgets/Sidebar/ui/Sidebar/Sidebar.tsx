@@ -1,5 +1,6 @@
 import { memo, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -8,7 +9,6 @@ import { HStack, VStack } from '@/shared/ui/Stack';
 import { AppLogo } from '@/shared/ui/AppLogo';
 import { Icon } from '@/shared/ui/Icon';
 import { AppLink } from '@/shared/ui/AppLink';
-import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -66,27 +66,17 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                 clickable
                 onClick={onToggle}
                 className={cls.collapseBtn}
-                svg={ArrowIcon}
+                svg={collapsed ? MdKeyboardArrowRight : MdKeyboardArrowLeft}
                 width={40}
                 height={40}
             />
-            {collapsed ? (
-                <VStack
-                    align="center"
-                    className={cls.switchers}
-                    gap="4"
-                >
-                    <ThemeSwitcher />
-                </VStack>
-            ) : (
-                <HStack
-                    className={cls.switchers}
-                    justify="center"
-                    gap="8"
-                >
-                    <ThemeSwitcher />
-                </HStack>
-            )}
+            <HStack
+                className={cls.switchers}
+                justify="center"
+                gap="8"
+            >
+                <ThemeSwitcher />
+            </HStack>
         </aside>
     );
 });

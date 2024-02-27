@@ -1,5 +1,5 @@
 import { MdSettings, MdMoreHoriz } from 'react-icons/md';
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Page } from '@/widgets/Page';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Avatar } from '@/shared/ui/Avatar';
@@ -9,28 +9,40 @@ import { Icon } from '@/shared/ui/Icon';
 import { AppImage } from '@/shared/ui/AppImage';
 import { ProfileMoreModal } from './modals/ProfileMoreModal/ProfileMoreModal';
 import { ProfileSettingsModal } from './modals/ProfileSettingsModal/ProfileSettingsModal';
+import { ProfileFollowers } from './modals/ProfileFollowers/ProfileFollowers';
+import { ProfileFollowing } from './modals/ProfileFollowing/ProfileFollowing';
+import { ProfileEditModal } from './modals/ProfileEditModal/ProfileEditModal';
+import { useProfileModals } from './lib/useProfileModals/useProfileModals';
+import { getRouteArchives, getRouteMessages } from '@/shared/const/router';
 import PostImage from '@/shared/assets/images/image-post.png';
 import AvatarImage from '@/shared/assets/images/avatar.png';
 import cls from './ProfilePage.module.scss';
-import { ProfileFollowers } from './modals/ProfileFollowers/ProfileFollowers';
-import { ProfileFollowing } from './modals/ProfileFollowing/ProfileFollowing';
 
 const ProfilePage = () => {
-    const [isOpenFollowers, setIsOpenFollowers] = useState(false);
-    const [isOpenFollowing, setIsOpenFollowing] = useState(false);
-    const [isOpenMore, setIsOpenMore] = useState(false);
-    const [isOpenSettings, setIsOpenSettings] = useState(false);
+    const {
+        isOpenFollowing,
+        isOpenEdit,
+        isOpenSettings,
+        isOpenMore,
+        isCurrentUser,
+        isOpenFollowers,
+        handleCloseFollowing,
+        handleCloseSettings,
+        handleCloseMore,
+        handleOpenFollowers,
+        handleOpenEdit,
+        handleOpenSettings,
+        handleCloseFollowers,
+        handleOpenMore,
+        handleCloseEdit,
+        handleOpenFollowing,
+    } = useProfileModals();
 
-    const isCurrentUser = true;
+    const navigation = useNavigate();
 
-    const handleOpenSettings = () => setIsOpenSettings(true);
-    const handleCloseSettings = () => setIsOpenSettings(false);
-    const handleOpenMore = () => setIsOpenMore(true);
-    const handleCloseMore = () => setIsOpenMore(false);
-    const handleOpenFollowers = () => setIsOpenFollowers(true);
-    const handleCloseFollowers = () => setIsOpenFollowers(false);
-    const handleOpenFollowing = () => setIsOpenFollowing(true);
-    const handleCloseFollowing = () => setIsOpenFollowing(false);
+    const handleFollow = () => {
+        console.log('Follow to Profile');
+    };
 
     return (
         <Page>
@@ -57,8 +69,16 @@ const ProfilePage = () => {
                             />
                             {isCurrentUser ? (
                                 <>
-                                    <Button>Edit Profile</Button>
-                                    <Button>View Archive</Button>
+                                    <Button onClick={handleOpenEdit}>
+                                        Edit Profile
+                                    </Button>
+                                    <Button
+                                        onClick={() =>
+                                            navigation(getRouteArchives())
+                                        }
+                                    >
+                                        View Archive
+                                    </Button>
                                     <Icon
                                         svg={MdSettings}
                                         className={cls.settingIcon}
@@ -68,8 +88,16 @@ const ProfilePage = () => {
                                 </>
                             ) : (
                                 <>
-                                    <Button>Follow</Button>
-                                    <Button>Message</Button>
+                                    <Button onClick={handleFollow}>
+                                        Follow
+                                    </Button>
+                                    <Button
+                                        onClick={() =>
+                                            navigation(getRouteMessages())
+                                        }
+                                    >
+                                        Message
+                                    </Button>
                                     <Icon
                                         svg={MdMoreHoriz}
                                         className={cls.settingIcon}
@@ -154,6 +182,10 @@ const ProfilePage = () => {
             <ProfileFollowing
                 isOpen={isOpenFollowing}
                 onClose={handleCloseFollowing}
+            />
+            <ProfileEditModal
+                isOpen={isOpenEdit}
+                onClose={handleCloseEdit}
             />
         </Page>
     );
