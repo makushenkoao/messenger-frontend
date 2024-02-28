@@ -1,4 +1,5 @@
 import { MdMoreHoriz, MdSend } from 'react-icons/md';
+import { useState } from 'react';
 import { HStack } from '@/shared/ui/Stack';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Text } from '@/shared/ui/Text';
@@ -7,8 +8,7 @@ import { Input } from '@/shared/ui/Input';
 import { Card } from '@/shared/ui/Card';
 import AvatarImage from '@/shared/assets/images/avatar.png';
 import cls from './Chat.module.scss';
-import { useState } from 'react';
-import { ChatSettingsModal } from '@/entities/Message/ui/ChatSettingsModal/ChatSettingsModal';
+import { ChatSettingsModal } from '../ChatSettingsModal/ChatSettingsModal';
 
 export const Chat = () => {
     const [isOpenMore, setIsOpenMore] = useState(false);

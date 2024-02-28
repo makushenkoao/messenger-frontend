@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MdOutlineCreate } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 import { Icon } from '@/shared/ui/Icon';
@@ -8,7 +9,6 @@ import { Card } from '@/shared/ui/Card';
 import { CreateMessageModal } from '../CreateMessageModal/CreateMessageModal';
 import AvatarImage from '@/shared/assets/images/avatar.png';
 import cls from './ChatList.module.scss';
-import { useNavigate } from 'react-router-dom';
 import { getRouteChat } from '@/shared/const/router';
 
 export const ChatList = () => {
