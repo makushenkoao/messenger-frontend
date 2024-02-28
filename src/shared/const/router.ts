@@ -1,4 +1,5 @@
 export enum AppRoutes {
+    POST_DETAILS = 'post_details',
     CHAT = 'chat',
     ARCHIVES = 'archives',
     CREATE_POST = 'create_post',
@@ -16,7 +17,7 @@ export const getRouteSearch = () => '/search';
 export const getRouteCreatePost = () => '/create';
 export const getRouteArchives = () => '/archives';
 export const getRouteChat = (id: string) => `/messages/${id}`;
-
+export const getRoutePostDetails = (id: string) => `/posts/${id}`;
 
 export const AppRouteByPathPattern: Record<string, AppRoutes> = {
     [getRouteHome()]: AppRoutes.HOME,
@@ -26,5 +27,7 @@ export const AppRouteByPathPattern: Record<string, AppRoutes> = {
     [getRouteCreatePost()]: AppRoutes.CREATE_POST,
     [getRouteArchives()]: AppRoutes.ARCHIVES,
     [getRouteChat(':id')]: AppRoutes.CHAT,
-    '*': AppRoutes.NOT_FOUND,
+    [getRoutePostDetails(':id')]: AppRoutes.POST_DETAILS,
+    // TODO
+    // ['*']: AppRoutes.NOT_FOUND,
 };

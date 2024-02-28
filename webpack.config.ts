@@ -11,8 +11,8 @@ interface EnvVariables {
 
 function getApiUrl(mode: BuildMode, apiUrl?: string) {
     if (apiUrl) return apiUrl;
-    if (mode === 'production') return '/api';
-    return 'http://localhost:8000';
+    if (mode === 'production') return 'https://ak-network-main.onrender.com/';
+    return 'https://ak-network-main.onrender.com/';
 }
 
 export default (env: EnvVariables) => {

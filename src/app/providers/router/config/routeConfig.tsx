@@ -7,7 +7,8 @@ import {
     getRouteSearch,
     getRouteCreatePost,
     getRouteArchives,
-    getRouteChat
+    getRoutePostDetails,
+    getRouteChat,
 } from '@/shared/const/router';
 import { HomePage } from '@/pages/HomePage';
 import { ProfilePage } from '@/pages/ProfilePage';
@@ -17,8 +18,13 @@ import { NotFoundPage } from '@/pages/NotFoundPage';
 import { CreatePostPage } from '@/pages/CreatePostPage';
 import { ArchivesPage } from '@/pages/ArchivesPage';
 import { ChatPage } from '@/pages/ChatPage';
+import { PostDetailsPage } from '@/pages/PostDetailsPage';
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
+    [AppRoutes.POST_DETAILS]: {
+        path: getRoutePostDetails(':id'),
+        element: <PostDetailsPage />,
+    },
     [AppRoutes.CHAT]: {
         path: getRouteChat(':id'),
         element: <ChatPage />,

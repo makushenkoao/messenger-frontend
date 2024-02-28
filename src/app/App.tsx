@@ -14,8 +14,8 @@ import { AppRouter } from '@/app/providers/router';
 
 // TODO
 //  ANIMATION
-//  open post details in profile/archives
-//  app details (comments)
+//  archives page
+//  modals context
 
 function App() {
     const { theme } = useTheme();

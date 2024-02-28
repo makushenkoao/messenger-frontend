@@ -1,0 +1,17 @@
+.commentFavIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.commentInfoText p {
+  color: var(--hint);
+}
+
+.replyBtn p {
+  color: var(--hint);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--accent);
+  }
+}

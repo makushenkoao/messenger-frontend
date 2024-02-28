@@ -21,7 +21,10 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
             })}
             activeClassName={cls.active}
         >
-            <Icon svg={item.icon} className={cls.icon} />
+            <Icon
+                svg={item.icon}
+                className={cls.icon}
+            />
             <span className={cls.link}>{item.text}</span>
         </AppLink>
     );

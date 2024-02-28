@@ -23,7 +23,10 @@ export const ProfileFollowers = (props: ProfileFollowersProps) => {
             onClose={onClose}
             padding="none"
         >
-            <VStack className={cls.content} gap="16">
+            <VStack
+                className={cls.content}
+                gap="16"
+            >
                 <HStack
                     max
                     justify="between"

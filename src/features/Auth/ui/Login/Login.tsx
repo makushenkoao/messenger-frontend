@@ -3,7 +3,7 @@ import { HStack, VStack } from '@/shared/ui/Stack';
 import { Input } from '@/shared/ui/Input';
 import { Button } from '@/shared/ui/Button';
 import cls from '../Auth/Auth.module.scss';
-import {PasswordInput} from "@/features/PasswordInput";
+import { PasswordInput } from '@/features/PasswordInput';
 
 interface LoginData {
     email: string;

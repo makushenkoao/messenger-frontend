@@ -3,16 +3,16 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { Text } from '@/shared/ui/Text';
 import { Checkbox } from '@/shared/ui/Checkbox';
 import AvatarImage from '@/shared/assets/images/avatar.png';
-import cls from './ShareUser.module.scss'
+import cls from './ShareUser.module.scss';
 
 interface ShareUserProps {
-    onChange: (item: number) => void
-    checked: boolean
-    item: number
+    onChange: (item: number) => void;
+    checked: boolean;
+    item: number;
 }
 
 export const ShareUser = (props: ShareUserProps) => {
-    const {onChange, checked, item} = props
+    const { onChange, checked, item } = props;
 
     return (
         <HStack

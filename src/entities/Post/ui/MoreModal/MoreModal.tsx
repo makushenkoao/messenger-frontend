@@ -16,7 +16,7 @@ export const MoreModal = (props: MoreModalProps) => {
     const buttons = [
         {
             id: '1',
-            content: 'Cancel Subscribe',
+            content: 'Unfollow',
             onClick: () => console.log('click'),
             important: true,
         },

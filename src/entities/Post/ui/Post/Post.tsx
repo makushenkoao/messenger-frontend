@@ -8,23 +8,23 @@ import {
     MdFavorite,
     MdBookmark,
 } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { AppImage } from '@/shared/ui/AppImage';
 import { Text } from '@/shared/ui/Text';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Icon } from '@/shared/ui/Icon';
 import { Button } from '@/shared/ui/Button';
+import { MoreModal, ShareModal } from '../..';
 import AvatarImage from '@/shared/assets/images/avatar.png';
 import PostImage from '@/shared/assets/images/image-post.png';
-import { MoreModal } from '../Modals/MoreModal/MoreModal';
-import { PostDetailsModal } from '../Modals/PostDetailsModal/PostDetailsModal';
-import { ShareModal } from '../Modals/ShareModal/ShareModal';
 import cls from './Post.module.scss';
+import { getRoutePostDetails } from '@/shared/const/router';
 
 export const Post = () => {
+    const navigation = useNavigate();
     const [isOpenMoreModal, setIsOpenMoreModal] = useState(false);
     const [isOpenShareModal, setIsOpenShareModal] = useState(false);
-    const [isOpenDetailsModal, setIsOpenDetailsModal] = useState(false);
     const [isFav, setIsFav] = useState(false);
     const [isSaved, setIsSaved] = useState(false);
     const [isFullDescription, setIsFullDescription] = useState(false);
@@ -35,14 +35,15 @@ export const Post = () => {
     const onOpenMoreModal = () => setIsOpenMoreModal(true);
     const onCloseMoreModal = () => setIsOpenMoreModal(false);
 
-    const onOpenDetailsModal = () => setIsOpenDetailsModal(true);
-    const onCloseDetailsModal = () => setIsOpenDetailsModal(false);
-
     const onOpenShareModal = () => setIsOpenShareModal(true);
     const onCloseShareModal = () => setIsOpenShareModal(false);
 
     const toggleFullDescription = () => {
         setIsFullDescription((prevState) => !prevState);
+    };
+
+    const handleNavigateToPostDetails = () => {
+        navigation(getRoutePostDetails('post-id-here'));
     };
 
     const descriptionText =
@@ -100,7 +101,7 @@ export const Post = () => {
                             svg={MdOutlineComment}
                             className={cls.icon}
                             clickable
-                            onClick={onOpenDetailsModal}
+                            onClick={handleNavigateToPostDetails}
                         />
                         <Icon
                             svg={MdSend}
@@ -131,6 +132,7 @@ export const Post = () => {
                 <Button
                     color="gray"
                     variant="clear"
+                    onClick={handleNavigateToPostDetails}
                 >
                     View Comments
                 </Button>
@@ -138,10 +140,6 @@ export const Post = () => {
             <MoreModal
                 isOpen={isOpenMoreModal}
                 onClose={onCloseMoreModal}
-            />
-            <PostDetailsModal
-                isOpen={isOpenDetailsModal}
-                onClose={onCloseDetailsModal}
             />
             <ShareModal
                 isOpen={isOpenShareModal}

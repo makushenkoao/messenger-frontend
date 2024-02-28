@@ -44,5 +44,5 @@ export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
         // eslint-disable-next-line
     }, []);
 
-    return children
+    return children;
 };

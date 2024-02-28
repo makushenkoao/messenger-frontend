@@ -7,13 +7,17 @@ import { Text } from '@/shared/ui/Text';
 import { Button } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
 import { AppImage } from '@/shared/ui/AppImage';
-import { ProfileMoreModal } from './modals/ProfileMoreModal/ProfileMoreModal';
-import { ProfileSettingsModal } from './modals/ProfileSettingsModal/ProfileSettingsModal';
-import { ProfileFollowers } from './modals/ProfileFollowers/ProfileFollowers';
-import { ProfileFollowing } from './modals/ProfileFollowing/ProfileFollowing';
-import { ProfileEditModal } from './modals/ProfileEditModal/ProfileEditModal';
-import { useProfileModals } from './lib/useProfileModals/useProfileModals';
-import { getRouteArchives, getRouteMessages } from '@/shared/const/router';
+import { ProfileMoreModal } from '../modals/ProfileMoreModal/ProfileMoreModal';
+import { ProfileSettingsModal } from '../modals/ProfileSettingsModal/ProfileSettingsModal';
+import { ProfileFollowers } from '../modals/ProfileFollowers/ProfileFollowers';
+import { ProfileFollowing } from '../modals/ProfileFollowing/ProfileFollowing';
+import { ProfileEditModal } from '../modals/ProfileEditModal/ProfileEditModal';
+import { useProfileModals } from '../lib/useProfileModals/useProfileModals';
+import {
+    getRouteArchives,
+    getRouteMessages,
+    getRoutePostDetails,
+} from '@/shared/const/router';
 import PostImage from '@/shared/assets/images/image-post.png';
 import AvatarImage from '@/shared/assets/images/avatar.png';
 import cls from './ProfilePage.module.scss';
@@ -42,6 +46,10 @@ const ProfilePage = () => {
 
     const handleFollow = () => {
         console.log('Follow to Profile');
+    };
+
+    const handleNavigateToPostDetails = () => {
+        navigation(getRoutePostDetails('post-id-here'));
     };
 
     return (
@@ -157,6 +165,7 @@ const ProfilePage = () => {
                     >
                         {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
                             <AppImage
+                                onClick={handleNavigateToPostDetails}
                                 key={item}
                                 src={PostImage}
                                 className={cls.post}

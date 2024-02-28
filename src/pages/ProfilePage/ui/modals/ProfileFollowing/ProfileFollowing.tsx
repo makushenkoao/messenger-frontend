@@ -23,7 +23,10 @@ export const ProfileFollowing = (props: ProfileFollowingProps) => {
             onClose={onClose}
             padding="none"
         >
-            <VStack className={cls.content} gap="16">
+            <VStack
+                className={cls.content}
+                gap="16"
+            >
                 <HStack
                     max
                     justify="between"
@@ -76,7 +79,9 @@ export const ProfileFollowing = (props: ProfileFollowingProps) => {
                                         />
                                     </div>
                                 </HStack>
-                                <Button variant="clear">{item % 2 === 0 ? "Remove" : "Follow"}</Button>
+                                <Button variant="clear">
+                                    {item % 2 === 0 ? 'Remove' : 'Follow'}
+                                </Button>
                             </HStack>
                         ),
                     )}
