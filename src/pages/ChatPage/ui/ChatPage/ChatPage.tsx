@@ -1,15 +1,15 @@
-import { ChatList, StartMessageCard } from '@/entities/Message';
+import { Chat, ChatList } from '@/entities/Message';
 import { HStack } from '@/shared/ui/Stack';
 
-const MessagesPage = () => {
+const ChatPage = () => {
     return (
         <HStack
             max
             gap="16"
         >
             <ChatList />
-            <StartMessageCard />
+            <Chat />
         </HStack>
     );
 };
-export default MessagesPage;
+export default ChatPage;

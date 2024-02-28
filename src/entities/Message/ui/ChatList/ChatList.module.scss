@@ -1,0 +1,32 @@
+.usersWrapper {
+  width: 300px;
+  height: var(--screen-height);
+  overflow-y: auto;
+}
+
+.messageText p {
+  color: var(--hint);
+}
+
+.userListItem {
+  cursor: pointer;
+  padding: 12px;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.createIcon {
+  width: 30px;
+  height: 30px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--hint);
+  width: 100%;
+  padding: 12px;
+}

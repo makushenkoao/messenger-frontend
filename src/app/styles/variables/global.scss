@@ -22,8 +22,10 @@
     --navbar-height: 50px;
     --sidebar-width: 300px;
     --sidebar-width-collapsed: 80px;
+    --screen-padding: 32px;
+    --screen-height: calc(100vh - var(--screen-padding) * 2);
 
-    // indixes
+    // indexes
     --modal-z-index: 1000;
     --overlay-z-index: 100;
 
