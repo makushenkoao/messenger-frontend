@@ -11,6 +11,8 @@ import {
 import { Dropdown } from '@/shared/ui/Popups';
 import { Avatar } from '@/shared/ui/Avatar';
 import AvatarImage from '@/shared/assets/images/avatar.png';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import cls from './AvatarDropdown.module.scss';
 
 interface AvatarDropdownProps {
     className?: string;
@@ -44,20 +46,14 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
             href: getRouteArchives(),
         },
         {
-            content: (
-                <Text
-                    align="center"
-                    text="Sign Out"
-                    variant="error"
-                />
-            ),
+            content: 'Sign Out',
             onClick: onLogout,
         },
     ];
 
     return (
         <Dropdown
-            className={className}
+            className={classNames(cls.dropdown, {}, [className])}
             items={items}
             trigger={
                 <Avatar
