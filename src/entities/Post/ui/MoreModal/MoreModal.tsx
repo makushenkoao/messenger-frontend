@@ -1,9 +1,9 @@
 import React from 'react';
 import { Modal } from '@/shared/ui/Modal';
 import { Button } from '@/shared/ui/Button';
-import cls from './MoreModal.module.scss';
 import { VStack } from '@/shared/ui/Stack';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import cls from './MoreModal.module.scss';
 
 interface MoreModalProps {
     isOpen: boolean;
