@@ -48,6 +48,7 @@ export const ProfileEditModal = (props: ProfileEditModalProps) => {
             isOpen={isOpen}
             onClose={onClose}
             padding="none"
+            lazy
         >
             <div className={cls.content}>
                 <HStack

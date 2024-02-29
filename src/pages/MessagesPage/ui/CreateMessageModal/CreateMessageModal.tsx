@@ -22,6 +22,7 @@ export const CreateMessageModal = (props: CreateMessageModalProps) => {
             isOpen={isOpen}
             onClose={onClose}
             padding="none"
+            lazy
         >
             <div className={cls.content}>
                 <HStack

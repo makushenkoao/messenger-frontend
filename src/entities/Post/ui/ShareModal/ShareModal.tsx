@@ -38,6 +38,7 @@ export const ShareModal = (props: ShareModalProps) => {
             padding="none"
             isOpen={isOpen}
             onClose={onClose}
+            lazy
         >
             <VStack
                 gap="16"

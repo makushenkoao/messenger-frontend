@@ -39,6 +39,7 @@ export const CreatePostButton = (props: CreatePostButtonProps) => {
             <Modal
                 isOpen={isOpen}
                 onClose={handleClose}
+                lazy
             >
                 <VStack
                     max

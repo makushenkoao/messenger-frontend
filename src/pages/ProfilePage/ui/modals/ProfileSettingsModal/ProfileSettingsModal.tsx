@@ -35,6 +35,7 @@ export const ProfileSettingsModal = (props: ProfileSettingsModalProps) => {
             isOpen={isOpen}
             onClose={onClose}
             padding="none"
+            lazy
         >
             <VStack
                 gap="0"

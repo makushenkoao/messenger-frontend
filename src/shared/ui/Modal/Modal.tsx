@@ -46,10 +46,6 @@ export const Modal = (props: ModalProps) => {
         [cls.isClosing]: isClosing,
     };
 
-    if (lazy && !isMounted) {
-        return null;
-    }
-
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
@@ -60,6 +56,10 @@ export const Modal = (props: ModalProps) => {
             document.body.style.overflow = '';
         };
     }, [isOpen]);
+
+    if (lazy && !isMounted) {
+        return null;
+    }
 
     return (
         <Portal element={document.getElementById('app') ?? document.body}>

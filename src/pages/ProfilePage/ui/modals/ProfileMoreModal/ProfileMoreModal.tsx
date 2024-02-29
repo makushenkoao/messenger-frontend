@@ -36,6 +36,7 @@ export const ProfileMoreModal = (props: ProfileMoreModalProps) => {
             isOpen={isOpen}
             onClose={onClose}
             padding="none"
+            lazy
         >
             <VStack
                 gap="0"

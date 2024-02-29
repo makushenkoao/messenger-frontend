@@ -22,6 +22,7 @@ export const ProfileFollowing = (props: ProfileFollowingProps) => {
             isOpen={isOpen}
             onClose={onClose}
             padding="none"
+            lazy
         >
             <VStack
                 className={cls.content}

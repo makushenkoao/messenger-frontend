@@ -37,6 +37,7 @@ export const ChatSettingsModal = (props: ChatSettingsModalProps) => {
             isOpen={isOpen}
             onClose={onClose}
             padding="none"
+            lazy
         >
             <VStack
                 gap="0"

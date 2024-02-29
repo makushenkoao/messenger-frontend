@@ -52,6 +52,7 @@ export const MoreModal = (props: MoreModalProps) => {
             isOpen={isOpen}
             onClose={onClose}
             padding="none"
+            lazy
         >
             <VStack
                 gap="0"
