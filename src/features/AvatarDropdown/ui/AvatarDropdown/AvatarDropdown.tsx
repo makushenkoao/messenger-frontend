@@ -3,7 +3,11 @@ import { useSelector } from 'react-redux';
 import { Text } from '@/shared/ui/Text';
 import { getUserAuthData, userActions } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getRouteProfile } from '@/shared/const/router';
+import {
+    getRouteArchives,
+    getRouteProfile,
+    getRouteSavedPosts,
+} from '@/shared/const/router';
 import { Dropdown } from '@/shared/ui/Popups';
 import { Avatar } from '@/shared/ui/Avatar';
 import AvatarImage from '@/shared/assets/images/avatar.png';
@@ -30,6 +34,14 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
         {
             content: 'Profile',
             href: getRouteProfile('makushenkoao'),
+        },
+        {
+            content: 'Saved',
+            href: getRouteSavedPosts(),
+        },
+        {
+            content: 'Archives',
+            href: getRouteArchives(),
         },
         {
             content: (

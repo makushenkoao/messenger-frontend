@@ -1,10 +1,10 @@
-import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { BackIcon } from '@/widgets/BackIcon';
 import { VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
-import { ArchivesList } from '../ArchivesList/ArchivesList';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
+import { SavedPostsList } from '../SavedPostsList/SavedPostsList';
 
-const ArchivesPage = () => {
+const SavedPostsPage = () => {
     return (
         <StickyContentLayout
             left={<BackIcon />}
@@ -13,11 +13,11 @@ const ArchivesPage = () => {
                     max
                     gap="16"
                 >
-                    <Text title="Archives" />
-                    <ArchivesList />
+                    <Text title="Saved Posts" />
+                    <SavedPostsList />
                 </VStack>
             }
         />
     );
 };
-export default ArchivesPage;
+export default SavedPostsPage;

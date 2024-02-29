@@ -1,1 +1,1 @@
-export { AppImage } from './AppImage';
+export { AppImage, type AppImageProps } from './AppImage';
