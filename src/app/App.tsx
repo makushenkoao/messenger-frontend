@@ -12,11 +12,6 @@ import { useAppToolbar } from '@/app/lib/useAppToolbar';
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { AppRouter } from '@/app/providers/router';
 
-// TODO
-//  ANIMATION
-//  archives page
-//  modals context
-
 function App() {
     const { theme } = useTheme();
     const mounted = useSelector(getUserMounted);

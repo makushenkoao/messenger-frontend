@@ -3,7 +3,13 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { ScrollToTopButton } from '@/features/ScrollToTopButton';
 import cls from './ScrollToolbar.module.scss';
 
-export const ScrollToolbar = ({ className }: { className?: string }) => {
+interface ScrollToolbarProps {
+    className?: string;
+}
+
+export const ScrollToolbar = (props: ScrollToolbarProps) => {
+    const { className } = props;
+
     return (
         <VStack
             align="center"

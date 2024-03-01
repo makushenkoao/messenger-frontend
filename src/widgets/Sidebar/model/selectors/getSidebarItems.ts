@@ -15,7 +15,6 @@ import {
     getRouteSearch,
 } from '@/shared/const/router';
 
-// TODO: Right Path
 export const getSidebarItems = createSelector(getUserAuthData, (userData) => [
     {
         path: getRouteHome(),

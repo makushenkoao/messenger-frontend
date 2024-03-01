@@ -26,11 +26,6 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
         dispatch(userActions.logout());
     }, [dispatch]);
 
-    // TODO
-    // if (!userAuthData) {
-    //     return null;
-    // }
-
     const items = [
         {
             content: 'Profile',

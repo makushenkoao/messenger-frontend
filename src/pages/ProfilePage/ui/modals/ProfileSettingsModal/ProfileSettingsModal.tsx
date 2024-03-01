@@ -20,7 +20,7 @@ export const ProfileSettingsModal = (props: ProfileSettingsModalProps) => {
         },
         {
             id: '2',
-            content: 'Log Out',
+            content: 'Sign Out',
             onClick: () => console.log('click'),
         },
         {
