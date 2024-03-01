@@ -1,82 +1,146 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Modal } from '@/shared/ui/Modal';
 import { Button } from '@/shared/ui/Button';
 import { VStack } from '@/shared/ui/Stack';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './MoreModal.module.scss';
+import { EditPostModal } from '../EditPostModal/EditPostModal';
 
 interface MoreModalProps {
     isOpen: boolean;
     onClose: () => void;
+    isPostAuthor?: boolean;
 }
 
 export const MoreModal = (props: MoreModalProps) => {
-    const { isOpen, onClose } = props;
+    const { isOpen, onClose, isPostAuthor = true } = props;
 
-    const buttons = [
-        {
-            id: '1',
-            content: 'Unfollow',
-            onClick: () => console.log('click'),
-            important: true,
-        },
-        {
-            id: '2',
-            content: 'Save Post',
-            onClick: () => console.log('click'),
-        },
-        {
-            id: '3',
-            content: 'Go to Publication',
-            onClick: () => console.log('click'),
-        },
-        {
-            id: '4',
-            content: 'Send...',
-            onClick: () => console.log('click'),
-        },
-        {
-            id: '5',
-            content: 'Copy Post Link',
-            onClick: () => console.log('click'),
-        },
-        {
-            id: '6',
-            content: 'Cancel',
-            onClick: onClose,
-        },
-    ];
+    const [isOpenEditPostModal, setIsOpenEditPostModal] = useState(false);
+
+    const handleOpenEditPostModal = () => {
+        onClose();
+        setIsOpenEditPostModal(true);
+    };
+    const handleCloseEditPostModal = () => setIsOpenEditPostModal(false);
+
+    const options = [];
+
+    if (isPostAuthor) {
+        options.push(
+            {
+                id: '1',
+                content: 'Delete',
+                onClick: () => console.log('click'),
+                important: true,
+            },
+            {
+                id: '2',
+                content: 'Edit Post',
+                onClick: handleOpenEditPostModal,
+            },
+            {
+                id: '3',
+                content: 'Archive',
+                onClick: () => console.log('click'),
+            },
+            {
+                id: '4',
+                content: 'Save Post',
+                onClick: () => console.log('click'),
+            },
+            {
+                id: '5',
+                content: 'Go to Publication',
+                onClick: () => console.log('click'),
+            },
+            {
+                id: '6',
+                content: 'Send to',
+                onClick: () => console.log('click'),
+            },
+            {
+                id: '7',
+                content: 'Copy Post Link',
+                onClick: () => console.log('click'),
+            },
+            {
+                id: '8',
+                content: 'Cancel',
+                onClick: onClose,
+            },
+        );
+    } else {
+        options.push(
+            {
+                id: '1',
+                content: 'Unfollow',
+                onClick: () => console.log('click'),
+                important: true,
+            },
+            {
+                id: '2',
+                content: 'Save Post',
+                onClick: () => console.log('click'),
+            },
+            {
+                id: '3',
+                content: 'Go to Publication',
+                onClick: () => console.log('click'),
+            },
+            {
+                id: '4',
+                content: 'Send to',
+                onClick: () => console.log('click'),
+            },
+            {
+                id: '5',
+                content: 'Copy Post Link',
+                onClick: () => console.log('click'),
+            },
+            {
+                id: '6',
+                content: 'Cancel',
+                onClick: onClose,
+            },
+        );
+    }
 
     return (
-        <Modal
-            isOpen={isOpen}
-            onClose={onClose}
-            padding="none"
-            lazy
-        >
-            <VStack
-                gap="0"
-                max
+        <>
+            <Modal
+                isOpen={isOpen}
+                onClose={onClose}
+                padding="none"
+                lazy
             >
-                {buttons.map((item, index) => (
-                    <Button
-                        key={item.id}
-                        fullWidth
-                        variant="clear"
-                        onClick={item.onClick}
-                        className={classNames(
-                            cls.btn,
-                            {
-                                [cls.lastBtn]: index === buttons.length - 1,
-                            },
-                            [],
-                        )}
-                        color={item.important ? 'error' : 'normal'}
-                    >
-                        {item.content}
-                    </Button>
-                ))}
-            </VStack>
-        </Modal>
+                <VStack
+                    gap="0"
+                    max
+                >
+                    {options.map((item, index) => (
+                        <Button
+                            key={item.id}
+                            fullWidth
+                            variant="clear"
+                            onClick={item.onClick}
+                            className={classNames(
+                                cls.btn,
+                                {
+                                    [cls.lastBtn]: index === options.length - 1,
+                                },
+                                [],
+                            )}
+                            color={item.important ? 'error' : 'normal'}
+                        >
+                            {item.content}
+                        </Button>
+                    ))}
+                </VStack>
+            </Modal>
+            <EditPostModal
+                isOpen={isOpenEditPostModal}
+                onClose={handleCloseEditPostModal}
+            />
+        </>
     );
 };
