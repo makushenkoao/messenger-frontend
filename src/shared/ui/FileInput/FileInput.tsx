@@ -26,11 +26,12 @@ export const FileInput = memo((props: FileInputProps) => {
                 className={cls.customFileInput}
                 id={`file-input-${id}`}
             />
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label
                 className={cls.customFileLabel}
                 htmlFor={`file-input-${id}`}
             >
-                {label || 'Choose File'}
+                <Text text={label || "Choose File"} />
             </label>
             <div>
                 {value && (
