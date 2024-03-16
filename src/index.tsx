@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/app/providers/ThemeProvider';
 import { StoreProvider } from '@/app/providers/StoreProvider';
 import App from './app/App';
 import '@/app/styles/index.scss';
+import 'react-toastify/dist/ReactToastify.css';
 
 const root = document.getElementById('root');
 

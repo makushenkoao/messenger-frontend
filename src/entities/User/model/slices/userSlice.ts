@@ -1,13 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-import { User, UserPayload } from '../types/user';
+import { User, LoginPayload } from '../types/user';
 import { UserSchema } from '../types/userSchema';
-
 import { USER_LOCAL_STORAGE_KEY } from '@/shared/const/localStorage';
-import { login } from '../services/login/login';
-import { register } from '../services/register/register';
 import { initAuthData } from '../services/initAuthData/initAuthData';
-import { updateProfile } from '../services/updateProfile/updateProfile';
+import { register } from '../services/auth/register';
+import { login } from '../services/auth/login';
+import { resetPassword } from '../..';
 
 const initialState: UserSchema = {
     _mounted: false,
@@ -17,9 +15,9 @@ export const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        setAuthData: (state, { payload }: PayloadAction<UserPayload>) => {
+        setAuthData: (state, { payload }: PayloadAction<LoginPayload>) => {
             state.data = payload.user;
-            localStorage.setItem(USER_LOCAL_STORAGE_KEY, payload.token);
+            localStorage.setItem(USER_LOCAL_STORAGE_KEY, payload.accessToken);
         },
         logout: (state) => {
             state.data = undefined;
@@ -34,7 +32,7 @@ export const userSlice = createSlice({
             })
             .addCase(
                 login.fulfilled,
-                (state, action: PayloadAction<UserPayload>) => {
+                (state, action: PayloadAction<LoginPayload>) => {
                     state.isLoading = false;
                     state.data = action.payload.user;
                 },
@@ -54,21 +52,6 @@ export const userSlice = createSlice({
                 state.isLoading = false;
                 state.error = action.payload;
             })
-            .addCase(updateProfile.pending, (state) => {
-                state.error = undefined;
-                state.isLoading = true;
-            })
-            .addCase(
-                updateProfile.fulfilled,
-                (state, action: PayloadAction<User>) => {
-                    state.isLoading = false;
-                    state.data = action.payload;
-                },
-            )
-            .addCase(updateProfile.rejected, (state, action) => {
-                state.isLoading = false;
-                state.error = action.payload;
-            })
             .addCase(
                 initAuthData.fulfilled,
                 (state, { payload }: PayloadAction<User>) => {
@@ -78,6 +61,17 @@ export const userSlice = createSlice({
             )
             .addCase(initAuthData.rejected, (state) => {
                 state._mounted = true;
+            })
+            .addCase(resetPassword.pending, (state) => {
+                state.error = undefined;
+                state.isLoading = true;
+            })
+            .addCase(resetPassword.fulfilled, (state) => {
+                state.isLoading = false;
+            })
+            .addCase(resetPassword.rejected, (state, action) => {
+                state.isLoading = false;
+                state.error = action.payload;
             });
     },
 });

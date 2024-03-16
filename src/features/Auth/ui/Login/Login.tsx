@@ -2,25 +2,22 @@ import React, { useState } from 'react';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Input } from '@/shared/ui/Input';
 import { Button } from '@/shared/ui/Button';
+import { PasswordInput } from '@/shared/ui/PasswordInput';
+import { LoginData, LoginFields } from '../../model/types/auth';
 import cls from '../Auth/Auth.module.scss';
-import { PasswordInput } from '@/features/PasswordInput';
-
-interface LoginData {
-    email: string;
-    password: string;
-}
-
-type LoginFields = keyof LoginData;
 
 const initialState: LoginData = {
-    email: '',
-    password: '',
+    email: 'admin@gmail.com',
+    password: 'admin123',
 };
 
-interface LoginProps {}
+interface LoginProps {
+    handleLogin: (data: LoginData) => void;
+    loading: boolean;
+}
 
 export const Login = (props: LoginProps) => {
-    const {} = props;
+    const { handleLogin, loading } = props;
 
     const [data, setData] = useState<LoginData>({ ...initialState });
 
@@ -31,12 +28,17 @@ export const Login = (props: LoginProps) => {
         }));
     };
 
-    const handleLogin = (data: LoginData) => {
-        console.log(data);
+    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        handleLogin(data);
+        setData({ ...initialState });
     };
 
     return (
-        <form className={cls.form}>
+        <form
+            className={cls.form}
+            onSubmit={onSubmit}
+        >
             <VStack
                 max
                 gap="16"
@@ -45,17 +47,24 @@ export const Login = (props: LoginProps) => {
                     placeholder="Enter Email"
                     value={data.email}
                     onChange={(value) => handleChange(value, 'email')}
+                    disabled={loading}
                 />
                 <PasswordInput
                     placeholder="Enter Password"
                     value={data.password}
                     onChange={(value) => handleChange(value, 'password')}
+                    disabled={loading}
                 />
                 <HStack
                     max
                     justify="end"
                 >
-                    <Button onClick={() => handleLogin(data)}>Sign In</Button>
+                    <Button
+                        disabled={loading}
+                        type="submit"
+                    >
+                        Sign In
+                    </Button>
                 </HStack>
             </VStack>
         </form>

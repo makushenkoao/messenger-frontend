@@ -10,6 +10,7 @@ import {
     getRoutePostDetails,
     getRouteChat,
     getRouteSavedPosts,
+    getRouteSettings,
 } from '@/shared/const/router';
 import { HomePage } from '@/pages/HomePage';
 import { ProfilePage } from '@/pages/ProfilePage';
@@ -21,8 +22,13 @@ import { ArchivesPage } from '@/pages/ArchivesPage';
 import { ChatPage } from '@/pages/ChatPage';
 import { PostDetailsPage } from '@/pages/PostDetailsPage';
 import { SavedPostsPage } from '@/pages/SavedPostsPage';
+import { SettingsPage } from '@/pages/SettingsPage';
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
+    [AppRoutes.SETTINGS]: {
+        path: getRouteSettings(),
+        element: <SettingsPage />,
+    },
     [AppRoutes.SAVED_POSTS]: {
         path: getRouteSavedPosts(),
         element: <SavedPostsPage />,

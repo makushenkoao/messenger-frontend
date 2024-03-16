@@ -1,28 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Input } from '@/shared/ui/Input';
 import { Button } from '@/shared/ui/Button';
+import { PasswordInput } from '@/shared/ui/PasswordInput';
+import { FileInput } from '@/shared/ui/FileInput';
+import { RegisterData } from '../../model/types/auth';
 import cls from '../Auth/Auth.module.scss';
-import { PasswordInput } from '@/features/PasswordInput';
 
-interface RegisterData {
-    firstName: string;
-    lastName: string;
-    username: string;
-    email: string;
-    password: string;
+interface RegisterProps {
+    handleRegister: (data: RegisterData) => void;
+    loading: boolean;
 }
 
-export const Register = () => {
+export const Register = (props: RegisterProps) => {
+    const { handleRegister, loading } = props;
+
     const {
         control,
         handleSubmit,
         formState: { errors },
-    } = useForm<RegisterData>();
+    } = useForm<RegisterData>({
+        defaultValues: {
+            avatar: null,
+            password: '',
+            email: '',
+            nickname: '',
+        },
+    });
 
-    const onSubmit: SubmitHandler<RegisterData> = (data) => {
-        console.log(data);
+    const [avatar, setAvatar] = useState<File | null>(null);
+
+    const onSubmit: SubmitHandler<Omit<RegisterData, 'avatar'>> = (data) => {
+        handleRegister({ ...data, avatar });
     };
 
     return (
@@ -36,61 +46,24 @@ export const Register = () => {
             >
                 <Controller
                     control={control}
-                    name="firstName"
+                    name="nickname"
                     rules={{
-                        required: 'First name is required',
-                        minLength: {
-                            value: 3,
-                            message:
-                                'First name should be at least 3 characters',
-                        },
-                    }}
-                    render={({ field }) => (
-                        <Input
-                            {...field}
-                            placeholder="Enter First Name"
-                            error={errors.firstName?.message}
-                        />
-                    )}
-                />
-                <Controller
-                    control={control}
-                    name="lastName"
-                    rules={{
-                        required: 'Last name is required',
-                        minLength: {
-                            value: 3,
-                            message:
-                                'Last name should be at least 3 characters',
-                        },
-                    }}
-                    render={({ field }) => (
-                        <Input
-                            {...field}
-                            placeholder="Enter Last Name"
-                            error={errors.lastName?.message}
-                        />
-                    )}
-                />
-                <Controller
-                    control={control}
-                    name="username"
-                    rules={{
-                        required: 'Username is required',
+                        required: 'Nickname is required',
                         minLength: {
                             value: 5,
-                            message: 'Username should be at least 5 characters',
+                            message: 'Nickname should be at least 5 characters',
                         },
                         pattern: {
                             value: /^[A-Za-z]+$/i,
-                            message: 'Username should contain only letters',
+                            message: 'Nickname should contain only letters',
                         },
                     }}
                     render={({ field }) => (
                         <Input
                             {...field}
                             placeholder="Enter Username"
-                            error={errors.username?.message}
+                            error={errors.nickname?.message}
+                            disabled={loading}
                         />
                     )}
                 />
@@ -109,6 +82,7 @@ export const Register = () => {
                             {...field}
                             placeholder="Enter Email"
                             error={errors.email?.message}
+                            disabled={loading}
                         />
                     )}
                 />
@@ -126,8 +100,22 @@ export const Register = () => {
                         <PasswordInput
                             {...field}
                             placeholder="Enter Password"
-                            type="password"
                             error={errors.password?.message}
+                            disabled={loading}
+                        />
+                    )}
+                />
+                <Controller
+                    control={control}
+                    name="avatar"
+                    render={({ field }) => (
+                        <FileInput
+                            value={avatar}
+                            onFileChange={(file: File) => {
+                                setAvatar(file);
+                                field.onChange(file);
+                            }}
+                            disabled={loading}
                         />
                     )}
                 />
@@ -135,7 +123,12 @@ export const Register = () => {
                     max
                     justify="end"
                 >
-                    <Button type="submit">Sign Up</Button>
+                    <Button
+                        disabled={loading}
+                        type="submit"
+                    >
+                        Sign Up
+                    </Button>
                 </HStack>
             </VStack>
         </form>

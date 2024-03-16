@@ -2,15 +2,17 @@ import { ChangeEvent, memo, useId } from 'react';
 import { Text } from '../Text';
 import { HStack } from '../Stack';
 import cls from './FileInput.module.scss';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface FileInputProps {
     onFileChange: (file: File) => void;
     value: File | null;
     label?: string;
+    disabled?: boolean;
 }
 
 export const FileInput = memo((props: FileInputProps) => {
-    const { onFileChange, value, label } = props;
+    const { onFileChange, value, label, disabled } = props;
     const id = useId();
 
     const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -25,13 +27,18 @@ export const FileInput = memo((props: FileInputProps) => {
                 onChange={handleFileChange}
                 className={cls.customFileInput}
                 id={`file-input-${id}`}
+                disabled={disabled}
             />
             {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label
-                className={cls.customFileLabel}
+                className={classNames(
+                    cls.customFileLabel,
+                    { [cls.disabled]: disabled },
+                    [],
+                )}
                 htmlFor={`file-input-${id}`}
             >
-                <Text text={label || "Choose File"} />
+                <Text text={label || 'Choose File'} />
             </label>
             <div>
                 {value && (

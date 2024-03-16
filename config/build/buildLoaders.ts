@@ -19,20 +19,6 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
     const svgLoader = buildSvgLoader();
     const styleLoader = buildStyleLoader(isDev);
 
-    // const tsLoader = {
-    //     test: /\.tsx?$/,
-    //     exclude: /node_modules/,
-    //     use: {
-    //         loader: 'ts-loader',
-    //         options: {
-    //             transpileOnly: true,
-    //             getCustomTransformers: () => ({
-    //                 before: [isDev && ReactRefreshTypescript()].filter(Boolean),
-    //             }),
-    //         },
-    //     },
-    // };
-
     return [
         assetLoader,
         svgLoader,

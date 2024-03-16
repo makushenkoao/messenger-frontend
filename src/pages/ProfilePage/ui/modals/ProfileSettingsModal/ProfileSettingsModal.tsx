@@ -1,7 +1,12 @@
+import { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Modal } from '@/shared/ui/Modal';
 import { VStack } from '@/shared/ui/Stack';
 import { Button } from '@/shared/ui/Button';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { userActions } from '@/entities/User';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { getRouteSettings } from '@/shared/const/router';
 import cls from './ProfileSettingsModal.module.scss';
 
 interface ProfileSettingsModalProps {
@@ -11,17 +16,27 @@ interface ProfileSettingsModalProps {
 
 export const ProfileSettingsModal = (props: ProfileSettingsModalProps) => {
     const { isOpen, onClose } = props;
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate();
+
+    const navigateToSettings = () => {
+        navigate(getRouteSettings());
+    };
+
+    const onLogout = useCallback(() => {
+        dispatch(userActions.logout());
+    }, [dispatch]);
 
     const buttons = [
         {
             id: '1',
             content: 'Settings',
-            onClick: () => console.log('click'),
+            onClick: () => navigateToSettings(),
         },
         {
             id: '2',
             content: 'Sign Out',
-            onClick: () => console.log('click'),
+            onClick: () => onLogout(),
         },
         {
             id: '3',

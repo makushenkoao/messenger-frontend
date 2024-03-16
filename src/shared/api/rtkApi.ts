@@ -9,7 +9,7 @@ export const rtkApi = createApi({
         prepareHeaders: (headers) => {
             const token = localStorage.getItem(USER_LOCAL_STORAGE_KEY) || '';
             if (token) {
-                headers.set('Authorization', token);
+                headers.set('Authorization', `Bearer ${token}`);
             }
             return headers;
         },

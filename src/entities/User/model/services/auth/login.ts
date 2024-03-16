@@ -1,8 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
-import { userActions } from '../../../index';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
-import { UserPayload } from '../../types/user';
+import { LoginPayload } from '../../types/user';
+import { userActions } from '../../slices/userSlice';
 
 interface LoginProps {
     email: string;
@@ -10,23 +9,21 @@ interface LoginProps {
 }
 
 export const login = createAsyncThunk<
-    UserPayload,
+    LoginPayload,
     LoginProps,
     ThunkConfig<string>
 >('auth/login', async (authData, ThunkApi) => {
     const { rejectWithValue, dispatch, extra } = ThunkApi;
     try {
-        const { data } = await extra.api.post<UserPayload>(
-            '/auth/login',
-            authData,
-        );
-
-        if (!data) throw new Error();
+        const { data } = await extra.api.post<LoginPayload>('/auth/login', {
+            password: authData.password,
+            login: authData.email,
+        });
 
         dispatch(userActions.setAuthData(data));
 
         return data;
     } catch (e) {
-        return rejectWithValue('error');
+        return rejectWithValue(e.response.data.message);
     }
 });

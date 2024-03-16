@@ -12,25 +12,17 @@ export interface Setting {
 
 export interface User {
     _id: string;
-    firstName: string;
-    lastName: string;
-    userName: string;
     email: string;
-    password: string;
-    picturePath: string;
-    friends: string[];
-    location: string;
-    occupation: string;
-    viewedProfile: number;
-    savedPosts: string[];
-    impressions: number;
-    confidentiality: Setting;
+    avatar: string;
+    nickname: string;
+    following: string[];
+    followers: string[];
+    posts: string[];
     createdAt: string;
     updatedAt: string;
-    __v: number;
 }
 
-export interface UserPayload {
-    token: string;
+export interface LoginPayload {
+    accessToken: string;
     user: User;
 }

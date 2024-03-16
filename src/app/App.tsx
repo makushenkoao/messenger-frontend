@@ -1,5 +1,6 @@
 import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { Sidebar } from '@/widgets/Sidebar';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
@@ -11,6 +12,15 @@ import { Navbar } from '@/widgets/Navbar';
 import { useAppToolbar } from '@/app/lib/useAppToolbar';
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { AppRouter } from '@/app/providers/router';
+import { Auth } from '@/features/Auth';
+
+// TODO:
+//  move auth from user entity to auth feature
+//  complete authentication
+//  make private routes and add the authentication route to public
+//  eslint imports
+//  fix notify error
+//  skeletons
 
 function App() {
     const { theme } = useTheme();
@@ -33,17 +43,19 @@ function App() {
         );
     }
 
-    // if (!user) {
-    //         return (
-    //             <div className={classNames('app', {}, [theme])}>
-    //                 <Auth />
-    //             </div>
-    //         );
-    //     }
+    if (!user) {
+        return (
+            <div className={classNames('app', {}, [theme])}>
+                <ToastContainer />
+                <Auth />
+            </div>
+        );
+    }
 
     return (
         <div className={classNames('app', {}, [theme])}>
             <Suspense fallback="">
+                <ToastContainer />
                 <MainLayout
                     content={<AppRouter />}
                     header={<Navbar />}

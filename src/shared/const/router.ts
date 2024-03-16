@@ -1,4 +1,5 @@
 export enum AppRoutes {
+    SETTINGS = 'settings',
     SAVED_POSTS = 'saved_posts',
     POST_DETAILS = 'post_details',
     CHAT = 'chat',
@@ -20,6 +21,7 @@ export const getRouteArchives = () => '/archives';
 export const getRouteChat = (id: string) => `/messages/${id}`;
 export const getRoutePostDetails = (id: string) => `/posts/${id}`;
 export const getRouteSavedPosts = () => '/saved_posts';
+export const getRouteSettings = () => '/settings';
 
 export const AppRouteByPathPattern: Record<string, AppRoutes> = {
     [getRouteHome()]: AppRoutes.HOME,
@@ -31,6 +33,7 @@ export const AppRouteByPathPattern: Record<string, AppRoutes> = {
     [getRouteChat(':id')]: AppRoutes.CHAT,
     [getRoutePostDetails(':id')]: AppRoutes.POST_DETAILS,
     [getRouteSavedPosts()]: AppRoutes.SAVED_POSTS,
+    [getRouteSettings()]: AppRoutes.SETTINGS,
     // TODO
     // ['*']: AppRoutes.NOT_FOUND,
 };

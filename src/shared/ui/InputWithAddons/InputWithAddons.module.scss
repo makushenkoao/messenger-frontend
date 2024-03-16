@@ -1,0 +1,34 @@
+.InputWithAddons {
+  position: relative;
+  width: 100%;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+}
+
+.rightPadding {
+  padding-right: 40px;
+}
+
+.leftPadding {
+  padding-left: 40px;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.rightIconWrapper {
+  right: 10px;
+}
+
+.leftIconWrapper {
+  left: 10px;
+}

@@ -1,25 +1,42 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import { VStack } from '@/shared/ui/Stack';
-import cls from './Auth.module.scss';
 import { Login } from '../Login/Login';
 import { Register } from '../Register/Register';
-import { ResetPassword } from '../ResetPassword/ResetPassword';
 import { Card } from '@/shared/ui/Card';
 import { Text } from '@/shared/ui/Text';
 import { Button } from '@/shared/ui/Button';
-
-type AuthType = 'register' | 'login' | 'reset';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { AuthType, LoginData, RegisterData } from '../../model/types/auth';
+import { getUserError, getUserLoading, login, register } from '@/entities/User';
+import cls from './Auth.module.scss';
 
 export const Auth = () => {
     const [authType, setAuthType] = useState<AuthType>('login');
+    const dispatch = useAppDispatch();
+    const error = useSelector(getUserError);
+    const loading = useSelector(getUserLoading);
+
+    const notify = () =>
+        toast(error, {
+            position: 'top-right',
+            type: 'error',
+        });
 
     const setLoginAuthType = () => setAuthType('login');
     const setRegisterAuthType = () => setAuthType('register');
-    const setResetAuthType = () => setAuthType('reset');
-
-    const handleLogin = () => {};
-    const handleRegister = () => {};
-    const handleReset = () => {};
+    const handleLogin = (data: LoginData) => {
+        dispatch(login(data))
+            .unwrap()
+            .catch(() => notify());
+    };
+    const handleRegister = (data: RegisterData) => {
+        dispatch(register(data))
+            .unwrap()
+            .then(() => setLoginAuthType())
+            .catch(() => notify());
+    };
 
     const renderFormTitle = () => {
         switch (authType) {
@@ -27,8 +44,6 @@ export const Auth = () => {
                 return <Text title="Sign In" />;
             case 'register':
                 return <Text title="Sign Up" />;
-            case 'reset':
-                return <Text title="Reset Password" />;
             default:
                 return <Text title="Sign In" />;
         }
@@ -38,28 +53,12 @@ export const Auth = () => {
         switch (authType) {
             case 'login':
                 return (
-                    <VStack gap="8">
-                        <Button
-                            onClick={setRegisterAuthType}
-                            variant="clear"
-                        >
-                            Register a New Account
-                        </Button>
-                        <Button
-                            onClick={setResetAuthType}
-                            variant="clear"
-                        >
-                            Forgot Password
-                        </Button>
-                    </VStack>
-                );
-            case 'reset':
-                return (
                     <Button
-                        onClick={setLoginAuthType}
+                        onClick={setRegisterAuthType}
                         variant="clear"
+                        disabled={loading}
                     >
-                        Login to Existing Account
+                        Register a New Account
                     </Button>
                 );
             case 'register':
@@ -67,26 +66,20 @@ export const Auth = () => {
                     <Button
                         onClick={setLoginAuthType}
                         variant="clear"
+                        disabled={loading}
                     >
-                        Login to existing account
+                        Login to Existing Account
                     </Button>
                 );
             default:
                 return (
-                    <VStack gap="8">
-                        <Button
-                            onClick={setRegisterAuthType}
-                            variant="clear"
-                        >
-                            Register a new account
-                        </Button>
-                        <Button
-                            onClick={setResetAuthType}
-                            variant="clear"
-                        >
-                            Forgot Password
-                        </Button>
-                    </VStack>
+                    <Button
+                        onClick={setRegisterAuthType}
+                        variant="clear"
+                        disabled={loading}
+                    >
+                        Register a New Account
+                    </Button>
                 );
         }
     };
@@ -94,13 +87,26 @@ export const Auth = () => {
     const renderFormFields = () => {
         switch (authType) {
             case 'login':
-                return <Login />;
+                return (
+                    <Login
+                        handleLogin={handleLogin}
+                        loading={loading}
+                    />
+                );
             case 'register':
-                return <Register />;
-            case 'reset':
-                return <ResetPassword />;
+                return (
+                    <Register
+                        handleRegister={handleRegister}
+                        loading={loading}
+                    />
+                );
             default:
-                return <Login />;
+                return (
+                    <Login
+                        handleLogin={handleLogin}
+                        loading={loading}
+                    />
+                );
         }
     };
 

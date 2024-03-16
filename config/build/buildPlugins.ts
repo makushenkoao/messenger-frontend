@@ -35,14 +35,6 @@ export function buildPlugins(options: BuildOptions): Configuration['plugins'] {
                 filename: 'css/[name].[contenthash:8].css',
                 chunkFilename: 'css/[name].[contenthash:8].css',
             }),
-            // new CopyPlugin({
-            //   patterns: [
-            //     {
-            //       from: path.resolve(paths.public, "locales"),
-            //       to: path.resolve(paths.output, "locales"),
-            //     },
-            //   ],
-            // }),
         );
     }
 

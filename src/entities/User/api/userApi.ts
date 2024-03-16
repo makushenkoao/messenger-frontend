@@ -9,6 +9,14 @@ interface UpdateSettingsArgs {
 
 const userApi = rtkApi.injectEndpoints({
     endpoints: (build) => ({
+        initUser: build.query<User, void>({
+            query: () => {
+                return {
+                    url: '/users',
+                    method: 'GET',
+                };
+            },
+        }),
         getUserDataById: build.query<User, string>({
             query: (userId) => {
                 return {
@@ -46,6 +54,7 @@ const userApi = rtkApi.injectEndpoints({
 });
 
 export const getUserDataByIdQuery = userApi.endpoints.getUserDataById.initiate;
+export const initUserQuery = userApi.endpoints.initUser.initiate;
 export const {
     useGetUserDataByUserNameQuery,
     useGetUserRecommendationsQuery,
