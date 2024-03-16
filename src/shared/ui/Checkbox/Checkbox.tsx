@@ -1,6 +1,8 @@
 import { MouseEventHandler } from 'react';
 import { MdCheck } from 'react-icons/md';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
+
 import cls from './Checkbox.module.scss';
 
 interface CheckboxProps {

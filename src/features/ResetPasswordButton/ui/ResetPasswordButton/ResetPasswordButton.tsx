@@ -1,33 +1,23 @@
 import { FormEvent, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
+
+import { getUserLoading, resetPassword } from '@/entities/User';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { errorNotify, successNotify } from '@/shared/lib/utils/notify';
 import { Button } from '@/shared/ui/Button';
 import { Modal } from '@/shared/ui/Modal';
+import { PasswordInput } from '@/shared/ui/PasswordInput';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
-import { getUserError, getUserLoading, resetPassword } from '@/entities/User';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+
 import cls from './ResetPasswordButton.module.scss';
-import { PasswordInput } from '@/shared/ui/PasswordInput';
+
 
 export const ResetPasswordButton = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [newPassword, setNewPassword] = useState('');
     const dispatch = useAppDispatch();
     const loading = useSelector(getUserLoading);
-    const error = useSelector(getUserError);
-
-    const notifySuccess = () =>
-        toast('Your password has been successfully changed!', {
-            position: 'top-right',
-            type: 'success',
-        });
-
-    const notifyError = () =>
-        toast(error, {
-            position: 'top-right',
-            type: 'error',
-        });
 
     const handleOpenModal = () => setIsOpen(true);
     const handleCloseModal = () => setIsOpen(false);
@@ -41,8 +31,12 @@ export const ResetPasswordButton = () => {
 
         dispatch(resetPassword(newPassword))
             .unwrap()
-            .then(() => notifySuccess())
-            .catch(() => notifyError());
+            .then(() => {
+                successNotify('Your password has been successfully changed!');
+                setNewPassword('');
+                handleCloseModal();
+            })
+            .catch((e) => errorNotify(e));
     };
 
     return (

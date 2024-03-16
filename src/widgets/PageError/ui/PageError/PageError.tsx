@@ -1,7 +1,8 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/Button';
-import { Text } from '@/shared/ui/Text';
 import { VStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
+
 import cls from './PageError.module.scss';
 
 interface PageErrorProps {

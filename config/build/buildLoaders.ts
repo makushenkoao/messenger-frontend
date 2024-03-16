@@ -1,8 +1,9 @@
 import { ModuleOptions } from 'webpack';
-import { BuildOptions } from './types/types';
-import { buildSvgLoader } from './loaders/buildSvgLoader';
-import { buildStyleLoader } from './loaders/buildStyleLoader';
+
 import { buildBabelLoader } from './loaders/buildBabelLoader';
+import { buildStyleLoader } from './loaders/buildStyleLoader';
+import { buildSvgLoader } from './loaders/buildSvgLoader';
+import { BuildOptions } from './types/types';
 
 export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
     const { mode } = options;

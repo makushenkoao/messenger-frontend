@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { MdFavorite, MdFavoriteBorder } from 'react-icons/md';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Text } from '@/shared/ui/Text';
-import { Icon } from '@/shared/ui/Icon';
+
 import AvatarImage from '@/shared/assets/images/avatar.png';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Icon } from '@/shared/ui/Icon';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
+
 import cls from './CommentsListItem.module.scss';
 
 export const CommentsListItem = () => {

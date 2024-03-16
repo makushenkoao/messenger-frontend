@@ -1,7 +1,8 @@
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button } from '@/shared/ui/Button';
 import { Modal } from '@/shared/ui/Modal';
 import { VStack } from '@/shared/ui/Stack';
-import { Button } from '@/shared/ui/Button';
-import { classNames } from '@/shared/lib/classNames/classNames';
+
 import cls from './ChatSettingsModal.module.scss';
 
 interface ChatSettingsModalProps {

@@ -1,11 +1,13 @@
 import { MdClose } from 'react-icons/md';
-import { Modal } from '@/shared/ui/Modal';
-import cls from './PostEditModal.module.scss';
-import { Text } from '@/shared/ui/Text';
-import { Icon } from '@/shared/ui/Icon';
-import { HStack } from '@/shared/ui/Stack';
-import { Input } from '@/shared/ui/Input';
+
 import { Button } from '@/shared/ui/Button';
+import { Icon } from '@/shared/ui/Icon';
+import { Input } from '@/shared/ui/Input';
+import { Modal } from '@/shared/ui/Modal';
+import { HStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
+
+import cls from './PostEditModal.module.scss';
 
 interface EditPostModalProps {
     isOpen: boolean;

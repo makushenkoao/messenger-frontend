@@ -1,8 +1,9 @@
-import { HStack } from '@/shared/ui/Stack';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Text } from '@/shared/ui/Text';
-import { Checkbox } from '@/shared/ui/Checkbox';
 import AvatarImage from '@/shared/assets/images/avatar.png';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Checkbox } from '@/shared/ui/Checkbox';
+import { HStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
+
 import cls from './ShareUser.module.scss';
 
 interface ShareUserProps {

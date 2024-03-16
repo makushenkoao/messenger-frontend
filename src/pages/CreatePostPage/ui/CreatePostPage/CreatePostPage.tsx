@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { FileInput } from '@/shared/ui/FileInput';
-import { HStack, VStack } from '@/shared/ui/Stack';
+
 import { Button } from '@/shared/ui/Button';
-import { Text } from '@/shared/ui/Text';
+import { FileInput } from '@/shared/ui/FileInput';
 import { Input } from '@/shared/ui/Input';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
 
 const CreatePostPage = () => {
     const [selectedFile, setSelectedFile] = useState<File | null>(null);

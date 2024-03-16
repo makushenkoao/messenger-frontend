@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { Input } from '@/shared/ui/Input';
+
 import { Button } from '@/shared/ui/Button';
+import { Input } from '@/shared/ui/Input';
 import { PasswordInput } from '@/shared/ui/PasswordInput';
+import { HStack, VStack } from '@/shared/ui/Stack';
+
 import { LoginData, LoginFields } from '../../model/types/auth';
+
 import cls from '../Auth/Auth.module.scss';
 
 const initialState: LoginData = {

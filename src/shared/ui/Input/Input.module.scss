@@ -6,6 +6,7 @@
     outline: none;
     color: var(--text);
     background: none;
+    font: var(--font-m);
 
     &::placeholder {
         color: var(--hint);

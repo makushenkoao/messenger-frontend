@@ -1,4 +1,5 @@
 import { VStack } from '@/shared/ui/Stack';
+
 import { Post } from '../Post/Post';
 
 export const PostList = () => {

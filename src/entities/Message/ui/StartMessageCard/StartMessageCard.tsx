@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { VStack } from '@/shared/ui/Stack';
-import { Text } from '@/shared/ui/Text';
+
 import { Button } from '@/shared/ui/Button';
 import { Card } from '@/shared/ui/Card';
+import { VStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
+
 import { CreateMessageModal } from '../CreateMessageModal/CreateMessageModal';
+
 import cls from './StartMessageCard.module.scss';
 
 export const StartMessageCard = () => {

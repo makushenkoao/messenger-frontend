@@ -1,8 +1,11 @@
 import { ChangeEvent, memo, useId } from 'react';
-import { Text } from '../Text';
-import { HStack } from '../Stack';
-import cls from './FileInput.module.scss';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
+
+import { HStack } from '../Stack';
+import { Text } from '../Text';
+
+import cls from './FileInput.module.scss';
 
 interface FileInputProps {
     onFileChange: (file: File) => void;

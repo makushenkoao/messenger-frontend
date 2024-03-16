@@ -1,5 +1,6 @@
-import { SavedPostsListItem } from '../SavedPostsListItem/SavedPostsListItem';
 import { HStack } from '@/shared/ui/Stack';
+
+import { SavedPostsListItem } from '../SavedPostsListItem/SavedPostsListItem';
 
 export const SavedPostsList = () => {
     return (

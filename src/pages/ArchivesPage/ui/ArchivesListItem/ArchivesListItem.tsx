@@ -1,7 +1,8 @@
+import PostImage from '@/shared/assets/images/image-post.png';
 import { getRoutePostDetails } from '@/shared/const/router';
 import { AppImage } from '@/shared/ui/AppImage';
 import { AppLink } from '@/shared/ui/AppLink';
-import PostImage from '@/shared/assets/images/image-post.png';
+
 import cls from './ArchiveListItem.module.scss';
 
 interface ArchivesListItemProps {

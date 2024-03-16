@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { Modal } from '@/shared/ui/Modal';
-import { Button } from '@/shared/ui/Button';
-import { VStack } from '@/shared/ui/Stack';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './MoreModal.module.scss';
+import { Button } from '@/shared/ui/Button';
+import { Modal } from '@/shared/ui/Modal';
+import { VStack } from '@/shared/ui/Stack';
+
 import { EditPostModal } from '../EditPostModal/EditPostModal';
+
+import cls from './MoreModal.module.scss';
 
 interface MoreModalProps {
     isOpen: boolean;

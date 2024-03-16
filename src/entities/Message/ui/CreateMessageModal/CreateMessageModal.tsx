@@ -1,14 +1,16 @@
 import { MdClose } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
+
+import AvatarImage from '@/shared/assets/images/avatar.png';
+import { getRouteChat } from '@/shared/const/router';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Button } from '@/shared/ui/Button';
+import { Icon } from '@/shared/ui/Icon';
+import { Input } from '@/shared/ui/Input';
 import { Modal } from '@/shared/ui/Modal';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
-import { Icon } from '@/shared/ui/Icon';
-import { Input } from '@/shared/ui/Input';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Button } from '@/shared/ui/Button';
-import { getRouteChat } from '@/shared/const/router';
-import AvatarImage from '@/shared/assets/images/avatar.png';
+
 import cls from './CreateMessageModal.module.scss';
 
 interface CreateMessageModalProps {

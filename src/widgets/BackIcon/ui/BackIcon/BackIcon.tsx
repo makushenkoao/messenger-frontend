@@ -1,7 +1,9 @@
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
-import { Icon } from '@/shared/ui/Icon';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { Icon } from '@/shared/ui/Icon';
+
 import cls from './BackIcon.module.scss';
 
 interface BackIconProps {

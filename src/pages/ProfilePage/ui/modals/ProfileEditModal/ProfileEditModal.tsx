@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import { MdClose } from 'react-icons/md';
-import { Modal } from '@/shared/ui/Modal';
-import { Input } from '@/shared/ui/Input';
-import { HStack, VStack } from '@/shared/ui/Stack';
+
 import { Button } from '@/shared/ui/Button';
-import { ListBox, ListBoxItem } from '@/shared/ui/Popups';
 import { FileInput } from '@/shared/ui/FileInput';
-import cls from './ProfileEditModal.module.scss';
-import { Text } from '@/shared/ui/Text';
 import { Icon } from '@/shared/ui/Icon';
+import { Input } from '@/shared/ui/Input';
+import { Modal } from '@/shared/ui/Modal';
+import { ListBox, ListBoxItem } from '@/shared/ui/Popups';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
+
+import cls from './ProfileEditModal.module.scss';
 
 interface ProfileEditModalProps {
     isOpen: boolean;

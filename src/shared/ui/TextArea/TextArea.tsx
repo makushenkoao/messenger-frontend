@@ -1,16 +1,17 @@
 import React, {
-    TextareaHTMLAttributes,
     memo,
+    TextareaHTMLAttributes,
     useEffect,
     useRef,
     useState,
 } from 'react';
 
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+
 import { VStack } from '../Stack';
 import { Text } from '../Text';
-import cls from './TextArea.module.scss';
 
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import cls from './TextArea.module.scss';
 
 type HTMLTextAreaProps = Omit<
     TextareaHTMLAttributes<HTMLTextAreaElement>,

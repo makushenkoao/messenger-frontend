@@ -1,9 +1,10 @@
-import { Text } from '@/shared/ui/Text';
+import AvatarImage from '@/shared/assets/images/avatar.png';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Button } from '@/shared/ui/Button';
 import { Card } from '@/shared/ui/Card';
 import { HStack, VStack } from '@/shared/ui/Stack';
-import { Button } from '@/shared/ui/Button';
-import { Avatar } from '@/shared/ui/Avatar';
-import AvatarImage from '@/shared/assets/images/avatar.png';
+import { Text } from '@/shared/ui/Text';
+
 import cls from './RecommendationsCard.module.scss';
 
 export const RecommendationsCard = () => {

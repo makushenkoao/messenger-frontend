@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+
+import { MoreModal, PostDetailsCard,ShareModal } from '@/entities/Post';
+import { PostCommentsCard } from '@/features/PostCommentsCard';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { VStack } from '@/shared/ui/Stack';
-import { MoreModal, ShareModal, PostDetailsCard } from '@/entities/Post';
 import { BackIcon } from '@/widgets/BackIcon';
-import { PostCommentsCard } from '@/features/PostCommentsCard';
 import { PostDetailsAdditionalInfo } from '@/widgets/PostDetailsAdditionalInfo';
 
 const PostDetailsPage = () => {

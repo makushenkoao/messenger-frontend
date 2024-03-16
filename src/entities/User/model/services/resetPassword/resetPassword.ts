@@ -1,5 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import { ThunkConfig } from '@/app/providers/StoreProvider';
+
 import { LoginPayload } from '../../types/user';
 
 export const resetPassword = createAsyncThunk<

@@ -1,8 +1,11 @@
 import { CSSProperties, memo, useMemo } from 'react';
 import { TailSpin } from 'react-loader-spinner';
-import { AppImage } from '../AppImage';
-import { classNames } from '@/shared/lib/classNames/classNames';
+
 import UserPng from '@/shared/assets/images/user.png';
+import { classNames } from '@/shared/lib/classNames/classNames';
+
+import { AppImage } from '../AppImage';
+
 import cls from './Avatar.module.scss';
 
 interface AvatarProps {

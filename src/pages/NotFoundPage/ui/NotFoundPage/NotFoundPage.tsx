@@ -1,7 +1,9 @@
 import { useNavigate } from 'react-router-dom';
+
+import { Button } from '@/shared/ui/Button';
 import { VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
-import { Button } from '@/shared/ui/Button';
+
 import cls from './NotFoundPage.module.scss';
 
 const NotFoundPage = () => {

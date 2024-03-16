@@ -1,8 +1,11 @@
 import { memo } from 'react';
-import { SidebarItemTypes } from '../../model/types/sidebar';
-import { AppLink } from '@/shared/ui/AppLink';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppLink } from '@/shared/ui/AppLink';
 import { Icon } from '@/shared/ui/Icon';
+
+import { SidebarItemTypes } from '../../model/types/sidebar';
+
 import cls from './SidebarItem.module.scss';
 
 interface SidebarItemProps {

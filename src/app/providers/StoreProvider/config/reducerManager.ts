@@ -6,10 +6,10 @@ import {
 } from '@reduxjs/toolkit';
 
 import {
-    StateSchemaKey,
-    StateSchema,
-    reducerManager,
     MountedReducers,
+    reducerManager,
+    StateSchema,
+    StateSchemaKey,
 } from '../config/StateSchema';
 
 export const createReducerManager = (

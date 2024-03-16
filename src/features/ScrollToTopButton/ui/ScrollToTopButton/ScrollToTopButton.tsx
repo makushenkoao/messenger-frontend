@@ -1,7 +1,9 @@
 import { memo } from 'react';
 import { MdOutlineArrowCircleUp } from 'react-icons/md';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Icon } from '@/shared/ui/Icon';
+
 import cls from './ScrollToTopButton.module.scss';
 
 interface ScrollToTopButtonProps {

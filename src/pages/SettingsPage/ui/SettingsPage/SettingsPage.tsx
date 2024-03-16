@@ -1,6 +1,6 @@
+import { ResetPasswordButton } from '@/features/ResetPasswordButton';
 import { VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
-import { ResetPasswordButton } from '@/features/ResetPasswordButton';
 
 const SettingsPage = () => {
     return (

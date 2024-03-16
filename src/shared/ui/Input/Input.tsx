@@ -1,10 +1,11 @@
 import React, { forwardRef, InputHTMLAttributes } from 'react';
 
-import cls from './Input.module.scss';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+
 import { VStack } from '../Stack';
 import { Text } from '../Text';
 
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,

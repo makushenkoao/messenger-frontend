@@ -1,4 +1,3 @@
-import { createSelector } from '@reduxjs/toolkit';
 import {
     MdAccountCircle,
     MdHome,
@@ -6,6 +5,8 @@ import {
     MdOutlineCreateNewFolder,
     MdOutlineSearch,
 } from 'react-icons/md';
+import { createSelector } from '@reduxjs/toolkit';
+
 import { getUserAuthData } from '@/entities/User';
 import {
     getRouteCreatePost,

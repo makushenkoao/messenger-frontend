@@ -1,5 +1,6 @@
-import { ArchivesListItem } from '../ArchivesListItem/ArchivesListItem';
 import { HStack } from '@/shared/ui/Stack';
+
+import { ArchivesListItem } from '../ArchivesListItem/ArchivesListItem';
 
 export const ArchivesList = () => {
     return (

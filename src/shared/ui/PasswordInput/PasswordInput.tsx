@@ -1,6 +1,8 @@
 import { forwardRef, useState } from 'react';
-import { Input, InputProps } from '../Input';
+
 import { Button } from '../Button';
+import { Input, InputProps } from '../Input';
+
 import cls from './PasswordInput.module.scss';
 
 type PasswordInputProps = Omit<InputProps, 'type'>;

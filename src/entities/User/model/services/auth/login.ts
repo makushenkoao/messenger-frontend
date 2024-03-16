@@ -1,7 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import { ThunkConfig } from '@/app/providers/StoreProvider';
-import { LoginPayload } from '../../types/user';
+
 import { userActions } from '../../slices/userSlice';
+import { LoginPayload } from '../../types/user';
 
 interface LoginProps {
     email: string;

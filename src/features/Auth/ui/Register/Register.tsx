@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { useForm, SubmitHandler, Controller } from 'react-hook-form';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { Input } from '@/shared/ui/Input';
+import { Controller,SubmitHandler, useForm } from 'react-hook-form';
+
 import { Button } from '@/shared/ui/Button';
-import { PasswordInput } from '@/shared/ui/PasswordInput';
 import { FileInput } from '@/shared/ui/FileInput';
+import { Input } from '@/shared/ui/Input';
+import { PasswordInput } from '@/shared/ui/PasswordInput';
+import { HStack, VStack } from '@/shared/ui/Stack';
+
 import { RegisterData } from '../../model/types/auth';
+
 import cls from '../Auth/Auth.module.scss';
 
 interface RegisterProps {

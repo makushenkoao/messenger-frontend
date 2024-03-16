@@ -1,8 +1,11 @@
 import { memo } from 'react';
-import { HStack } from '../Stack';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppImage } from '../AppImage';
+
 import Logo from '@/shared/assets/images/logo.png';
+import { classNames } from '@/shared/lib/classNames/classNames';
+
+import { AppImage } from '../AppImage';
+import { HStack } from '../Stack';
+
 import cls from './AppLogo.module.scss';
 
 interface AppLogoProps {

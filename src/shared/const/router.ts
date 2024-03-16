@@ -34,6 +34,5 @@ export const AppRouteByPathPattern: Record<string, AppRoutes> = {
     [getRoutePostDetails(':id')]: AppRoutes.POST_DETAILS,
     [getRouteSavedPosts()]: AppRoutes.SAVED_POSTS,
     [getRouteSettings()]: AppRoutes.SETTINGS,
-    // TODO
-    // ['*']: AppRoutes.NOT_FOUND,
+    ':path': AppRoutes.NOT_FOUND,
 };

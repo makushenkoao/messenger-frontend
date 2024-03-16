@@ -6,9 +6,10 @@ import {
     ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
+
+import { UserSchema } from '@/entities/User';
 import { UISchema } from '@/features/UI';
 import { rtkApi } from '@/shared/api/rtkApi';
-import { UserSchema } from '@/entities/User';
 
 export interface StateSchema {
     user: UserSchema;

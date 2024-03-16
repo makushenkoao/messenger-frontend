@@ -20,8 +20,11 @@ module.exports = {
         'makushenkoao-plugin',
         'unused-imports',
         'import',
+        'simple-import-sort',
     ],
     rules: {
+        'simple-import-sort/imports': 'error',
+        'simple-import-sort/exports': 'error',
         'unused-imports/no-unused-imports': 'error',
         'react/function-component-definition': 'off',
         'react/require-default-props': 'off',
@@ -80,5 +83,24 @@ module.exports = {
     globals: {
         __IS_DEV__: true,
     },
-    overrides: [],
+    overrides: [
+        {
+            files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
+            rules: {
+                'simple-import-sort/imports': [
+                    'error',
+                    {
+                        groups: [
+                            ['^react', '^@?\\w'],
+                            ['^@(/.*|$)'],
+                            ['^\\u0000'],
+                            ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+                            ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+                            ['^.+\\.?(css)$'],
+                        ],
+                    },
+                ],
+            },
+        },
+    ],
 };

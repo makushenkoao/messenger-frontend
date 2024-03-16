@@ -1,9 +1,12 @@
-import { IconType } from 'react-icons';
 import React from 'react';
-import cls from './InputWithAddons.module.scss';
-import { Input } from '../Input';
-import { Icon } from '../Icon';
+import { IconType } from 'react-icons';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
+
+import { Icon } from '../Icon';
+import { Input } from '../Input';
+
+import cls from './InputWithAddons.module.scss';
 
 interface InputWithAddonsProps {
     leftIcon?: {

@@ -1,12 +1,13 @@
 import React, { ReactNode, useEffect } from 'react';
 
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { useModal } from '@/shared/lib/hooks/useModal/useModal';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
-import cls from './Modal.module.scss';
 
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
-import { useModal } from '@/shared/lib/hooks/useModal/useModal';
+import cls from './Modal.module.scss';
 
 type ModalPadding = 'none' | 'md';
 

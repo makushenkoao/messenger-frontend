@@ -1,8 +1,9 @@
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { AppImage } from '@/shared/ui/AppImage';
-import { Text } from '@/shared/ui/Text';
-import { Card } from '@/shared/ui/Card';
 import PostImage from '@/shared/assets/images/image-post.png';
+import { AppImage } from '@/shared/ui/AppImage';
+import { Card } from '@/shared/ui/Card';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
+
 import cls from './PostDetailsCard.module.scss';
 
 export const PostDetailsCard = () => {

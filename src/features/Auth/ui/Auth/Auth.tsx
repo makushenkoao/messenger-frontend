@@ -1,41 +1,37 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
+
+import { getUserLoading, login, register } from '@/entities/User';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import {errorNotify} from "@/shared/lib/utils/notify";
+import { Button } from '@/shared/ui/Button';
+import { Card } from '@/shared/ui/Card';
 import { VStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
+
+import { AuthType, LoginData, RegisterData } from '../../model/types/auth';
 import { Login } from '../Login/Login';
 import { Register } from '../Register/Register';
-import { Card } from '@/shared/ui/Card';
-import { Text } from '@/shared/ui/Text';
-import { Button } from '@/shared/ui/Button';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { AuthType, LoginData, RegisterData } from '../../model/types/auth';
-import { getUserError, getUserLoading, login, register } from '@/entities/User';
+
 import cls from './Auth.module.scss';
 
 export const Auth = () => {
     const [authType, setAuthType] = useState<AuthType>('login');
     const dispatch = useAppDispatch();
-    const error = useSelector(getUserError);
     const loading = useSelector(getUserLoading);
-
-    const notify = () =>
-        toast(error, {
-            position: 'top-right',
-            type: 'error',
-        });
 
     const setLoginAuthType = () => setAuthType('login');
     const setRegisterAuthType = () => setAuthType('register');
     const handleLogin = (data: LoginData) => {
         dispatch(login(data))
             .unwrap()
-            .catch(() => notify());
+            .catch((e) => errorNotify(e));
     };
     const handleRegister = (data: RegisterData) => {
         dispatch(register(data))
             .unwrap()
             .then(() => setLoginAuthType())
-            .catch(() => notify());
+            .catch((e) => errorNotify(e));
     };
 
     const renderFormTitle = () => {

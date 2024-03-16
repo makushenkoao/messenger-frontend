@@ -1,9 +1,11 @@
 import { memo } from 'react';
-import { MdModeNight, MdLightMode } from 'react-icons/md';
-import { Icon } from '@/shared/ui/Icon';
-import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { MdLightMode,MdModeNight } from 'react-icons/md';
+
 import { Theme } from '@/shared/const/theme';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+import { Icon } from '@/shared/ui/Icon';
+
 import cls from './ThemeSwitcher.module.scss';
 
 interface ThemeSwitcherProps {

@@ -1,13 +1,16 @@
-import { MdClose } from 'react-icons/md';
 import { useState } from 'react';
+import { MdClose } from 'react-icons/md';
+
+import { Button } from '@/shared/ui/Button';
+import { Icon } from '@/shared/ui/Icon';
+import { Input } from '@/shared/ui/Input';
 import { Modal } from '@/shared/ui/Modal';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
-import { Input } from '@/shared/ui/Input';
-import { Button } from '@/shared/ui/Button';
-import { Icon } from '@/shared/ui/Icon';
-import cls from './ShareModal.module.scss';
+
 import { ShareUser } from './ShareUser/ShareUser';
+
+import cls from './ShareModal.module.scss';
 
 interface ShareModalProps {
     isOpen: boolean;

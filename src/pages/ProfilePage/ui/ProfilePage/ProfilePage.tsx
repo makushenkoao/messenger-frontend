@@ -1,25 +1,28 @@
-import { MdSettings, MdMoreHoriz } from 'react-icons/md';
+import { MdMoreHoriz,MdSettings } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
-import { Page } from '@/widgets/Page';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Text } from '@/shared/ui/Text';
-import { Button } from '@/shared/ui/Button';
-import { Icon } from '@/shared/ui/Icon';
-import { AppImage } from '@/shared/ui/AppImage';
-import { ProfileMoreModal } from '../modals/ProfileMoreModal/ProfileMoreModal';
-import { ProfileSettingsModal } from '../modals/ProfileSettingsModal/ProfileSettingsModal';
-import { ProfileFollowers } from '../modals/ProfileFollowers/ProfileFollowers';
-import { ProfileFollowing } from '../modals/ProfileFollowing/ProfileFollowing';
-import { ProfileEditModal } from '../modals/ProfileEditModal/ProfileEditModal';
-import { useProfileModals } from '../lib/useProfileModals/useProfileModals';
+
+import AvatarImage from '@/shared/assets/images/avatar.png';
+import PostImage from '@/shared/assets/images/image-post.png';
 import {
     getRouteArchives,
     getRouteMessages,
     getRoutePostDetails,
 } from '@/shared/const/router';
-import PostImage from '@/shared/assets/images/image-post.png';
-import AvatarImage from '@/shared/assets/images/avatar.png';
+import { AppImage } from '@/shared/ui/AppImage';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Button } from '@/shared/ui/Button';
+import { Icon } from '@/shared/ui/Icon';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
+import { Page } from '@/widgets/Page';
+
+import { useProfileModals } from '../lib/useProfileModals/useProfileModals';
+import { ProfileEditModal } from '../modals/ProfileEditModal/ProfileEditModal';
+import { ProfileFollowers } from '../modals/ProfileFollowers/ProfileFollowers';
+import { ProfileFollowing } from '../modals/ProfileFollowing/ProfileFollowing';
+import { ProfileMoreModal } from '../modals/ProfileMoreModal/ProfileMoreModal';
+import { ProfileSettingsModal } from '../modals/ProfileSettingsModal/ProfileSettingsModal';
+
 import cls from './ProfilePage.module.scss';
 
 const ProfilePage = () => {

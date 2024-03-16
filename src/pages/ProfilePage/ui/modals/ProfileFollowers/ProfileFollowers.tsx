@@ -1,12 +1,14 @@
 import { MdClose } from 'react-icons/md';
-import { Modal } from '@/shared/ui/Modal';
-import { Text } from '@/shared/ui/Text';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { Icon } from '@/shared/ui/Icon';
-import { Button } from '@/shared/ui/Button';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Input } from '@/shared/ui/Input';
+
 import AvatarImage from '@/shared/assets/images/avatar.png';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Button } from '@/shared/ui/Button';
+import { Icon } from '@/shared/ui/Icon';
+import { Input } from '@/shared/ui/Input';
+import { Modal } from '@/shared/ui/Modal';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
+
 import cls from './ProfileFollowers.module.scss';
 
 interface ProfileFollowersProps {

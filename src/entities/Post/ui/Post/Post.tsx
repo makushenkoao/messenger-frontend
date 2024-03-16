@@ -1,25 +1,28 @@
 import React, { useState } from 'react';
 import {
+    MdBookmark,
+    MdBookmarkBorder,
+    MdFavorite,
     MdFavoriteBorder,
+    MdMoreHoriz,
     MdOutlineComment,
     MdSend,
-    MdBookmarkBorder,
-    MdMoreHoriz,
-    MdFavorite,
-    MdBookmark,
 } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { AppImage } from '@/shared/ui/AppImage';
-import { Text } from '@/shared/ui/Text';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Icon } from '@/shared/ui/Icon';
-import { Button } from '@/shared/ui/Button';
-import { MoreModal, ShareModal } from '../..';
+
 import AvatarImage from '@/shared/assets/images/avatar.png';
 import PostImage from '@/shared/assets/images/image-post.png';
-import cls from './Post.module.scss';
 import { getRoutePostDetails } from '@/shared/const/router';
+import { AppImage } from '@/shared/ui/AppImage';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Button } from '@/shared/ui/Button';
+import { Icon } from '@/shared/ui/Icon';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
+
+import { MoreModal, ShareModal } from '../..';
+
+import cls from './Post.module.scss';
 
 export const Post = () => {
     const navigation = useNavigate();

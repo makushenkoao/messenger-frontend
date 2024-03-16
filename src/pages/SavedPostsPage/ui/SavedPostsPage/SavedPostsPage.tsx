@@ -1,7 +1,8 @@
-import { BackIcon } from '@/widgets/BackIcon';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
-import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
+import { BackIcon } from '@/widgets/BackIcon';
+
 import { SavedPostsList } from '../SavedPostsList/SavedPostsList';
 
 const SavedPostsPage = () => {

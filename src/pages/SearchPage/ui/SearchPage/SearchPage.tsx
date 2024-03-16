@@ -1,13 +1,15 @@
 import { useNavigate } from 'react-router-dom';
+
+import AvatarImage from '@/shared/assets/images/avatar.png';
+import { getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { Input } from '@/shared/ui/Input';
+import { Avatar } from '@/shared/ui/Avatar';
 import { Button } from '@/shared/ui/Button';
 import { Card } from '@/shared/ui/Card';
-import { Avatar } from '@/shared/ui/Avatar';
+import { Input } from '@/shared/ui/Input';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
-import { getRouteProfile } from '@/shared/const/router';
-import AvatarImage from '@/shared/assets/images/avatar.png';
+
 import cls from './SearchPage.module.scss';
 
 const SearchPage = () => {

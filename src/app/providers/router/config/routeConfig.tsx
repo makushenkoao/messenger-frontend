@@ -1,28 +1,29 @@
 import { RouteProps } from 'react-router-dom';
-import {
-    AppRoutes,
-    getRouteHome,
-    getRouteProfile,
-    getRouteMessages,
-    getRouteSearch,
-    getRouteCreatePost,
-    getRouteArchives,
-    getRoutePostDetails,
-    getRouteChat,
-    getRouteSavedPosts,
-    getRouteSettings,
-} from '@/shared/const/router';
-import { HomePage } from '@/pages/HomePage';
-import { ProfilePage } from '@/pages/ProfilePage';
-import { SearchPage } from '@/pages/SearchPage';
-import { MessagesPage } from '@/pages/MessagesPage';
-import { NotFoundPage } from '@/pages/NotFoundPage';
-import { CreatePostPage } from '@/pages/CreatePostPage';
+
 import { ArchivesPage } from '@/pages/ArchivesPage';
 import { ChatPage } from '@/pages/ChatPage';
+import { CreatePostPage } from '@/pages/CreatePostPage';
+import { HomePage } from '@/pages/HomePage';
+import { MessagesPage } from '@/pages/MessagesPage';
+import { NotFoundPage } from '@/pages/NotFoundPage';
 import { PostDetailsPage } from '@/pages/PostDetailsPage';
+import { ProfilePage } from '@/pages/ProfilePage';
 import { SavedPostsPage } from '@/pages/SavedPostsPage';
+import { SearchPage } from '@/pages/SearchPage';
 import { SettingsPage } from '@/pages/SettingsPage';
+import {
+    AppRoutes,
+    getRouteArchives,
+    getRouteChat,
+    getRouteCreatePost,
+    getRouteHome,
+    getRouteMessages,
+    getRoutePostDetails,
+    getRouteProfile,
+    getRouteSavedPosts,
+    getRouteSearch,
+    getRouteSettings,
+} from '@/shared/const/router';
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
     [AppRoutes.SETTINGS]: {

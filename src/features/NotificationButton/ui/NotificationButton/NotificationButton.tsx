@@ -1,12 +1,14 @@
 import { memo } from 'react';
 import { MdDone, MdNotificationsNone } from 'react-icons/md';
+
+import AvatarImage from '@/shared/assets/images/avatar.png';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Card } from '@/shared/ui/Card';
 import { Icon } from '@/shared/ui/Icon';
 import { Popover } from '@/shared/ui/Popups';
-import { Card } from '@/shared/ui/Card';
 import { HStack, VStack } from '@/shared/ui/Stack';
-import { Avatar } from '@/shared/ui/Avatar';
 import { Text } from '@/shared/ui/Text';
-import AvatarImage from '@/shared/assets/images/avatar.png';
+
 import cls from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {

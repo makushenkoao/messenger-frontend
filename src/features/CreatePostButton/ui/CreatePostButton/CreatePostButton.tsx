@@ -1,14 +1,16 @@
-import { MdOutlineCreateNewFolder } from 'react-icons/md';
 import { useState } from 'react';
+import { MdOutlineCreateNewFolder } from 'react-icons/md';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './CreatePostButton.module.scss';
-import { Icon } from '@/shared/ui/Icon';
-import { Modal } from '@/shared/ui/Modal';
-import { Text } from '@/shared/ui/Text';
-import { VStack } from '@/shared/ui/Stack';
-import { Input } from '@/shared/ui/Input';
-import { FileInput } from '@/shared/ui/FileInput';
 import { Button } from '@/shared/ui/Button';
+import { FileInput } from '@/shared/ui/FileInput';
+import { Icon } from '@/shared/ui/Icon';
+import { Input } from '@/shared/ui/Input';
+import { Modal } from '@/shared/ui/Modal';
+import { VStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
+
+import cls from './CreatePostButton.module.scss';
 
 interface CreatePostButtonProps {
     className?: string;

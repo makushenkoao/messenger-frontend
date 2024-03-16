@@ -1,11 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { User, LoginPayload } from '../types/user';
-import { UserSchema } from '../types/userSchema';
+
 import { USER_LOCAL_STORAGE_KEY } from '@/shared/const/localStorage';
-import { initAuthData } from '../services/initAuthData/initAuthData';
-import { register } from '../services/auth/register';
-import { login } from '../services/auth/login';
+
 import { resetPassword } from '../..';
+import { login } from '../services/auth/login';
+import { register } from '../services/auth/register';
+import { initAuthData } from '../services/initAuthData/initAuthData';
+import { LoginPayload,User } from '../types/user';
+import { UserSchema } from '../types/userSchema';
 
 const initialState: UserSchema = {
     _mounted: false,

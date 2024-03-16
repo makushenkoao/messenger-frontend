@@ -1,6 +1,6 @@
-import { Setting, User } from '../model/types/user';
-
 import { rtkApi } from '@/shared/api/rtkApi';
+
+import { Setting, User } from '../model/types/user';
 
 interface UpdateSettingsArgs {
     id: string;

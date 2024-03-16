@@ -5,14 +5,14 @@ import {
     ReducersMapObject,
 } from '@reduxjs/toolkit';
 
-import { StateSchema } from './StateSchema';
-import { createReducerManager } from './reducerManager';
-
+import { userReducer } from '@/entities/User';
+import { uiReducer } from '@/features/UI';
 // import { userReducer } from '@/entities/User';
 import { $api } from '@/shared/api/api';
-import { uiReducer } from '@/features/UI';
 import { rtkApi } from '@/shared/api/rtkApi';
-import { userReducer } from '@/entities/User';
+
+import { createReducerManager } from './reducerManager';
+import { StateSchema } from './StateSchema';
 
 export function createReduxStore(
     initialState?: StateSchema,

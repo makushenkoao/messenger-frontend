@@ -1,12 +1,14 @@
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import { userActions } from '@/entities/User';
+import { getRouteSettings } from '@/shared/const/router';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Button } from '@/shared/ui/Button';
 import { Modal } from '@/shared/ui/Modal';
 import { VStack } from '@/shared/ui/Stack';
-import { Button } from '@/shared/ui/Button';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { userActions } from '@/entities/User';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getRouteSettings } from '@/shared/const/router';
+
 import cls from './ProfileSettingsModal.module.scss';
 
 interface ProfileSettingsModalProps {

@@ -1,6 +1,7 @@
-import { VStack } from '@/shared/ui/Stack';
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { ScrollToTopButton } from '@/features/ScrollToTopButton';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { VStack } from '@/shared/ui/Stack';
+
 import cls from './ScrollToolbar.module.scss';
 
 interface ScrollToolbarProps {

@@ -1,6 +1,8 @@
 import { memo, Suspense, useCallback, useEffect } from 'react';
 import { Route, RouteProps, Routes, useLocation } from 'react-router-dom';
+
 import { PageLoader } from '@/widgets/PageLoader';
+
 import { routeConfig } from '../config/routeConfig';
 
 export const AppRouter = () => {

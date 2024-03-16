@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { MdOutlineCreate } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { Text } from '@/shared/ui/Text';
-import { Icon } from '@/shared/ui/Icon';
+
+import AvatarImage from '@/shared/assets/images/avatar.png';
+import { getRouteChat } from '@/shared/const/router';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Card } from '@/shared/ui/Card';
+import { Icon } from '@/shared/ui/Icon';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
+
 import { CreateMessageModal } from '../CreateMessageModal/CreateMessageModal';
-import AvatarImage from '@/shared/assets/images/avatar.png';
+
 import cls from './ChatList.module.scss';
-import { getRouteChat } from '@/shared/const/router';
 
 export const ChatList = () => {
     const [isOpenCreateMessage, setIsOpenCreateMessage] = useState(false);

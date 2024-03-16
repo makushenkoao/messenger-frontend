@@ -1,8 +1,8 @@
 import { memo } from 'react';
 
-import cls from './Text.module.scss';
-
 import { classNames } from '@/shared/lib/classNames/classNames';
+
+import cls from './Text.module.scss';
 
 export type TextVariant = 'primary' | 'error' | 'accent' | 'success';
 
