@@ -6,7 +6,7 @@ import { resetPassword } from '../..';
 import { login } from '../services/auth/login';
 import { register } from '../services/auth/register';
 import { initAuthData } from '../services/initAuthData/initAuthData';
-import { LoginPayload,User } from '../types/user';
+import { LoginPayload, User } from '../types/user';
 import { UserSchema } from '../types/userSchema';
 
 const initialState: UserSchema = {

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { MdLightMode,MdModeNight } from 'react-icons/md';
+import { MdLightMode, MdModeNight } from 'react-icons/md';
 
 import { Theme } from '@/shared/const/theme';
 import { classNames } from '@/shared/lib/classNames/classNames';

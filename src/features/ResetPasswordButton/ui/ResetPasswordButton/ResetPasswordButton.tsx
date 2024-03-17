@@ -12,7 +12,6 @@ import { Text } from '@/shared/ui/Text';
 
 import cls from './ResetPasswordButton.module.scss';
 
-
 export const ResetPasswordButton = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [newPassword, setNewPassword] = useState('');

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { MoreModal, PostDetailsCard,ShareModal } from '@/entities/Post';
+import { MoreModal, PostDetailsCard, ShareModal } from '@/entities/Post';
 import { PostCommentsCard } from '@/features/PostCommentsCard';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { VStack } from '@/shared/ui/Stack';

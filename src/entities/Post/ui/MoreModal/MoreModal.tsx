@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { errorNotify, successNotify } from '@/shared/lib/utils/notify';
 import { Button } from '@/shared/ui/Button';
 import { Modal } from '@/shared/ui/Modal';
 import { VStack } from '@/shared/ui/Stack';
@@ -25,6 +26,21 @@ export const MoreModal = (props: MoreModalProps) => {
         setIsOpenEditPostModal(true);
     };
     const handleCloseEditPostModal = () => setIsOpenEditPostModal(false);
+
+    const handleCopyPostUrl = () => {
+        navigator.clipboard
+            .writeText('http://localhost:3000/posts/coppied-post')
+            .then(() => {
+                onClose();
+                successNotify(
+                    'The link to the publication was successfully copied',
+                );
+            })
+            .catch(() => {
+                onClose();
+                errorNotify('There was an error copying the post link');
+            });
+    };
 
     const options = [];
 
@@ -64,7 +80,7 @@ export const MoreModal = (props: MoreModalProps) => {
             {
                 id: '7',
                 content: 'Copy Post Link',
-                onClick: () => console.log('click'),
+                onClick: () => handleCopyPostUrl(),
             },
             {
                 id: '8',

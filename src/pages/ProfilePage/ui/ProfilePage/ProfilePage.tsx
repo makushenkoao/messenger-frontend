@@ -1,4 +1,4 @@
-import { MdMoreHoriz,MdSettings } from 'react-icons/md';
+import { MdMoreHoriz, MdSettings } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 
 import AvatarImage from '@/shared/assets/images/avatar.png';
