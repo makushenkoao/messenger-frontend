@@ -1,4 +1,7 @@
+import { useNavigate } from 'react-router-dom';
+
 import AvatarImage from '@/shared/assets/images/avatar.png';
+import { getRouteRecommendations } from '@/shared/const/router';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Button } from '@/shared/ui/Button';
 import { Card } from '@/shared/ui/Card';
@@ -8,6 +11,8 @@ import { Text } from '@/shared/ui/Text';
 import cls from './RecommendationsCard.module.scss';
 
 export const RecommendationsCard = () => {
+    const navigate = useNavigate();
+
     return (
         <Card
             padding="16"
@@ -26,7 +31,12 @@ export const RecommendationsCard = () => {
                         text="Recommendations for You"
                         bold
                     />
-                    <Button variant="clear">All</Button>
+                    <Button
+                        variant="clear"
+                        onClick={() => navigate(getRouteRecommendations())}
+                    >
+                        All
+                    </Button>
                 </HStack>
                 <VStack
                     gap="8"

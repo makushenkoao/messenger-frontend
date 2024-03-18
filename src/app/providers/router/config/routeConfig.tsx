@@ -7,6 +7,7 @@ import { MessagesPage } from '@/pages/MessagesPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { PostDetailsPage } from '@/pages/PostDetailsPage';
 import { ProfilePage } from '@/pages/ProfilePage';
+import { RecommendationsPage } from '@/pages/RecommendationsPage';
 import { RegisterPage } from '@/pages/RegisterPage';
 import { SavedPostsPage } from '@/pages/SavedPostsPage';
 import { SearchPage } from '@/pages/SearchPage';
@@ -21,6 +22,7 @@ import {
     getRouteMessages,
     getRoutePostDetails,
     getRouteProfile,
+    getRouteRecommendations,
     getRouteRegister,
     getRouteSavedPosts,
     getRouteSearch,
@@ -87,6 +89,11 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MESSAGES]: {
         path: getRouteMessages(),
         element: <MessagesPage />,
+        authOnly: true,
+    },
+    [AppRoutes.RECOMMENDATIONS]: {
+        path: getRouteRecommendations(),
+        element: <RecommendationsPage />,
         authOnly: true,
     },
     [AppRoutes.NOT_FOUND]: {

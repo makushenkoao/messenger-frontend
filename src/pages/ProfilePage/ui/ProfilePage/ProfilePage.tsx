@@ -39,7 +39,6 @@ const ProfilePage = () => {
         handleOpenSettings,
         handleCloseFollowers,
         handleOpenMore,
-        handleCloseEdit,
         handleOpenFollowing,
     } = useProfileModals();
 
@@ -138,10 +137,6 @@ const ProfilePage = () => {
                         <VStack gap="0">
                             <Text
                                 text="Name"
-                                size="s"
-                            />
-                            <Text
-                                text="Profile Type"
                                 size="s"
                             />
                             <Text

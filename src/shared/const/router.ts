@@ -1,6 +1,7 @@
 import { SettingsType } from '../types/settings';
 
 export enum AppRoutes {
+    RECOMMENDATIONS = 'recommendations',
     SETTINGS = 'settings',
     LOGIN = 'login',
     REGISTER = 'register',
@@ -28,6 +29,7 @@ export const getRouteSavedPosts = () => '/saved_posts';
 export const getRouteSettings = (type: SettingsType) => `/settings/${type}`;
 export const getRouteLogin = () => '/auth/login';
 export const getRouteRegister = () => '/auth/register';
+export const getRouteRecommendations = () => '/recommendations';
 
 export const AppRouteByPathPattern: Record<string, AppRoutes> = {
     [getRouteHome()]: AppRoutes.HOME,

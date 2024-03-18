@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 export const useProfileModals = () => {
     const [isOpenFollowers, setIsOpenFollowers] = useState(false);
-    const [isOpenEdit, setIsOpenEdit] = useState(false);
     const [isOpenFollowing, setIsOpenFollowing] = useState(false);
     const [isOpenMore, setIsOpenMore] = useState(false);
     const [isOpenSettings, setIsOpenSettings] = useState(false);
@@ -16,12 +15,9 @@ export const useProfileModals = () => {
     const handleCloseFollowers = () => setIsOpenFollowers(false);
     const handleOpenFollowing = () => setIsOpenFollowing(true);
     const handleCloseFollowing = () => setIsOpenFollowing(false);
-    const handleOpenEdit = () => setIsOpenEdit(true);
-    const handleCloseEdit = () => setIsOpenEdit(false);
 
     return {
         isOpenFollowers,
-        isOpenEdit,
         isOpenFollowing,
         isOpenMore,
         isOpenSettings,
@@ -34,7 +30,5 @@ export const useProfileModals = () => {
         handleCloseFollowers,
         handleOpenFollowing,
         handleCloseFollowing,
-        handleOpenEdit,
-        handleCloseEdit,
     };
 };
