@@ -87,9 +87,9 @@ const RegisterPage = () => {
                                 rules={{
                                     required: 'Nickname is required',
                                     minLength: {
-                                        value: 5,
+                                        value: 4,
                                         message:
-                                            'Nickname should be at least 5 characters',
+                                            'Nickname should be at least 4 characters',
                                     },
                                     pattern: {
                                         value: /^[A-Za-z]+$/i,

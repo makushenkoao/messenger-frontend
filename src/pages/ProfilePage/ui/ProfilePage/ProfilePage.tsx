@@ -7,6 +7,7 @@ import {
     getRouteArchives,
     getRouteMessages,
     getRoutePostDetails,
+    getRouteSettings,
 } from '@/shared/const/router';
 import { AppImage } from '@/shared/ui/AppImage';
 import { Avatar } from '@/shared/ui/Avatar';
@@ -17,7 +18,6 @@ import { Text } from '@/shared/ui/Text';
 import { Page } from '@/widgets/Page';
 
 import { useProfileModals } from '../lib/useProfileModals/useProfileModals';
-import { ProfileEditModal } from '../modals/ProfileEditModal/ProfileEditModal';
 import { ProfileFollowers } from '../modals/ProfileFollowers/ProfileFollowers';
 import { ProfileFollowing } from '../modals/ProfileFollowing/ProfileFollowing';
 import { ProfileMoreModal } from '../modals/ProfileMoreModal/ProfileMoreModal';
@@ -28,7 +28,6 @@ import cls from './ProfilePage.module.scss';
 const ProfilePage = () => {
     const {
         isOpenFollowing,
-        isOpenEdit,
         isOpenSettings,
         isOpenMore,
         isCurrentUser,
@@ -37,7 +36,6 @@ const ProfilePage = () => {
         handleCloseSettings,
         handleCloseMore,
         handleOpenFollowers,
-        handleOpenEdit,
         handleOpenSettings,
         handleCloseFollowers,
         handleOpenMore,
@@ -45,14 +43,14 @@ const ProfilePage = () => {
         handleOpenFollowing,
     } = useProfileModals();
 
-    const navigation = useNavigate();
+    const navigate = useNavigate();
 
     const handleFollow = () => {
         console.log('Follow to Profile');
     };
 
     const handleNavigateToPostDetails = () => {
-        navigation(getRoutePostDetails('post-id-here'));
+        navigate(getRoutePostDetails('post-id-here'));
     };
 
     return (
@@ -80,12 +78,16 @@ const ProfilePage = () => {
                             />
                             {isCurrentUser ? (
                                 <>
-                                    <Button onClick={handleOpenEdit}>
+                                    <Button
+                                        onClick={() =>
+                                            navigate(getRouteSettings('edit'))
+                                        }
+                                    >
                                         Edit Profile
                                     </Button>
                                     <Button
                                         onClick={() =>
-                                            navigation(getRouteArchives())
+                                            navigate(getRouteArchives())
                                         }
                                     >
                                         View Archive
@@ -104,7 +106,7 @@ const ProfilePage = () => {
                                     </Button>
                                     <Button
                                         onClick={() =>
-                                            navigation(getRouteMessages())
+                                            navigate(getRouteMessages())
                                         }
                                     >
                                         Message
@@ -194,10 +196,6 @@ const ProfilePage = () => {
             <ProfileFollowing
                 isOpen={isOpenFollowing}
                 onClose={handleCloseFollowing}
-            />
-            <ProfileEditModal
-                isOpen={isOpenEdit}
-                onClose={handleCloseEdit}
             />
         </Page>
     );

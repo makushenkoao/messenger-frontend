@@ -40,7 +40,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
         authOnly: false,
     },
     [AppRoutes.SETTINGS]: {
-        path: getRouteSettings(),
+        path: getRouteSettings(':type'),
         element: <SettingsPage />,
         authOnly: true,
     },

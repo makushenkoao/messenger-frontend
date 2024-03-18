@@ -1,0 +1,20 @@
+.sidebar {
+  height: var(--screen-height);
+  width: 300px;
+}
+
+.link {
+  border-radius: 12px;
+  width: 100%;
+  padding: 14px;
+
+  &:hover {
+    p {
+      color: var(--accent);
+    }
+  }
+}
+
+.active {
+  background: var(--light-bg);
+}

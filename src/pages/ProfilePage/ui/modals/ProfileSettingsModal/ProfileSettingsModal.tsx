@@ -22,7 +22,7 @@ export const ProfileSettingsModal = (props: ProfileSettingsModalProps) => {
     const navigate = useNavigate();
 
     const navigateToSettings = () => {
-        navigate(getRouteSettings());
+        navigate(getRouteSettings('edit'));
     };
 
     const onLogout = useCallback(() => {

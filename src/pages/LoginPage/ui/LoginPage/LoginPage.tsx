@@ -18,8 +18,8 @@ import { LoginData, LoginFields } from '../../model/types/login';
 import cls from './LoginPage.module.scss';
 
 const initialState: LoginData = {
-    email: 'admin@gmail.com',
-    password: 'admin123',
+    email: 'test@gmail.com',
+    password: 'test123',
 };
 
 const LoginPage = () => {

@@ -1,3 +1,5 @@
+import { SettingsType } from '../types/settings';
+
 export enum AppRoutes {
     SETTINGS = 'settings',
     LOGIN = 'login',
@@ -23,7 +25,7 @@ export const getRouteArchives = () => '/archives';
 export const getRouteChat = (id: string) => `/messages/${id}`;
 export const getRoutePostDetails = (id: string) => `/posts/${id}`;
 export const getRouteSavedPosts = () => '/saved_posts';
-export const getRouteSettings = () => '/settings';
+export const getRouteSettings = (type: SettingsType) => `/settings/${type}`;
 export const getRouteLogin = () => '/auth/login';
 export const getRouteRegister = () => '/auth/register';
 
@@ -37,7 +39,7 @@ export const AppRouteByPathPattern: Record<string, AppRoutes> = {
     [getRouteChat(':id')]: AppRoutes.CHAT,
     [getRoutePostDetails(':id')]: AppRoutes.POST_DETAILS,
     [getRouteSavedPosts()]: AppRoutes.SAVED_POSTS,
-    [getRouteSettings()]: AppRoutes.SETTINGS,
+    [getRouteSettings(':type')]: AppRoutes.SETTINGS,
     [getRouteLogin()]: AppRoutes.LOGIN,
     [getRouteRegister()]: AppRoutes.REGISTER,
     ':path': AppRoutes.NOT_FOUND,
