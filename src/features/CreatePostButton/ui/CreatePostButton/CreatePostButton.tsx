@@ -1,4 +1,4 @@
-import { FormEvent } from 'react';
+import { FormEvent, useState } from 'react';
 import { MdOutlineCreateNewFolder } from 'react-icons/md';
 
 import { useCreatePost } from '@/entities/Post';
@@ -18,23 +18,26 @@ interface CreatePostButtonProps {
 }
 
 export const CreatePostButton = (props: CreatePostButtonProps) => {
+    const [isOpen, setIsOpen] = useState(false);
     const { className } = props;
     const {
-        isOpenModal,
-        handleCloseModal,
-        handleOpenModal,
         handleCreatePost,
         handleChangeFile,
         handleChangeData,
         data,
         selectedFile,
         loading,
-    } = useCreatePost();
+    } = useCreatePost({
+        onClose: () => setIsOpen(false),
+    });
 
     const onSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         handleCreatePost();
     };
+
+    const handleClose = () => setIsOpen(false);
+    const handleOpen = () => setIsOpen(true);
 
     return (
         <div className={classNames(cls.CreatePostButton, {}, [className])}>
@@ -42,13 +45,13 @@ export const CreatePostButton = (props: CreatePostButtonProps) => {
                 svg={MdOutlineCreateNewFolder}
                 width={36}
                 height={36}
-                onClick={handleOpenModal}
+                onClick={handleOpen}
                 clickable
                 className={cls.icon}
             />
             <Modal
-                isOpen={isOpenModal}
-                onClose={handleCloseModal}
+                isOpen={isOpen}
+                onClose={handleClose}
                 lazy
             >
                 <form

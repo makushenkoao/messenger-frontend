@@ -6,6 +6,7 @@ import { Button } from '@/shared/ui/Button';
 import { Modal } from '@/shared/ui/Modal';
 import { VStack } from '@/shared/ui/Stack';
 
+import { useDeletePost } from '../..';
 import { EditPostModal } from '../EditPostModal/EditPostModal';
 
 import cls from './MoreModal.module.scss';
@@ -18,8 +19,11 @@ interface MoreModalProps {
 
 export const MoreModal = (props: MoreModalProps) => {
     const { isOpen, onClose, isPostAuthor = true } = props;
-
     const [isOpenEditPostModal, setIsOpenEditPostModal] = useState(false);
+    const { loading, handleDeletePost } = useDeletePost({
+        id: '65f9c02621a828f589ca2b75',
+        onClose: () => setIsOpenEditPostModal(false),
+    });
 
     const handleOpenEditPostModal = () => {
         onClose();
@@ -49,7 +53,7 @@ export const MoreModal = (props: MoreModalProps) => {
             {
                 id: '1',
                 content: 'Delete',
-                onClick: () => console.log('click'),
+                onClick: () => handleDeletePost(),
                 important: true,
             },
             {
@@ -139,6 +143,7 @@ export const MoreModal = (props: MoreModalProps) => {
                     {options.map((item, index) => (
                         <Button
                             key={item.id}
+                            disabled={loading}
                             fullWidth
                             variant="clear"
                             onClick={item.onClick}

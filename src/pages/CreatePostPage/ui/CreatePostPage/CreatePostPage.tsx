@@ -7,10 +7,6 @@ import { Input } from '@/shared/ui/Input';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 
-// 65f9bd3821a828f589ca2b69
-// 65f9bdcc21a828f589ca2b6d
-// 65f9c02621a828f589ca2b75
-
 const CreatePostPage = () => {
     const {
         handleCreatePost,

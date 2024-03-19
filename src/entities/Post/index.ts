@@ -1,6 +1,11 @@
-export { useCreatePost } from './libs/useCreatePost/useCreatePost';
+export { useDeletePost } from './lib/useDeletePost/useDeletePost';
+export { useUpdatePost } from './lib/useEditPost/useEditPost';
+export { createPost } from './model/services/createPost/createPost';
+export { deletePost } from './model/services/deletePost/deletePost';
+export { updatePost } from './model/services/updatePost/updatePost';
 export { MoreModal } from './ui/MoreModal/MoreModal';
 export { Post } from './ui/Post/Post';
 export { PostDetailsCard } from './ui/PostDetailsCard/PostDetailsCard';
 export { PostList } from './ui/PostList/PostList';
 export { ShareModal } from './ui/ShareModal/ShareModal';
+export { useCreatePost } from '@/entities/Post/lib/useCreatePost/useCreatePost';
