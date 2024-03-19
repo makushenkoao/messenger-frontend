@@ -1,3 +1,4 @@
+export { useCreatePost } from './libs/useCreatePost/useCreatePost';
 export { MoreModal } from './ui/MoreModal/MoreModal';
 export { Post } from './ui/Post/Post';
 export { PostDetailsCard } from './ui/PostDetailsCard/PostDetailsCard';

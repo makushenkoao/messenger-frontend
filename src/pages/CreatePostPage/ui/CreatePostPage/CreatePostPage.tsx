@@ -1,43 +1,68 @@
-import { useState } from 'react';
+import { FormEvent } from 'react';
 
+import { useCreatePost } from '@/entities/Post';
 import { Button } from '@/shared/ui/Button';
 import { FileInput } from '@/shared/ui/FileInput';
 import { Input } from '@/shared/ui/Input';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 
+// 65f9bd3821a828f589ca2b69
+// 65f9bdcc21a828f589ca2b6d
+// 65f9c02621a828f589ca2b75
+
 const CreatePostPage = () => {
-    const [selectedFile, setSelectedFile] = useState<File | null>(null);
+    const {
+        handleCreatePost,
+        handleChangeFile,
+        handleChangeData,
+        data,
+        selectedFile,
+        loading,
+    } = useCreatePost();
 
-    const handleChangeFile = (file: File) => {
-        console.log(file);
-        setSelectedFile(file);
-    };
-
-    const handleCreatePost = () => {
-        console.log('Handle Post');
+    const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        handleCreatePost();
     };
 
     return (
-        <div>
+        <form onSubmit={onSubmit}>
             <VStack
                 max
                 gap="16"
             >
                 <Text title="Create Post" />
-                <Input placeholder="Enter Description" />
+                <Input
+                    placeholder="Enter Title"
+                    value={data.title}
+                    onChange={(value) => handleChangeData(value, 'title')}
+                    disabled={loading}
+                />
+                <Input
+                    placeholder="Enter Description"
+                    value={data.text}
+                    onChange={(value) => handleChangeData(value, 'text')}
+                    disabled={loading}
+                />
                 <FileInput
                     value={selectedFile}
                     onFileChange={handleChangeFile}
+                    disabled={loading}
                 />
                 <HStack
                     max
                     justify="end"
                 >
-                    <Button onClick={handleCreatePost}>Create</Button>
+                    <Button
+                        type="submit"
+                        disabled={loading}
+                    >
+                        Create
+                    </Button>
                 </HStack>
             </VStack>
-        </div>
+        </form>
     );
 };
 export default CreatePostPage;

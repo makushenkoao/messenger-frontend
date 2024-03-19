@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { FormEvent } from 'react';
 import { MdOutlineCreateNewFolder } from 'react-icons/md';
 
+import { useCreatePost } from '@/entities/Post';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/Button';
 import { FileInput } from '@/shared/ui/FileInput';
@@ -18,15 +19,22 @@ interface CreatePostButtonProps {
 
 export const CreatePostButton = (props: CreatePostButtonProps) => {
     const { className } = props;
-    const [isOpen, setIsOpen] = useState(false);
-    const [selectedFile, setSelectedFile] = useState<File | null>(null);
+    const {
+        isOpenModal,
+        handleCloseModal,
+        handleOpenModal,
+        handleCreatePost,
+        handleChangeFile,
+        handleChangeData,
+        data,
+        selectedFile,
+        loading,
+    } = useCreatePost();
 
-    const handleChangeFile = (file: File) => {
-        setSelectedFile(file);
+    const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        handleCreatePost();
     };
-
-    const handleOpen = () => setIsOpen(true);
-    const handleClose = () => setIsOpen(false);
 
     return (
         <div className={classNames(cls.CreatePostButton, {}, [className])}>
@@ -34,35 +42,61 @@ export const CreatePostButton = (props: CreatePostButtonProps) => {
                 svg={MdOutlineCreateNewFolder}
                 width={36}
                 height={36}
-                onClick={handleOpen}
+                onClick={handleOpenModal}
                 clickable
                 className={cls.icon}
             />
             <Modal
-                isOpen={isOpen}
-                onClose={handleClose}
+                isOpen={isOpenModal}
+                onClose={handleCloseModal}
                 lazy
             >
-                <VStack
-                    max
-                    gap="16"
-                    className={cls.modalContent}
+                <form
+                    onSubmit={onSubmit}
+                    className={cls.form}
                 >
-                    <div className={cls.header}>
-                        <Text
-                            text="Create Post"
-                            bold
+                    <VStack
+                        max
+                        gap="16"
+                    >
+                        <div className={cls.header}>
+                            <Text
+                                text="Create Post"
+                                bold
+                            />
+                        </div>
+                        <Input
+                            placeholder="Enter Title"
+                            value={data.title}
+                            onChange={(value) =>
+                                handleChangeData(value, 'title')
+                            }
+                            disabled={loading}
                         />
-                    </div>
-                    <Input placeholder="Enter Description" />
-                    <FileInput
-                        onFileChange={handleChangeFile}
-                        value={selectedFile}
-                    />
-                    <div className={cls.footer}>
-                        <Button fullWidth>Create Post</Button>
-                    </div>
-                </VStack>
+                        <Input
+                            placeholder="Enter Description"
+                            value={data.text}
+                            onChange={(value) =>
+                                handleChangeData(value, 'text')
+                            }
+                            disabled={loading}
+                        />
+                        <FileInput
+                            onFileChange={handleChangeFile}
+                            value={selectedFile}
+                            disabled={loading}
+                        />
+                        <div className={cls.footer}>
+                            <Button
+                                type="submit"
+                                fullWidth
+                                disabled={loading}
+                            >
+                                Create Post
+                            </Button>
+                        </div>
+                    </VStack>
+                </form>
             </Modal>
         </div>
     );
