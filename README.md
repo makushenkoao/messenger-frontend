@@ -1,4 +1,4 @@
-# AK Messenger - all you need in one place
+# AK Messenger - _all you need in one place_
 
 ![logo](src/shared/assets/images/logo.png)
 
@@ -91,7 +91,7 @@ All types of tests, assembly of the project and storybook, linting are carried o
 
 ---
 
-### Working with data
+## Working with data
 
 Interaction with data was carried out using the Redux toolkit.
 Whenever possible, reusable entities should be normalized using the EntityAdapter
