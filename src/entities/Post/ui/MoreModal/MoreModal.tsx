@@ -22,7 +22,7 @@ export const MoreModal = (props: MoreModalProps) => {
     const [isOpenEditPostModal, setIsOpenEditPostModal] = useState(false);
     const { loading, handleDeletePost } = useDeletePost({
         id: '65f9c02621a828f589ca2b75',
-        onClose: () => setIsOpenEditPostModal(false),
+        onClose,
     });
 
     const handleOpenEditPostModal = () => {
