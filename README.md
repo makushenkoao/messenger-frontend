@@ -6,13 +6,11 @@ Our messenger is an innovative platform that combines the functionality of a soc
 
 ![site screenshot](src/shared/assets/images/site-screenshot.png)
 
+---
+
 ## Key Features
 
 -   **Feature:** Description
-
-## Contact Us
-
-If you have any questions, suggestions, or inquiries, please don't hesitate to contact our team at [antonmak2046@gmail.com](mailto:antonmak2046@gmail.com). We value your feedback and are excited to hear from you!
 
 ---
 
@@ -110,3 +108,9 @@ For asynchronous connection of reducers (so as not to pull them into a common bu
 ## Features
 
 -   [Feature](/src/features)
+
+---
+
+## Contact Us
+
+If you have any questions, suggestions, or inquiries, please don't hesitate to contact our team at [antonmak2046@gmail.com](mailto:antonmak2046@gmail.com). We value your feedback and are excited to hear from you!
