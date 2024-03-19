@@ -1,6 +1,10 @@
 # AK Messenger - all you need in one place
 
+![logo](src/shared/assets/images/logo.png)
+
 Our messenger is an innovative platform that combines the functionality of a social network and a messenger. Users can publish their posts, exchange messages, follow the activity of other users, comment and like their posts, and receive real-time notifications about important events and interactions. Our product provides convenience and freedom of communication, as well as a wide range of additional functions for a rich user experience.
+
+![site screenshot](src/shared/assets/images/site-screenshot.png)
 
 ## Key Features
 
