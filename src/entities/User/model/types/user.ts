@@ -1,15 +1,3 @@
-export enum WhoCanViewEnum {
-    ALL = 'all',
-    FRIENDS = 'friends',
-    NOBODY = 'nobody',
-}
-
-export interface Setting {
-    isClosedAccount: boolean;
-    whoCanViewPosts: WhoCanViewEnum;
-    whoCanViewFriends: WhoCanViewEnum;
-}
-
 export interface User {
     _id: string;
     email: string;

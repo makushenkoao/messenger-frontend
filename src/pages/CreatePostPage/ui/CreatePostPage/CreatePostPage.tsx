@@ -2,7 +2,7 @@ import { FormEvent } from 'react';
 
 import { useCreatePost } from '@/entities/Post';
 import { Button } from '@/shared/ui/Button';
-import { FileInput } from '@/shared/ui/FileInput';
+import { FilesInput } from '@/shared/ui/FilesInput';
 import { Input } from '@/shared/ui/Input';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
@@ -10,10 +10,10 @@ import { Text } from '@/shared/ui/Text';
 const CreatePostPage = () => {
     const {
         handleCreatePost,
-        handleChangeFile,
+        handleChangePhotos,
         handleChangeData,
+        photos,
         data,
-        selectedFile,
         loading,
     } = useCreatePost();
 
@@ -41,10 +41,10 @@ const CreatePostPage = () => {
                     onChange={(value) => handleChangeData(value, 'text')}
                     disabled={loading}
                 />
-                <FileInput
-                    value={selectedFile}
-                    onFileChange={handleChangeFile}
+                <FilesInput
+                    values={photos}
                     disabled={loading}
+                    onFilesChange={handleChangePhotos}
                 />
                 <HStack
                     max

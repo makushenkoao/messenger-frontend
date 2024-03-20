@@ -22,23 +22,23 @@ interface UseCreatePostProps {
 }
 
 export const useCreatePost = (props?: UseCreatePostProps) => {
-    const [selectedFile, setSelectedFile] = useState<File | null>(null);
+    const [photos, setPhotos] = useState<File[]>([]);
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState<CreatePostData>({ ...initialState });
     const dispatch = useAppDispatch();
 
-    const handleChangeFile = (file: File) => {
-        setSelectedFile(file);
+    const handleChangePhotos = (newPhotos: File[]) => {
+        setPhotos(newPhotos);
     };
-
     const handleCreatePost = () => {
         setLoading(true);
 
-        dispatch(createPost(data))
+        dispatch(createPost({ ...data, photos }))
             .unwrap()
             .then(() => {
                 successNotify('Post successfully created');
                 setData({ ...initialState });
+                setPhotos([]);
                 setLoading(false);
                 props?.onClose();
             })
@@ -57,11 +57,11 @@ export const useCreatePost = (props?: UseCreatePostProps) => {
     };
 
     return {
-        selectedFile,
+        photos,
         loading,
         data,
         handleChangeData,
         handleCreatePost,
-        handleChangeFile,
+        handleChangePhotos,
     };
 };

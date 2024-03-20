@@ -1,0 +1,32 @@
+.fileInputContainer {
+  display: flex;
+  gap: 15px;
+  align-items: start;
+  flex-direction: column;
+}
+
+.customFileInput {
+  display: none;
+}
+
+.customFileLabel {
+  border: 2px solid var(--icon);
+  color: white;
+  padding: 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  font: var(--font-m);
+}
+
+.customFileLabel:hover {
+  opacity: 0.8;
+}
+
+.close {
+  width: 28px;
+  height: 28px;
+}
+
+.disabled {
+  opacity: 0.7;
+}

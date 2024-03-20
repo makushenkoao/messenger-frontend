@@ -18,6 +18,7 @@ import { Sidebar } from '@/widgets/Sidebar';
 //  move auth from user entity to auth feature
 //  complete authentication
 //  skeletons
+//  integrate component FilesInput to FileInput
 
 function App() {
     const { theme } = useTheme();

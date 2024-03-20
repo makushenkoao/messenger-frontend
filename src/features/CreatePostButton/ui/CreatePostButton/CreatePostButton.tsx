@@ -4,7 +4,7 @@ import { MdOutlineCreateNewFolder } from 'react-icons/md';
 import { useCreatePost } from '@/entities/Post';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/Button';
-import { FileInput } from '@/shared/ui/FileInput';
+import { FilesInput } from '@/shared/ui/FilesInput';
 import { Icon } from '@/shared/ui/Icon';
 import { Input } from '@/shared/ui/Input';
 import { Modal } from '@/shared/ui/Modal';
@@ -22,10 +22,10 @@ export const CreatePostButton = (props: CreatePostButtonProps) => {
     const { className } = props;
     const {
         handleCreatePost,
-        handleChangeFile,
+        handleChangePhotos,
         handleChangeData,
         data,
-        selectedFile,
+        photos,
         loading,
     } = useCreatePost({
         onClose: () => setIsOpen(false),
@@ -84,9 +84,9 @@ export const CreatePostButton = (props: CreatePostButtonProps) => {
                             }
                             disabled={loading}
                         />
-                        <FileInput
-                            onFileChange={handleChangeFile}
-                            value={selectedFile}
+                        <FilesInput
+                            onFilesChange={handleChangePhotos}
+                            values={photos}
                             disabled={loading}
                         />
                         <div className={cls.footer}>

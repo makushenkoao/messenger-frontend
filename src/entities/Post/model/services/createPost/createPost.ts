@@ -5,6 +5,7 @@ import { ThunkConfig } from '@/app/providers/StoreProvider';
 interface CreatePostArgs {
     title: string;
     text: string;
+    photos?: File[];
 }
 
 export const createPost = createAsyncThunk<
@@ -14,7 +15,20 @@ export const createPost = createAsyncThunk<
 >('posts/create', async (newPost, ThunkApi) => {
     const { rejectWithValue, extra } = ThunkApi;
     try {
-        const { data } = await extra.api.post<any>('/posts', newPost);
+        const formData = new FormData();
+        formData.append('title', newPost.title);
+        formData.append('text', newPost.text);
+        if (newPost.photos) {
+            newPost.photos.forEach((photo) => {
+                formData.append('photos', photo);
+            });
+        }
+
+        const { data } = await extra.api.post<any>('/posts', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
 
         return data;
     } catch (e) {
