@@ -7,6 +7,7 @@ import {
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 
+import { PostDetailsSchema } from '@/entities/Post';
 import { UserSchema } from '@/entities/User';
 import { UISchema } from '@/features/UI';
 import { rtkApi } from '@/shared/api/rtkApi';
@@ -14,6 +15,7 @@ import { rtkApi } from '@/shared/api/rtkApi';
 export interface StateSchema {
     user: UserSchema;
     ui: UISchema;
+    postDetails: PostDetailsSchema;
     [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
     // example?: exampleSchema;
 }

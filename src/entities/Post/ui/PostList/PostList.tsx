@@ -1,6 +1,6 @@
 import { VStack } from '@/shared/ui/Stack';
 
-import { Post } from '../Post/Post';
+import { PostCard } from '../PostCard/PostCard';
 
 export const PostList = () => {
     return (
@@ -9,7 +9,7 @@ export const PostList = () => {
             gap="16"
         >
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
-                <Post key={item} />
+                <PostCard key={item} />
             ))}
         </VStack>
     );

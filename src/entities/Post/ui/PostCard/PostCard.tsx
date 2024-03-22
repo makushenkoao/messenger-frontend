@@ -24,7 +24,7 @@ import { MoreModal, ShareModal } from '../..';
 
 import cls from './Post.module.scss';
 
-export const Post = () => {
+export const PostCard = () => {
     const navigation = useNavigate();
     const [isOpenMoreModal, setIsOpenMoreModal] = useState(false);
     const [isOpenShareModal, setIsOpenShareModal] = useState(false);

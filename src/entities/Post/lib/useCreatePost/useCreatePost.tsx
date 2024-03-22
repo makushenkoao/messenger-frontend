@@ -36,7 +36,7 @@ export const useCreatePost = (props?: UseCreatePostProps) => {
         dispatch(createPost({ ...data, photos }))
             .unwrap()
             .then(() => {
-                successNotify('Post successfully created');
+                successNotify('PostCard successfully created');
                 setData({ ...initialState });
                 setPhotos([]);
                 setLoading(false);

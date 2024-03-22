@@ -33,8 +33,7 @@ export class ErrorBoundary extends Component<
 
         if (hasError) {
             return (
-                // TODO
-                <Suspense fallback="Loading...">
+                <Suspense fallback="">
                     <PageError />
                 </Suspense>
             );

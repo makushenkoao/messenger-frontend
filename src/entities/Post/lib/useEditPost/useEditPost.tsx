@@ -39,7 +39,7 @@ export const useUpdatePost = (props: UseUpdatePostProps) => {
         )
             .unwrap()
             .then(() => {
-                successNotify('Post successfully updated!');
+                successNotify('PostCard successfully updated!');
                 setData({ ...initialState });
                 setLoading(false);
                 onClose();

@@ -58,7 +58,7 @@ export const MoreModal = (props: MoreModalProps) => {
             },
             {
                 id: '2',
-                content: 'Edit Post',
+                content: 'Edit PostCard',
                 onClick: handleOpenEditPostModal,
             },
             {
@@ -68,7 +68,7 @@ export const MoreModal = (props: MoreModalProps) => {
             },
             {
                 id: '4',
-                content: 'Save Post',
+                content: 'Save PostCard',
                 onClick: () => console.log('click'),
             },
             {
@@ -83,7 +83,7 @@ export const MoreModal = (props: MoreModalProps) => {
             },
             {
                 id: '7',
-                content: 'Copy Post Link',
+                content: 'Copy PostCard Link',
                 onClick: () => handleCopyPostUrl(),
             },
             {
@@ -102,7 +102,7 @@ export const MoreModal = (props: MoreModalProps) => {
             },
             {
                 id: '2',
-                content: 'Save Post',
+                content: 'Save PostCard',
                 onClick: () => console.log('click'),
             },
             {
@@ -117,7 +117,7 @@ export const MoreModal = (props: MoreModalProps) => {
             },
             {
                 id: '5',
-                content: 'Copy Post Link',
+                content: 'Copy PostCard Link',
                 onClick: () => console.log('click'),
             },
             {
