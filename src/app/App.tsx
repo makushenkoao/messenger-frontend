@@ -15,8 +15,6 @@ import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 
 // TODO:
-//  move auth from user entity to auth feature
-//  complete authentication
 //  skeletons
 //  integrate component FilesInput to FileInput
 //  create/update/delete post validation

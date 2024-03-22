@@ -9,15 +9,16 @@ import { AxiosInstance } from 'axios';
 
 import { PostDetailsSchema } from '@/entities/Post';
 import { UserSchema } from '@/entities/User';
+import { AuthSchema } from '@/features/Auth';
 import { UISchema } from '@/features/UI';
 import { rtkApi } from '@/shared/api/rtkApi';
 
 export interface StateSchema {
     user: UserSchema;
+    auth: AuthSchema;
     ui: UISchema;
     postDetails: PostDetailsSchema;
     [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
-    // example?: exampleSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

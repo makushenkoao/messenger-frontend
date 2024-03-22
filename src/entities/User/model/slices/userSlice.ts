@@ -1,12 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { LoginPayload } from '@/features/Auth';
 import { USER_LOCAL_STORAGE_KEY } from '@/shared/const/localStorage';
 
-import { login } from '../services/auth/login';
-import { register } from '../services/auth/register';
 import { initAuthData } from '../services/initAuthData/initAuthData';
 import { resetPassword } from '../services/resetPassword/resetPassword';
-import { LoginPayload, User } from '../types/user';
+import { User } from '../types/user';
 import { UserSchema } from '../types/userSchema';
 
 const initialState: UserSchema = {
@@ -28,32 +27,6 @@ export const userSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(login.pending, (state) => {
-                state.error = undefined;
-                state.isLoading = true;
-            })
-            .addCase(
-                login.fulfilled,
-                (state, action: PayloadAction<LoginPayload>) => {
-                    state.isLoading = false;
-                    state.data = action.payload.user;
-                },
-            )
-            .addCase(login.rejected, (state, action) => {
-                state.isLoading = false;
-                state.error = action.payload;
-            })
-            .addCase(register.pending, (state) => {
-                state.error = undefined;
-                state.isLoading = true;
-            })
-            .addCase(register.fulfilled, (state) => {
-                state.isLoading = false;
-            })
-            .addCase(register.rejected, (state, action) => {
-                state.isLoading = false;
-                state.error = action.payload;
-            })
             .addCase(
                 initAuthData.fulfilled,
                 (state, { payload }: PayloadAction<User>) => {

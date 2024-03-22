@@ -6,6 +6,7 @@ import {
 } from '@reduxjs/toolkit';
 
 import { userReducer } from '@/entities/User';
+import { authReducer } from '@/features/Auth';
 import { uiReducer } from '@/features/UI';
 // import { userReducer } from '@/entities/User';
 import { $api } from '@/shared/api/api';
@@ -22,6 +23,7 @@ export function createReduxStore(
         ...asyncReducers,
         user: userReducer,
         ui: uiReducer,
+        auth: authReducer,
         [rtkApi.reducerPath]: rtkApi.reducer,
     };
 
