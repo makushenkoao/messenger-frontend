@@ -20,7 +20,8 @@ import { Icon } from '@/shared/ui/Icon';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 
-import { MoreModal, ShareModal } from '../..';
+import { MoreModal } from '../../ui/MoreModal/MoreModal';
+import { ShareModal } from '../../ui/ShareModal/ShareModal';
 
 import cls from './Post.module.scss';
 

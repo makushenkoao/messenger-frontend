@@ -2,14 +2,18 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 
+import { Post } from '../../types/post';
+
 interface CreatePostArgs {
     title: string;
     text: string;
     photos?: File[];
 }
 
+// 65fdb5e95a8312681080cd9f
+
 export const createPost = createAsyncThunk<
-    any,
+    Post,
     CreatePostArgs,
     ThunkConfig<string>
 >('posts/create', async (newPost, ThunkApi) => {
@@ -24,11 +28,9 @@ export const createPost = createAsyncThunk<
             });
         }
 
-        const { data } = await extra.api.post<any>('/posts', formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            },
-        });
+        const { data } = await extra.api.post<Post>('/posts', formData);
+
+        console.log(data);
 
         return data;
     } catch (e) {

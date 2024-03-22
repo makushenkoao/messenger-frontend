@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 
-import { User } from '../../..';
+import { User } from '../../types/user';
 
 interface RegisterProps {
     nickname: string;

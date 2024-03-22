@@ -6,7 +6,7 @@ import { Button } from '@/shared/ui/Button';
 import { Modal } from '@/shared/ui/Modal';
 import { VStack } from '@/shared/ui/Stack';
 
-import { useDeletePost } from '../..';
+import { useDeletePost } from '../../lib/useDeletePost/useDeletePost';
 import { EditPostModal } from '../EditPostModal/EditPostModal';
 
 import cls from './MoreModal.module.scss';
@@ -21,7 +21,7 @@ export const MoreModal = (props: MoreModalProps) => {
     const { isOpen, onClose, isPostAuthor = true } = props;
     const [isOpenEditPostModal, setIsOpenEditPostModal] = useState(false);
     const { loading, handleDeletePost } = useDeletePost({
-        id: '65f9c02621a828f589ca2b75',
+        id: '65fdb5fc5a8312681080cda3',
         onClose,
     });
 

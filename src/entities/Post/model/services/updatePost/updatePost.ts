@@ -2,6 +2,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 
+import { Post } from '../../types/post';
+
 interface UpdatePostArgs {
     id: string;
     title: string;
@@ -9,14 +11,14 @@ interface UpdatePostArgs {
 }
 
 export const updatePost = createAsyncThunk<
-    any,
+    Post,
     UpdatePostArgs,
     ThunkConfig<string>
 >('posts/update', async (newData, ThunkApi) => {
     const { rejectWithValue, extra } = ThunkApi;
 
     try {
-        const { data } = await extra.api.patch<any>(`/posts/${newData.id}`, {
+        const { data } = await extra.api.patch<Post>(`/posts/${newData.id}`, {
             title: newData.title,
             text: newData.text,
         });

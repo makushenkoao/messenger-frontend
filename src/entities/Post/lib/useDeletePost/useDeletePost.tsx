@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { errorNotify, successNotify } from '@/shared/lib/utils/notify';
 
-import { deletePost } from '../..';
+import { deletePost } from '../../model/services/deletePost/deletePost';
 
 interface UseUpdatePostProps {
     id: string;

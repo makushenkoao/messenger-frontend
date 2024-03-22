@@ -2,10 +2,10 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { USER_LOCAL_STORAGE_KEY } from '@/shared/const/localStorage';
 
-import { resetPassword } from '../..';
 import { login } from '../services/auth/login';
 import { register } from '../services/auth/register';
 import { initAuthData } from '../services/initAuthData/initAuthData';
+import { resetPassword } from '../services/resetPassword/resetPassword';
 import { LoginPayload, User } from '../types/user';
 import { UserSchema } from '../types/userSchema';
 
