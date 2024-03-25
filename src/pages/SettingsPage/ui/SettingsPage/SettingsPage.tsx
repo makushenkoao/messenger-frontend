@@ -5,7 +5,7 @@ import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { SettingsType } from '@/shared/types/settings';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Card } from '@/shared/ui/Card';
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 import { BackIcon } from '@/widgets/BackIcon';
 
@@ -40,18 +40,13 @@ const SettingsPage = () => {
     return (
         <StickyContentLayout
             content={
-                <HStack
+                <VStack
+                    max
                     gap="32"
-                    align="start"
                 >
-                    <VStack
-                        max
-                        gap="32"
-                    >
-                        <Text title="Settings" />
-                        {renderContent()}
-                    </VStack>
-                </HStack>
+                    <Text title="Settings" />
+                    {renderContent()}
+                </VStack>
             }
             left={<BackIcon />}
             right={

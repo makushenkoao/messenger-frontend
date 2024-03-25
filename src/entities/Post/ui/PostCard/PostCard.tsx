@@ -14,6 +14,7 @@ import AvatarImage from '@/shared/assets/images/avatar.png';
 import PostImage from '@/shared/assets/images/image-post.png';
 import { getRoutePostDetails } from '@/shared/const/router';
 import { AppImage } from '@/shared/ui/AppImage';
+import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Button } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
@@ -31,7 +32,6 @@ export const PostCard = () => {
     const [isOpenShareModal, setIsOpenShareModal] = useState(false);
     const [isFav, setIsFav] = useState(false);
     const [isSaved, setIsSaved] = useState(false);
-    const [isFullDescription, setIsFullDescription] = useState(false);
 
     const toggleIsFav = () => setIsFav((prevState) => !prevState);
     const toggleIsSaved = () => setIsSaved((prevState) => !prevState);
@@ -41,10 +41,6 @@ export const PostCard = () => {
 
     const onOpenShareModal = () => setIsOpenShareModal(true);
     const onCloseShareModal = () => setIsOpenShareModal(false);
-
-    const toggleFullDescription = () => {
-        setIsFullDescription((prevState) => !prevState);
-    };
 
     const handleNavigateToPostDetails = () => {
         navigation(getRoutePostDetails('post-id-here'));
@@ -88,7 +84,7 @@ export const PostCard = () => {
             />
             <VStack
                 max
-                gap="8"
+                gap="4"
             >
                 <HStack
                     max
@@ -122,16 +118,18 @@ export const PostCard = () => {
                     />
                 </HStack>
                 <Text text="230 likes" />
+                <Text
+                    text="Title"
+                    bold
+                />
                 <span className={cls.description}>
-                    {isFullDescription
-                        ? descriptionText
-                        : `${descriptionText.slice(0, 40)}...`}
-                    <span
-                        onClick={toggleFullDescription}
+                    {`${descriptionText.slice(0, 40)}...`}
+                    <AppLink
                         className={cls.moreBtn}
+                        to={getRoutePostDetails('post-id-here')}
                     >
-                        {isFullDescription ? 'hide' : 'more'}
-                    </span>
+                        more
+                    </AppLink>
                 </span>
                 <Button
                     color="gray"

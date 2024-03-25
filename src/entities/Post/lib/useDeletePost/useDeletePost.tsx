@@ -21,7 +21,7 @@ export const useDeletePost = (props: UseUpdatePostProps) => {
         dispatch(deletePost(id))
             .unwrap()
             .then(() => {
-                successNotify('PostCard successfully deleted!');
+                successNotify('Post successfully deleted!');
                 setLoading(false);
                 onClose();
             })
