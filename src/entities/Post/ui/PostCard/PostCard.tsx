@@ -8,10 +8,15 @@ import {
     MdOutlineComment,
     MdSend,
 } from 'react-icons/md';
+import { Carousel } from 'react-responsive-carousel';
 import { useNavigate } from 'react-router-dom';
 
 import AvatarImage from '@/shared/assets/images/avatar.png';
-import PostImage from '@/shared/assets/images/image-post.png';
+import PostImage1 from '@/shared/assets/images/post-image-1.png';
+import PostImage2 from '@/shared/assets/images/post-image-2.jpeg';
+import PostImage3 from '@/shared/assets/images/post-image-3.jpeg';
+import PostImage4 from '@/shared/assets/images/post-image-4.jpeg';
+import PostImage5 from '@/shared/assets/images/post-image-5.jpeg';
 import { getRoutePostDetails } from '@/shared/const/router';
 import { AppImage } from '@/shared/ui/AppImage';
 import { AppLink } from '@/shared/ui/AppLink';
@@ -78,10 +83,31 @@ export const PostCard = () => {
                     onClick={onOpenMoreModal}
                 />
             </HStack>
-            <AppImage
-                src={PostImage}
-                className={cls.postImage}
-            />
+            <Carousel
+                className={cls.carousel}
+                showStatus={false}
+            >
+                <AppImage
+                    src={PostImage1}
+                    className={cls.postImage}
+                />
+                <AppImage
+                    src={PostImage2}
+                    className={cls.postImage}
+                />
+                <AppImage
+                    src={PostImage3}
+                    className={cls.postImage}
+                />
+                <AppImage
+                    src={PostImage4}
+                    className={cls.postImage}
+                />
+                <AppImage
+                    src={PostImage5}
+                    className={cls.postImage}
+                />
+            </Carousel>
             <VStack
                 max
                 gap="4"

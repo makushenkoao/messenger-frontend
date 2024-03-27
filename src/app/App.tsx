@@ -18,6 +18,7 @@ import { Sidebar } from '@/widgets/Sidebar';
 //  skeletons
 //  integrate component FilesInput to FileInput
 //  create/update/delete post validation
+//  change navigation buttons to links
 
 function App() {
     const { theme } = useTheme();

@@ -2,7 +2,7 @@ import { MdMoreHoriz, MdSettings } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 
 import AvatarImage from '@/shared/assets/images/avatar.png';
-import PostImage from '@/shared/assets/images/image-post.png';
+import PostImage from '@/shared/assets/images/post-image-1.png';
 import {
     getRouteArchives,
     getRouteMessages,
@@ -141,6 +141,10 @@ const ProfilePage = () => {
                             />
                             <Text
                                 text="Profile Bio"
+                                size="s"
+                            />
+                            <Text
+                                text="Account was created on December 30, 2023"
                                 size="s"
                             />
                         </VStack>

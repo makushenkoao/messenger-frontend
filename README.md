@@ -41,9 +41,7 @@ npm run start - launch project in developer mode
 
 ## Project Architecture
 
-The project was written in accordance with the Feature sliced design methodology
-
-Documentation link - [feature sliced design](https://feature-sliced.design/docs/get-started/tutorial)
+The project was written in accordance with the [Feature sliced design methodology](https://feature-sliced.design/docs/get-started/tutorial)
 
 ---
 
@@ -84,7 +82,7 @@ The `scripts` folder contains various scripts for refactoring\simplification of 
 
 ## CI pipeline
 
-The github action config is in /.github/workflows.
+The GitHub action config is in /.github/workflows.
 All types of tests, assembly of the project and storybook, linting are carried out in it.
 
 ---

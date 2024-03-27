@@ -1,4 +1,4 @@
-import PostImage from '@/shared/assets/images/image-post.png';
+import PostImage from '@/shared/assets/images/post-image-1.png';
 import { getRoutePostDetails } from '@/shared/const/router';
 import { AppImage } from '@/shared/ui/AppImage';
 import { AppLink } from '@/shared/ui/AppLink';

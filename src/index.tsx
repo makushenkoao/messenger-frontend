@@ -9,6 +9,7 @@ import App from './app/App';
 
 import '@/app/styles/index.scss';
 import 'react-toastify/dist/ReactToastify.css';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const root = document.getElementById('root');
 
