@@ -25,8 +25,6 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
     const dispatch = useAppDispatch();
     const userAuthData = useSelector(getUserAuthData);
 
-    console.log(userAuthData);
-
     const onLogout = useCallback(() => {
         dispatch(userActions.logout());
     }, [dispatch]);

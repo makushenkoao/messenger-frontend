@@ -31,6 +31,7 @@ export const PostDetailsCard = () => {
                     <Carousel
                         className={cls.carousel}
                         showStatus={false}
+                        showThumbs={false}
                     >
                         <AppImage
                             src={PostImage1}
