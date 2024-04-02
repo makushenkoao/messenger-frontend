@@ -18,6 +18,7 @@ export type { Photo, Post } from './model/types/post';
 export type { PostDetailsSchema } from './model/types/postDetailsSchema';
 export { MoreModal } from './ui/MoreModal/MoreModal';
 export { PostCard } from './ui/PostCard/PostCard';
+export { PostCardSkeleton } from './ui/PostCardSkeleton/PostCardSkeleton';
 export { PostDetailsCard } from './ui/PostDetailsCard/PostDetailsCard';
 export { PostList } from './ui/PostList/PostList';
 export { ShareModal } from './ui/ShareModal/ShareModal';
