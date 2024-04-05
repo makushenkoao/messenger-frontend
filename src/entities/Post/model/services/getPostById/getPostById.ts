@@ -5,7 +5,7 @@ import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { Post } from '../../types/post';
 
 export const getPostById = createAsyncThunk<Post, string, ThunkConfig<string>>(
-    'posts/postById',
+    'posts/getPostById',
     async (id, ThunkApi) => {
         const { rejectWithValue, extra } = ThunkApi;
 

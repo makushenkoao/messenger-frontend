@@ -29,6 +29,7 @@ export const AppImage = memo((props: AppImageProps) => {
         img.src = src ?? '';
         img.onload = () => {
             setIsLoading(false);
+            setHasError(false);
         };
         img.onerror = () => {
             setIsLoading(false);
@@ -36,12 +37,12 @@ export const AppImage = memo((props: AppImageProps) => {
         };
     }, [src]);
 
-    if (isLoading && fallback) {
-        return fallback;
-    }
-
     if (hasError && errorFallback) {
         return errorFallback;
+    }
+
+    if (isLoading && fallback) {
+        return fallback;
     }
 
     return (

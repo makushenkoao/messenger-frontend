@@ -1,4 +1,8 @@
 export {
+    useGetUserDataByIdQuery,
+    useGetUserDataByUsernameQuery,
+} from './api/userApi';
+export {
     getUserAuthData,
     getUserError,
     getUserLoading,

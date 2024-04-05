@@ -6,11 +6,15 @@ import {
     MdMoreHoriz,
     MdSend,
 } from 'react-icons/md';
+import { useSelector } from 'react-redux';
 
+import { getPostDetailsData, getPostDetailsLoading } from '@/entities/Post';
 import AvatarImage from '@/shared/assets/images/avatar.png';
+import { formatDate } from '@/shared/lib/utils/formatDate/formatDate';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Card } from '@/shared/ui/Card';
 import { Icon } from '@/shared/ui/Icon';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 
@@ -36,6 +40,21 @@ export const PostDetailsAdditionalInfo = (
         onOpenShareModal,
         onOpenMoreModal,
     } = props;
+
+    const post = useSelector(getPostDetailsData);
+    const loading = useSelector(getPostDetailsLoading);
+
+    if (loading) {
+        return (
+            <Skeleton
+                width={300}
+                height={400}
+                borderRadius="24px"
+            />
+        );
+    }
+
+    if (!post) return null;
 
     return (
         <Card
@@ -72,8 +91,8 @@ export const PostDetailsAdditionalInfo = (
                     />
                 </HStack>
                 <VStack gap="4">
-                    <Text text="220 likes" />
-                    <Text text="30 December 2023" />
+                    <Text text={`${post.likes.length} likes`} />
+                    <Text text={formatDate(post.createdAt)} />
                 </VStack>
                 <HStack
                     max

@@ -18,4 +18,7 @@ export const fileApi = rtkApi.injectEndpoints({
     }),
 });
 
+export const downloadFileURLByIdQuery =
+    fileApi.endpoints.downloadFileURLById.initiate;
+
 export const { useDownloadFileURLByIdQuery } = fileApi;

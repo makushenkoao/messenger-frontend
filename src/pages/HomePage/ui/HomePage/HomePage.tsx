@@ -9,9 +9,9 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { Page } from '@/widgets/Page';
 import { RecommendationsCard } from '@/widgets/RecommedationsCard';
 
-import { postsReducer } from '../..';
 import { getNextPostsList } from '../../model/services/getNextPostsList/getNextPostsList';
 import { initPosts } from '../../model/services/initPosts/initPosts';
+import { postsReducer } from '../../model/slices/postsSlice';
 import { PostsInfiniteList } from '../PostsInfiniteList/PostsInfiniteList';
 
 const reducers: ReducersList = {

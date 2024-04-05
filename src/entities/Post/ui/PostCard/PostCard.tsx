@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import {
     MdBookmark,
     MdBookmarkBorder,
@@ -8,52 +7,46 @@ import {
     MdOutlineComment,
     MdSend,
 } from 'react-icons/md';
-import { Carousel } from 'react-responsive-carousel';
-import { useNavigate } from 'react-router-dom';
 
 import AvatarImage from '@/shared/assets/images/avatar.png';
-import PostImage1 from '@/shared/assets/images/post-image-1.png';
-import PostImage2 from '@/shared/assets/images/post-image-2.jpeg';
-import PostImage3 from '@/shared/assets/images/post-image-3.jpeg';
-import PostImage4 from '@/shared/assets/images/post-image-4.jpeg';
-import PostImage5 from '@/shared/assets/images/post-image-5.jpeg';
-import { getRoutePostDetails } from '@/shared/const/router';
-import { AppImage } from '@/shared/ui/AppImage';
-import { AppLink } from '@/shared/ui/AppLink';
+import { formatDate } from '@/shared/lib/utils/formatDate/formatDate';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Button } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
 
+import { usePostCard } from '../../lib/usePostCard/usePostCard';
+import { Post } from '../../model/types/post';
 import { MoreModal } from '../../ui/MoreModal/MoreModal';
 import { ShareModal } from '../../ui/ShareModal/ShareModal';
 
 import cls from './Post.module.scss';
 
-export const PostCard = () => {
-    const navigation = useNavigate();
-    const [isOpenMoreModal, setIsOpenMoreModal] = useState(false);
-    const [isOpenShareModal, setIsOpenShareModal] = useState(false);
-    const [isFav, setIsFav] = useState(false);
-    const [isSaved, setIsSaved] = useState(false);
+interface PostCardProps {
+    post?: Post;
+}
 
-    const toggleIsFav = () => setIsFav((prevState) => !prevState);
-    const toggleIsSaved = () => setIsSaved((prevState) => !prevState);
+export const PostCard = (props: PostCardProps) => {
+    const { post } = props;
 
-    const onOpenMoreModal = () => setIsOpenMoreModal(true);
-    const onCloseMoreModal = () => setIsOpenMoreModal(false);
+    const {
+        toggleIsSaved,
+        toggleIsFav,
+        isFav,
+        isSaved,
+        renderImages,
+        renderDescription,
+        isOpenShareModal,
+        isOpenMoreModal,
+        onCloseShareModal,
+        onCloseMoreModal,
+        onOpenShareModal,
+        onOpenMoreModal,
+        handleNavigateToPostDetails,
+    } = usePostCard(post);
 
-    const onOpenShareModal = () => setIsOpenShareModal(true);
-    const onCloseShareModal = () => setIsOpenShareModal(false);
-
-    const handleNavigateToPostDetails = () => {
-        navigation(getRoutePostDetails('post-id-here'));
-    };
-
-    const descriptionText =
-        // eslint-disable-next-line max-len
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda fugit incidunt quaerat voluptatem? Aperiam atque cum, deleniti dicta ducimus ea eaque illo laborum maxime natus quo tempore, velit veniam voluptas?';
+    if (!post) return null;
 
     return (
         <VStack
@@ -74,7 +67,9 @@ export const PostCard = () => {
                         src={AvatarImage}
                         username="makushenkoao"
                     />
-                    <Text text="makushenkoao | 2 weeks" />
+                    <Text
+                        text={`makushenkoao | ${formatDate(post.createdAt)}`}
+                    />
                 </HStack>
                 <Icon
                     svg={MdMoreHoriz}
@@ -83,32 +78,7 @@ export const PostCard = () => {
                     onClick={onOpenMoreModal}
                 />
             </HStack>
-            <Carousel
-                className={cls.carousel}
-                showStatus={false}
-                showThumbs={false}
-            >
-                <AppImage
-                    src={PostImage1}
-                    className={cls.postImage}
-                />
-                <AppImage
-                    src={PostImage2}
-                    className={cls.postImage}
-                />
-                <AppImage
-                    src={PostImage3}
-                    className={cls.postImage}
-                />
-                <AppImage
-                    src={PostImage4}
-                    className={cls.postImage}
-                />
-                <AppImage
-                    src={PostImage5}
-                    className={cls.postImage}
-                />
-            </Carousel>
+            {renderImages()}
             <VStack
                 max
                 gap="4"
@@ -144,20 +114,12 @@ export const PostCard = () => {
                         onClick={toggleIsSaved}
                     />
                 </HStack>
-                <Text text="230 likes" />
+                <Text text={`${post.likes.length} likes`} />
                 <Text
-                    text="Title"
+                    text={post.title}
                     bold
                 />
-                <span className={cls.description}>
-                    {`${descriptionText.slice(0, 40)}...`}
-                    <AppLink
-                        className={cls.moreBtn}
-                        to={getRoutePostDetails('post-id-here')}
-                    >
-                        more
-                    </AppLink>
-                </span>
+                {renderDescription()}
                 <Button
                     color="gray"
                     variant="clear"

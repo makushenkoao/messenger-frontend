@@ -19,7 +19,7 @@ export const PostList = (props: PostListProps) => {
     const renderPost = (post: Post) => (
         <PostCard
             key={post._id}
-            // post={post}
+            post={post}
         />
     );
 

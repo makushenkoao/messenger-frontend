@@ -25,7 +25,7 @@ const postsSlice = createSlice({
         error: undefined,
         ids: [],
         entities: {},
-        skip: 0,
+        skip: 9,
         limit: 9,
         hasMore: true,
         _inited: false,

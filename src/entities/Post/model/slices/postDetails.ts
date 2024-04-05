@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import { Post } from '../..';
 import { getPostById } from '../services/getPostById/getPostById';
 import { PostDetailsSchema } from '../types/postDetailsSchema';
 
@@ -8,7 +9,7 @@ const initialState: PostDetailsSchema = {
 };
 
 export const postDetailsSlice = createSlice({
-    name: 'articleDetails',
+    name: 'postDetails',
     initialState,
     reducers: {},
     extraReducers: (builder) => {
@@ -19,7 +20,7 @@ export const postDetailsSlice = createSlice({
             })
             .addCase(
                 getPostById.fulfilled,
-                (state, action: PayloadAction<any>) => {
+                (state, action: PayloadAction<Post>) => {
                     state.loading = false;
                     state.data = action.payload;
                 },

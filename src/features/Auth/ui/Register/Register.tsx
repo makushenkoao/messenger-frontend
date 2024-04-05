@@ -54,6 +54,7 @@ export const Register = () => {
     };
 
     const onSubmit: SubmitHandler<Omit<RegisterData, 'avatar'>> = (data) => {
+        console.log(avatar);
         dispatch(register({ ...data, avatar }))
             .unwrap()
             .then(() => {

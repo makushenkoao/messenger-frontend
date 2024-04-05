@@ -1,7 +1,7 @@
 import { CSSProperties, memo, useMemo } from 'react';
 import { TailSpin } from 'react-loader-spinner';
 
-import UserPng from '@/shared/assets/images/user.png';
+import DefaultUserAvatar from '@/shared/assets/images/user.png';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { AppImage } from '../AppImage';
@@ -42,7 +42,7 @@ export const Avatar = memo((props: AvatarProps) => {
             <AppImage
                 width={width}
                 height={height}
-                src={UserPng}
+                src={DefaultUserAvatar}
                 alt={`${username}'s avatar`}
                 className={classNames(cls.Avatar, {}, [className])}
             />
