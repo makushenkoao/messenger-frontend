@@ -9,7 +9,7 @@ import {
 } from 'react-icons/md';
 
 import AvatarImage from '@/shared/assets/images/avatar.png';
-import { formatDate } from '@/shared/lib/utils/formatDate/formatDate';
+import { formatDateDiff } from '@/shared/lib/utils/date/formatDateDiff/formatDateDiff';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Button } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
@@ -68,7 +68,7 @@ export const PostCard = (props: PostCardProps) => {
                         username="makushenkoao"
                     />
                     <Text
-                        text={`makushenkoao | ${formatDate(post.createdAt)}`}
+                        text={`makushenkoao | ${formatDateDiff(post.createdAt)}`}
                     />
                 </HStack>
                 <Icon

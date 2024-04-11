@@ -18,7 +18,7 @@ export enum AppRoutes {
 }
 
 export const getRouteHome = () => '/';
-export const getRouteProfile = (username: string) => `/profile/${username}`;
+export const getRouteProfile = (nickname: string) => `/profile/${nickname}`;
 export const getRouteMessages = () => '/messages';
 export const getRouteSearch = () => '/search';
 export const getRouteCreatePost = () => '/create';
@@ -33,7 +33,7 @@ export const getRouteRecommendations = () => '/recommendations';
 
 export const AppRouteByPathPattern: Record<string, AppRoutes> = {
     [getRouteHome()]: AppRoutes.HOME,
-    [getRouteProfile(':username')]: AppRoutes.PROFILE,
+    [getRouteProfile(':nickname')]: AppRoutes.PROFILE,
     [getRouteMessages()]: AppRoutes.MESSAGES,
     [getRouteSearch()]: AppRoutes.SEARCH,
     [getRouteCreatePost()]: AppRoutes.CREATE_POST,

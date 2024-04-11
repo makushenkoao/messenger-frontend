@@ -16,9 +16,11 @@ const getSkeletons = () =>
 export const PostList = (props: PostListProps) => {
     const { loading, posts } = props;
 
-    const renderPost = (post: Post) => (
+    const renderPost = (post: Post, index: number) => (
         <PostCard
-            key={post._id}
+            // TODO:
+            // key={post._id}
+            key={index}
             post={post}
         />
     );
@@ -26,8 +28,9 @@ export const PostList = (props: PostListProps) => {
     if (!loading && !posts.length) {
         return (
             <Text
-                size="l"
-                title="Posts Not Found."
+                size="m"
+                bold
+                text="You have looked at all the latest publications."
             />
         );
     }
@@ -36,6 +39,7 @@ export const PostList = (props: PostListProps) => {
         <VStack
             max
             gap="16"
+            align="center"
         >
             {posts.length > 0 && posts.map(renderPost)}
             {loading && getSkeletons()}

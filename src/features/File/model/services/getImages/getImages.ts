@@ -17,21 +17,19 @@ export const getImages = createAsyncThunk<
             return rejectWithValue('No photos found');
         }
 
+        if (!photos.length) {
+            return 'no-images';
+        }
+
         if (photos.length > 1) {
             const imagePromises = photos.map((photo) =>
                 dispatch(downloadFileURLByIdQuery(photo.id)).unwrap(),
             );
 
-            const imageUrls = await Promise.all(imagePromises);
-
-            return imageUrls;
+            return await Promise.all(imagePromises);
         }
 
-        const imageUrl = await dispatch(
-            downloadFileURLByIdQuery(photos[0].id),
-        ).unwrap();
-
-        return imageUrl;
+        return await dispatch(downloadFileURLByIdQuery(photos[0].id)).unwrap();
     } catch (e) {
         return rejectWithValue(e.response.data.message);
     }

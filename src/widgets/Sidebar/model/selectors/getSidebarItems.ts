@@ -38,7 +38,7 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => [
         icon: MdOutlineCreateNewFolder,
     },
     {
-        path: getRouteProfile('makushenkoao'),
+        path: getRouteProfile(userData.nickname),
         text: 'Profile',
         icon: MdAccountCircle,
     },

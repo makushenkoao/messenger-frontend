@@ -20,7 +20,6 @@ export const PostsInfiniteList = memo(() => {
             <PostList
                 posts={posts}
                 loading={loading}
-                // lo={isLoading}
             />
         </div>
     );

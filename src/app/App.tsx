@@ -19,11 +19,9 @@ import { Sidebar } from '@/widgets/Sidebar';
 //  skeletons(loaders)
 //  notify about errors
 //  =======================================
-//  modify post details page
-//  modify profile page
+//  modify post details page(display user data. when clicking on the user, comments)
+//  modify profile page(right user's posts)
 //  modify post card(display user data. when clicking on the user, redirect to the page)
-//  send default avatar in register
-//  send default image in post creation
 //  integrate component FilesInput to FileInput
 //  change services to trk
 //  change navigation buttons to links

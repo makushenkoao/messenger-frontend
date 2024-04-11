@@ -1,7 +1,7 @@
 import { rtkApi } from '@/shared/api/rtkApi';
 
 import { bufferToBase64 } from '../lib/bufferToBase64/bufferToBase64';
-import { DownloadFilePayload } from '../model/types/file';
+import { FilePayload } from '../model/types/file';
 
 export const fileApi = rtkApi.injectEndpoints({
     endpoints: (build) => ({
@@ -9,8 +9,9 @@ export const fileApi = rtkApi.injectEndpoints({
             query: (id) => ({
                 url: `/files/download/${id}`,
             }),
-            transformResponse: (response: DownloadFilePayload) => {
-                return bufferToBase64(response.data, {
+            transformResponse: (response: FilePayload) => {
+                console.log('@transformResponse(response) ==>', response);
+                return bufferToBase64(response?.data, {
                     returnDataURL: true,
                 });
             },

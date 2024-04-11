@@ -1,4 +1,7 @@
+import { FilePayload } from '@/features/File';
+
 export interface User {
+    icon: FilePayload;
     _id: string;
     email: string;
     avatar: string;

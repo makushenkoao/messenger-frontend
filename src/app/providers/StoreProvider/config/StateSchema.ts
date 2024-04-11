@@ -8,6 +8,8 @@ import {
 import { AxiosInstance } from 'axios';
 
 import { PostDetailsSchema } from '@/entities/Post';
+import { ProfileSchema } from '@/entities/Profile';
+import { ProfilePostsSchema } from '@/entities/ProfilePosts';
 import { UserSchema } from '@/entities/User';
 import { AuthSchema } from '@/features/Auth';
 import { UISchema } from '@/features/UI';
@@ -20,6 +22,8 @@ export interface StateSchema {
     ui: UISchema;
     postDetails?: PostDetailsSchema;
     posts?: PostsSchema;
+    profilePosts?: ProfilePostsSchema;
+    profile: ProfileSchema;
     [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 }
 

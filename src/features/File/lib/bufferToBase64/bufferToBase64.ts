@@ -4,8 +4,8 @@ interface bufferToBase64Options {
 
 export function bufferToBase64(
     buffer: number[],
-    options: bufferToBase64Options,
-) {
+    options?: bufferToBase64Options,
+): string {
     const { returnDataURL = false } = options;
 
     const base64String = btoa(String.fromCharCode(...new Uint8Array(buffer)));

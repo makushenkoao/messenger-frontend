@@ -1,3 +1,5 @@
+import { FilePayload } from '@/features/File';
+
 export interface Photo {
     id: string;
 }
@@ -7,6 +9,12 @@ export interface Comment {
     text: string;
     createdAt: string;
     updatedAt: string;
+}
+
+export interface Owner {
+    _id: string;
+    nickname: string;
+    icon: FilePayload;
 }
 
 export interface Post {

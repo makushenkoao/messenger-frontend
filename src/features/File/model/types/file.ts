@@ -1,6 +1,6 @@
 type TFile = 'Buffer';
 
-export interface DownloadFilePayload {
+export interface FilePayload {
     type: TFile;
     data: number[];
 }

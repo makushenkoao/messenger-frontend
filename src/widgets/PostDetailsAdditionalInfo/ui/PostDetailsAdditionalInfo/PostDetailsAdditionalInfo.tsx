@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 
 import { getPostDetailsData, getPostDetailsLoading } from '@/entities/Post';
 import AvatarImage from '@/shared/assets/images/avatar.png';
-import { formatDate } from '@/shared/lib/utils/formatDate/formatDate';
+import { formatDateDiff } from '@/shared/lib/utils/date/formatDateDiff/formatDateDiff';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Card } from '@/shared/ui/Card';
 import { Icon } from '@/shared/ui/Icon';
@@ -92,7 +92,7 @@ export const PostDetailsAdditionalInfo = (
                 </HStack>
                 <VStack gap="4">
                     <Text text={`${post.likes.length} likes`} />
-                    <Text text={formatDate(post.createdAt)} />
+                    <Text text={formatDateDiff(post.createdAt)} />
                 </VStack>
                 <HStack
                     max

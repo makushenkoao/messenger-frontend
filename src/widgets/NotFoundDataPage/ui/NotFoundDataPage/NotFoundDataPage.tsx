@@ -24,7 +24,10 @@ export const NotFoundDataPage = ({ className }: PageErrorProps) => {
             gap="16"
             className={classNames(cls.NotFoundDataPage, {}, [className])}
         >
-            <Text title="For Some Reason The Data Was Not Found!" />
+            <Text
+                title="For some reason the data was not found"
+                bold
+            />
             <Button
                 variant="outline"
                 onClick={handleBack}

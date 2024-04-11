@@ -3,6 +3,7 @@ import { Carousel } from 'react-responsive-carousel';
 import { useNavigate } from 'react-router-dom';
 
 import { getImages } from '@/features/File';
+import NoImage from '@/shared/assets/images/no-image.png';
 import { getRoutePostDetails } from '@/shared/const/router';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AppImage } from '@/shared/ui/AppImage';
@@ -16,7 +17,7 @@ import { Post } from '../../model/types/post';
 import cls from '../../ui/PostCard/Post.module.scss';
 
 export const usePostCard = (post?: Post) => {
-    const [images, setImages] = useState<string | string[]>('');
+    const [images, setImages] = useState<string | string[] | 'no-images'>('');
     const [isOpenMoreModal, setIsOpenMoreModal] = useState(false);
     const [isOpenShareModal, setIsOpenShareModal] = useState(false);
     const [isFav, setIsFav] = useState(false);
@@ -25,16 +26,17 @@ export const usePostCard = (post?: Post) => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
+        // TODO: обработать ошибку
         dispatch(
             getImages([
-                { id: '6601ffd75a8312681080ce0d' },
-                { id: '6601ffd75a8312681080ce0d' },
-                { id: '6601ffd75a8312681080ce0d' },
+                { id: '66159812419b1ed3bf3bec12' },
+                { id: '66159812419b1ed3bf3bec12' },
+                { id: '66159812419b1ed3bf3bec12' },
             ]),
         )
             .unwrap()
             .then(setImages);
-    }, [post.photos, dispatch]);
+    }, [post?.photos, dispatch]);
 
     const toggleIsFav = () => setIsFav((prevState) => !prevState);
     const toggleIsSaved = () => setIsSaved((prevState) => !prevState);
@@ -70,6 +72,17 @@ export const usePostCard = (post?: Post) => {
     };
 
     const renderImages = () => {
+        if (images === 'no-images') {
+            return (
+                <AppImage
+                    errorFallback={<Skeleton className={cls.postImage} />}
+                    fallback={<Skeleton className={cls.postImage} />}
+                    src={NoImage}
+                    className={cls.postImage}
+                />
+            );
+        }
+
         if (Array.isArray(images)) {
             return (
                 <Carousel

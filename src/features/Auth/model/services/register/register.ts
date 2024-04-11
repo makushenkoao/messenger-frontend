@@ -26,8 +26,6 @@ export const register = createAsyncThunk<
 
         const { data } = await extra.api.post<User>('/auth/register', formData);
 
-        console.log(data);
-
         return data;
     } catch (e) {
         return rejectWithValue(e.response.data.message);

@@ -6,12 +6,12 @@ export const userApi = rtkApi.injectEndpoints({
     endpoints: (build) => ({
         getUserDataById: build.query<User, string>({
             query: (id) => ({
-                url: `/files/download/${id}`,
+                url: `/users/${id}`,
             }),
         }),
         getUserDataByUsername: build.query<User, string>({
-            query: (id) => ({
-                url: `/files/download/${id}`,
+            query: (username) => ({
+                url: `/users/${username}`,
             }),
         }),
     }),
