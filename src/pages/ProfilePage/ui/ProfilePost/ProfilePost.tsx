@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import { Post } from '@/entities/Post';
 import { getImages } from '@/features/File';
@@ -16,7 +15,6 @@ interface ProfilePostProps {
 }
 
 export const ProfilePost = (props: ProfilePostProps) => {
-    const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const [image, setImage] = useState('');
 
@@ -39,12 +37,11 @@ export const ProfilePost = (props: ProfilePostProps) => {
             });
     }, [props?.post?.photos, dispatch]);
 
-    const handleNavigateToPostDetails = () => {
-        navigate(getRoutePostDetails(props?.post._id));
-    };
-
     return (
-        <AppLink to={getRoutePostDetails(props?.post._id)} className={cls.post}>
+        <AppLink
+            to={getRoutePostDetails(props?.post._id)}
+            className={cls.post}
+        >
             <AppImage
                 src={image}
                 className={cls.postImage}

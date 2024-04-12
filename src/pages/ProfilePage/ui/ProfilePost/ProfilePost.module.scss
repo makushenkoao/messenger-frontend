@@ -1,6 +1,8 @@
 .post {
   width: 300px;
+  position: relative;
   height: 300px;
+  transition: opacity .3s ease;
 }
 
 .postImage {
@@ -8,7 +10,6 @@
   height: 300px;
   object-fit: cover;
   cursor: pointer;
-  transition: opacity .3s ease;
   border-radius: 12px;
 }
 
