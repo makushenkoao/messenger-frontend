@@ -1,4 +1,4 @@
-import { VStack } from '@/shared/ui/Stack';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text/Text';
 
 import { Post } from '../../model/types/post';
@@ -8,13 +8,14 @@ import { PostCardSkeleton } from '../PostCardSkeleton/PostCardSkeleton';
 interface PostListProps {
     loading?: boolean;
     posts?: Post[];
+    wrap?: boolean;
 }
 
 const getSkeletons = () =>
     new Array(3).fill(0).map((item, index) => <PostCardSkeleton key={index} />);
 
 export const PostList = (props: PostListProps) => {
-    const { loading, posts } = props;
+    const { loading, posts, wrap } = props;
 
     const renderPost = (post: Post, index: number) => (
         <PostCard
@@ -35,11 +36,19 @@ export const PostList = (props: PostListProps) => {
         );
     }
 
+    if (wrap) {
+        return (
+            <HStack wrap="wrap" max gap="16" justify="center">
+                {posts.length > 0 && posts.map(renderPost)}
+                {loading && getSkeletons()}
+            </HStack>
+        );
+    }
+
     return (
         <VStack
             max
             gap="16"
-            align="center"
         >
             {posts.length > 0 && posts.map(renderPost)}
             {loading && getSkeletons()}

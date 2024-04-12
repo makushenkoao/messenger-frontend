@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
 
-import { PostList } from '@/entities/Post';
 import {
     getProfileData,
     getProfileError,
@@ -19,6 +18,7 @@ import { useProfileModals } from '../../lib/useProfileModals/useProfileModals';
 import ProfileInfo from '../ProfileInfo/ProfileInfo';
 import ProfileModals from '../ProfileModals/ProfileModals';
 import { ProfilePageSkeleton } from '../ProfilePageSkeleton/ProfilePageSkeleton';
+import { ProfilePostsList } from '../ProfilePostsInfinityList/ProfilePostsList';
 
 export const ProfileCard = () => {
     const {
@@ -69,11 +69,7 @@ export const ProfileCard = () => {
                     isCurrentUser={isCurrentUser}
                     handleOpenMore={handleOpenMore}
                 />
-
-                <PostList
-                    posts={posts}
-                    loading={postsLoading}
-                />
+                <ProfilePostsList />
             </VStack>
             <ProfileModals
                 isOpenMore={isOpenMore}

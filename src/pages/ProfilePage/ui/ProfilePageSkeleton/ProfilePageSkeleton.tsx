@@ -1,4 +1,3 @@
-import { PostCardSkeleton } from '@/entities/Post';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { HStack, VStack } from '@/shared/ui/Stack';
 
@@ -66,15 +65,21 @@ export const ProfilePageSkeleton = () => {
                     />
                 </VStack>
             </HStack>
-            <VStack
+            <HStack
                 max
-                align="center"
                 gap="16"
+                wrap="wrap"
+                justify="center"
             >
-                {[1, 2, 3].map((item) => (
-                    <PostCardSkeleton key={item} />
+                {[1, 2, 3, 4, 5, 6].map((item) => (
+                    <Skeleton
+                        key={item}
+                        width={300}
+                        height={300}
+                        borderRadius="12px"
+                    />
                 ))}
-            </VStack>
+            </HStack>
         </VStack>
     );
 };

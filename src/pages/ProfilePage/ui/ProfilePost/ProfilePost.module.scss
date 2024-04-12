@@ -1,0 +1,17 @@
+.post {
+  width: 300px;
+  height: 300px;
+}
+
+.postImage {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: opacity .3s ease;
+  border-radius: 12px;
+}
+
+.post:hover {
+  opacity: 0.7;
+}

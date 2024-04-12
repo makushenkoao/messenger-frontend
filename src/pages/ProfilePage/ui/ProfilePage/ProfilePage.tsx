@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 import { getProfile, profileReducer } from '@/entities/Profile';
 import {
@@ -20,11 +21,16 @@ const reducers: ReducersList = {
 
 const ProfilePage = () => {
     const dispatch = useAppDispatch();
+    const { nickname } = useParams();
 
     useEffect(() => {
-        dispatch(getProfile('test'));
+        dispatch(getProfile(nickname));
         dispatch(
             getProfilePostsList([
+                '6616853d419b1ed3bf3bec4d',
+                '6616853d419b1ed3bf3bec4d',
+                '6616853d419b1ed3bf3bec4d',
+                '6616853d419b1ed3bf3bec4d',
                 '6616853d419b1ed3bf3bec4d',
                 '6616853d419b1ed3bf3bec4d',
             ]),
